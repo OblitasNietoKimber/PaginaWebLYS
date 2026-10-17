@@ -3,7 +3,7 @@ import { soles } from '../carta/catalog';
 import type { CartItem, Checkout } from './useCheckout';
 
 export function OrderItems({ items }: { items: CartItem[] }) {
-  return <ul className="checkout-summary-items">{items.map(({ product, count }) => <li key={product.id}><img src={product.image} alt="" width="88" height="72" /><div><strong>{product.name}</strong><small>{count} × {soles(product.price)}</small></div><b>{soles(product.price * count)}</b></li>)}</ul>;
+  return <ul className="checkout-summary-items">{items.map(({ product, count, personalization }) => <li key={product.id}><img src={product.image} alt="" width="88" height="72" /><div><strong>{product.name}</strong><small>{count} × {soles(product.price)}</small>{personalization?.sides.length ? <small>{personalization.sides.join(", ")}</small> : null}{personalization?.notes && <small>{personalization.notes}</small>}</div><b>{soles(product.price * count)}</b></li>)}</ul>;
 }
 export function OrderTotals({ subtotal, shipping, discount, total, final = false }: { subtotal: number; shipping: number; discount: number; total: number; final?: boolean }) {
   return <div className="checkout-totals"><p><span>Subtotal</span><strong>{soles(subtotal)}</strong></p><p><span>Costo de envío</span><strong>{soles(shipping)}</strong></p><p><span>Descuento</span><strong className="discount-value">− {soles(discount)}</strong></p><p className="checkout-total"><b>{final ? 'Total del pedido' : 'Total'}</b><strong>{soles(total)}</strong></p></div>;

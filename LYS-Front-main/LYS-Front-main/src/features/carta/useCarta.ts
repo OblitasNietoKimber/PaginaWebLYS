@@ -1,3 +1,4 @@
+import { usePersonalization } from './cartPersonalization';
 import { useOperations } from "../operations/operationsStore";
 import { useSession } from "../../services/localAuth";
 import { useEffect, useMemo, useState } from "react";
@@ -25,6 +26,7 @@ const validFavorites = (value: unknown): value is string[] =>
 
 export function useCarta() {
   const { products } = useOperations();
+  const personalizations = usePersonalization();
   const user = useSession();
   const favoritesKey = "lys-carta-favorites-" + (user?.id || "guest");
   const [category, setCategory] = useState(
@@ -126,7 +128,7 @@ export function useCarta() {
   }
   const cartItems = cartProducts
     .filter((product) => cart[product.id])
-    .map((product) => ({ product, count: cart[product.id] }));
+    .map((product) => ({ product, count: cart[product.id], personalization: personalizations[product.id] }));
   const count = cartItems.reduce((sum, item) => sum + item.count, 0);
   const total = cartItems.reduce(
     (sum, item) => sum + item.count * item.product.price,

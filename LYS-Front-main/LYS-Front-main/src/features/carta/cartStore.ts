@@ -1,3 +1,4 @@
+import { clearPersonalization } from './cartPersonalization';
 import { getOperations, subscribeOperations } from '../operations/operationsStore';
 import { useSyncExternalStore } from 'react';
 import { products } from './catalog';
@@ -34,7 +35,7 @@ function subscribe(listener: () => void) {
 }
 export function useCartStore() {
   const cart = useSyncExternalStore(subscribe, getSnapshot);
-  return { cart, setCart, clearCart: () => setCart({}), remove: (id: string) => setCart(previous => { const next = { ...previous }; delete next[id]; return next; }) };
+  return { cart, setCart, clearCart: () => { clearPersonalization(); setCart({}); }, remove: (id: string) => { clearPersonalization(id); setCart(previous => { const next = { ...previous }; delete next[id]; return next; }); } };
 }
 
 subscribeOperations(()=>{cartProducts.splice(0,cartProducts.length,...getOperations().products,...promotions);ids.clear();cartProducts.forEach(p=>ids.add(p.id));snapshot={...getSnapshot()};listeners.forEach(listener=>listener());});

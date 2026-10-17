@@ -1,3 +1,4 @@
+import { OrderTimeline, OrderTracking } from '../checkout/OrderTracking';
 import { useOperations } from "../operations/operationsStore";
 import { useState } from "react";
 import { Icon } from "../../components/Icon";
@@ -31,34 +32,9 @@ export function OrderStatus({ order }: { order: AccountOrder }) {
   );
 }
 export function OrderProgress({ order }: { order: AccountOrder }) {
-  const stage =
-    order.status === "Entregado"
-      ? 3
-      : order.status === "En camino"
-        ? 2
-        : ["En preparación", "Listo"].includes(order.status)
-          ? 1
-          : 0;
-  return (
-    <ol
-      className="account-order-progress"
-      aria-label={`Estado: ${order.status}`}
-    >
-      {["Confirmado", "Preparando", "En camino", "Entregado"].map(
-        (label, index) => (
-          <li
-            className={index <= stage ? "done" : ""}
-            key={label}
-            aria-current={index === stage ? "step" : undefined}
-          >
-            <span>{index < stage ? <Icon name="check" /> : null}</span>
-            <small>{label}</small>
-          </li>
-        ),
-      )}
-    </ol>
-  );
+  return <OrderTimeline status={order.status} pickup={order.delivery.mode === 'pickup'} />;
 }
+
 export function OrderDetail({
   order,
   onClose,
@@ -68,6 +44,7 @@ export function OrderDetail({
   onClose: () => void;
   onNavigate: (path: string) => void;
 }) {
+  const operations = useOperations();
   const { setCart } = useCartStore();
   function reorder() {
     setCart((previous) => {
@@ -91,7 +68,7 @@ export function OrderDetail({
           : "Pedido guardado en este navegador."}
       </p>
       <OrderStatus order={order} />
-      {orderActive(order) && <OrderProgress order={order} />}
+      {orderActive(order) && <OrderTracking key={order.code} code={order.code} status={order.status} pickup={order.delivery.mode === "pickup"} history={operations.orders.find(item => item.id === order.code)?.history} />}
       <p>
         {paymentNames[order.method]} ·{" "}
         {order.delivery.mode === "pickup" ? "Recojo" : "Delivery"}

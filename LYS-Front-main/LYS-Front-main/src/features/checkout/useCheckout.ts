@@ -1,3 +1,4 @@
+import type { Personalization } from '../carta/cartPersonalization';
 import { useOperations } from "../operations/operationsStore";
 import { currentUser } from "../../services/localAuth";
 import { useEffect, useRef, useState } from "react";
@@ -8,7 +9,8 @@ import type { Product } from "../carta/catalog";
 
 export type PaymentMethod = "card" | "yape" | "plin" | "cash";
 export type DeliveryDraft = {
-  mode: "delivery" | "pickup";
+  mode: "delivery" | "pickup" | "dinein";
+  table?: string;
   address: string;
   district: string;
   label: string;
@@ -20,7 +22,7 @@ export type DeliveryDraft = {
   store: string;
   location?: DeliveryPoint | null;
 };
-export type CartItem = { product: Product; count: number };
+export type CartItem = { product: Product; count: number; personalization?: Personalization };
 export type Receipt = {
   couponCode?: string;
   code: string;
@@ -138,7 +140,7 @@ export function useCheckout(items: CartItem[]) {
     delivery.name.trim().length >= 3 &&
     /^9\d{8}$/.test(delivery.phone) &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(delivery.email) &&
-    (delivery.mode === "pickup" ||
+    (delivery.mode !== "delivery" ||
       (delivery.address.trim().length >= 5 &&
         delivery.district.trim().length >= 2 &&
         delivery.reference.trim().length >= 3));
@@ -165,6 +167,8 @@ export function useCheckout(items: CartItem[]) {
     setPaymentReady(false);
   }
   function finish(clearCart: () => void) {
+    // Consumption in the dining room is a visual preview in this delivery checkout.
+    if (delivery.mode === "dinein") return false;
     if (!state.settings.open) {
       setCouponMessage(
         "El local está cerrado. Inténtalo durante el horario de atención.",

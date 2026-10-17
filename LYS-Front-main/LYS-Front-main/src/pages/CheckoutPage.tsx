@@ -1,5 +1,7 @@
 import { useSession } from '../services/localAuth';
-import { useEffect } from 'react';
+import { PreviewDialog } from '../components/PreviewDialog';
+import { soles } from '../features/carta/catalog';
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { Icon } from '../components/Icon';
 import { useCarta } from '../features/carta/useCarta';
@@ -16,6 +18,7 @@ const paths = ['/carrito', '/checkout/entrega', '/checkout/pago', '/checkout/con
 const steps = ['Carrito', 'Dirección y entrega', 'Método de pago', 'Confirmación'];
 export function CheckoutPage({ route, onNavigate, onAction }: { route: string; onNavigate: (path: string) => void; onAction: (section: string) => void }) {
   const user=useSession();
+  const [dineinPreview, setDineinPreview] = useState(false);
   const cart = useCarta();
   const checkout = useCheckout(cart.cartItems);
   const step = Math.max(0, paths.indexOf(route));
@@ -30,6 +33,7 @@ export function CheckoutPage({ route, onNavigate, onAction }: { route: string; o
     if (step === 0 && cart.count) onNavigate(paths[1]);
     else if (step === 1 && checkout.deliveryReady) onNavigate(paths[2]);
     else if (step === 2) { checkout.setPaymentReady(true); onNavigate(paths[3]); }
+    else if (step === 3 && checkout.delivery.mode === 'dinein') { setDineinPreview(true); return; }
     else if(step===3&&!user){localStorage.setItem('lys-return-after-login','/carrito');onNavigate('/iniciar-sesion');return;}
     else if (step === 3 && checkout.finish(cart.clearCart)) onNavigate('/pedido-confirmado');
   }
@@ -46,5 +50,5 @@ export function CheckoutPage({ route, onNavigate, onAction }: { route: string; o
           <button className="primary-button checkout-continue" type={step === 1 || step === 2 ? 'submit' : 'button'} form={step === 1 ? 'delivery-form' : step === 2 ? 'payment-form' : undefined} disabled={!cart.count || checkout.busy} onClick={step === 0 || step === 3 ? forward : undefined}>{labels[step]} <Icon name="arrow" /></button>
         </OrderSummary></div>{step === 0 && <CartRecommendations onAdd={cart.add} onBrowse={() => onAction('Carta')} />}</div>
       </>}
-    </main><p className="sr-only" role="status">{cart.announcement}</p></>;
+    </main><p className="sr-only" role="status">{cart.announcement}</p>{dineinPreview && <PreviewDialog title="Tu pedido para consumir en local" onClose={() => setDineinPreview(false)}><p className="prototype-preview-label">Vista previa · consumo en local</p><p><strong>{checkout.delivery.name}</strong> · {checkout.delivery.table ? `Mesa ${checkout.delivery.table}` : 'Mesa por asignar al llegar'}</p><ul>{cart.cartItems.map(item => <li key={item.product.id}>{item.count} × {item.product.name}</li>)}</ul><p><strong>Total: {soles(checkout.total)}</strong></p><p>El pedido está preparado para revisar con el personal del salón. Esta vista previa no reserva una mesa ni registra una venta.</p><button type="button" className="primary-button" onClick={() => setDineinPreview(false)}>Volver al pedido</button></PreviewDialog>}</>;
 }
