@@ -1,3 +1,5 @@
+import { HourlySales } from './HourlySales';
+import { SalesReports } from './SalesReports';
 import { AdminSettings } from "./AdminSettings";
 import { OrderEditor } from "./OrderEditor";
 import { categories } from "../carta/catalog";
@@ -7,7 +9,7 @@ import {
   Icon,
   type IconName,
 } from "./OperationsVisuals";
-import { dateText, localDateKey, downloadExcel, printLocal } from "./operationsFiles";
+import { dateText, localDateKey, downloadExcel } from "./operationsFiles";
 import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { OperationsPageActions } from "./operationsPageContext";
@@ -16,7 +18,6 @@ import {
   money,
   orderTotal,
   statuses,
-  paymentMethods,
   changeStatus,
   type Order,
 } from "./operationsStore";
@@ -25,9 +26,7 @@ import {
   Stats,
   Badge,
   Empty,
-  Bars,
   LineChart,
-  Donut,
   OrderDetail,
 } from "./OperationsUI";
 import {
@@ -147,7 +146,6 @@ export function AdminViews({
   const [detail, setDetail] = useState<Order | null>(null);
   const [editingOrder,setEditingOrder] = useState<Order|null>(null);
   const [selection,setSelection] = useState<string[]>([]);
-  const [period, setPeriod] = useState("30");
   const [salesDays,setSalesDays] = useState("7");
   const [from,setFrom] = useState("");
   const [to,setTo] = useState("");
@@ -455,188 +453,7 @@ export function AdminViews({
       </>
     );
   }
-  if (section === "reportes") {
-    const reportOrders = orders.filter(
-      (o) => Date.parse(o.created) >= now - Number(period) * 86400000,
-    );
-    const reportSales = activePayments
-      .filter((p) => Date.parse(p.date) >= now - Number(period) * 86400000)
-      .reduce((s, p) => s + p.amount, 0);
-    const reportPayments = activePayments.filter(
-      (p) => Date.parse(p.date) >= now - Number(period) * 86400000,
-    );
-    const reportMethods = paymentMethods.map((label) => ({
-      label,
-      value: reportPayments
-        .filter((p) => p.method === label)
-        .reduce((sum, p) => sum + p.amount, 0),
-    }));
-    const reportBest = data.products
-      .map((product) => ({
-        label: product.name,
-        category: product.category,
-        revenue: reportOrders.filter(o=>o.status!=="Cancelado").flatMap(o=>o.items).filter(l=>l.product.id===product.id).reduce((sum,l)=>sum+l.count*l.product.price,0),
-        value: reportOrders
-          .filter((o) => o.status !== "Cancelado")
-          .flatMap((o) => o.items)
-          .filter((line) => line.product.id === product.id)
-          .reduce((sum, line) => sum + line.count, 0),
-        image: product.image,
-      }))
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 5);
-    const reportDaily = Array.from({ length: 7 }, (_, i) => {
-      const date = new Date(now - (6 - i) * 86400000);
-      return {
-        label: date.toLocaleDateString("es-PE", {
-          day: "numeric",
-          month: "short",
-        }),
-        value: reportPayments
-          .filter(
-            (p) =>
-              new Date(p.date).toLocaleDateString() ===
-              date.toLocaleDateString(),
-          )
-          .reduce((sum, p) => sum + p.amount, 0),
-      };
-    });
-
-    const headerAction = (
-      <div className="ops-header-actions">
-        <div className="ops-header-date-pill">
-          <Icon name="calendar" />
-          <select aria-label="Periodo del reporte" value={period} onChange={e=>setPeriod(e.target.value)}>{["7","30","90"].map(n=><option key={n} value={n}>Últimos {n} días</option>)}</select>
-          <Icon name="chevron" />
-        </div>
-        <button
-          className="ops-primary"
-          onClick={() =>
-            downloadExcel(
-              "reporte",
-              ["Pedido", "Fecha", "Cliente", "Total", "Estado"],
-              reportOrders.map((o) => [
-                o.id,
-                dateText(o.created),
-                o.customer,
-                orderTotal(o),
-                o.status,
-              ]),
-            )
-          }
-        >
-          <Icon name="download" data-ops-action="export"/> Exportar reporte
-        </button>
-      </div>
-    );
-
-    return (
-      <>
-        {actionHost && createPortal(headerAction, actionHost)}
-        <div className="ops-toolbar" style={{ display: "none" }}>
-          <select aria-label="Filtrar resultados" value={period} onChange={(e) => setPeriod(e.target.value)}>
-            {["7", "30", "90"].map((n) => (
-              <option key={n} value={n}>
-                Últimos {n} días
-              </option>
-            ))}
-          </select>
-          <button
-            onClick={() =>
-              notify(() =>
-                printLocal("Reportes y analítica", [
-                  `Últimos ${period} días`,
-                  `Ventas: ${money(reportSales)}`,
-                  `Pedidos: ${reportOrders.length}`,
-                  ...reportOrders.map(
-                    (o) =>
-                      `${o.id} · ${o.customer} · ${money(orderTotal(o))} · ${o.status}`,
-                  ),
-                ]),
-              )
-            }
-          >
-            Imprimir
-          </button>
-        </div>
-        <Stats
-          entries={[
-            {
-              label: "Ventas totales",
-              value: money(reportSales),
-              icon: "chart",
-              tone: "green",
-              hint: "Según los registros del periodo",
-            },
-            {
-              label: "Pedidos realizados",
-              value: reportOrders.length,
-              icon: "cart",
-              tone: "red",
-              hint: "Según los registros del periodo",
-            },
-            {
-              label: "Ticket promedio",
-              value: money(
-                reportOrders.length ? reportSales / reportOrders.length : 0,
-              ),
-              icon: "tag",
-              tone: "blue",
-              hint: "Según los registros del periodo",
-            },
-          ]}
-        />
-        <div className="ops-split">
-          <Panel title="Ventas diarias">
-            <LineChart values={reportDaily} />
-          </Panel>
-          <Panel title="Ventas por canal">
-            <Donut
-              values={["Salón","Delivery","Recojo"].map(label=>({label,value:reportPayments.filter(p=>reportOrders.some(o=>o.id===p.orderId && o.channel===label)).reduce((sum,p)=>sum+p.amount,0)}))}
-            />
-          </Panel>
-        </div>
-        <div className="ops-split">
-          <Panel title="Métodos de pago">
-            <Bars values={reportMethods} />
-          </Panel>
-          <Panel title="Productos más vendidos">
-            <div className="ops-table-wrap">
-              <OperationsTable>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Producto</th>
-                    <th>Categoría</th>
-                    <th>Unidades</th>
-                    <th>Ventas</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {reportBest.map((item, index) => (
-                    <tr key={item.label}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <div className="ops-product-cell">
-                          <img src={item.image} alt="" />
-                          <span>{item.label}</span>
-                        </div>
-                      </td>
-                      <td>
-                        <CategoryBadge category={item.category} />
-                      </td>
-                      <td>{item.value}</td>
-                      <td>{money(item.revenue)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </OperationsTable>
-            </div>
-          </Panel>
-        </div>
-      </>
-    );
-  }
+  if (section === "reportes") return <SalesReports />;
 
   const headerAction = (
     <div className="ops-header-date-pill">
@@ -756,6 +573,7 @@ export function AdminViews({
           </div>
         </Panel>
       </div>
+      <HourlySales />
       <Panel
         title="Pedidos recientes"
         action={

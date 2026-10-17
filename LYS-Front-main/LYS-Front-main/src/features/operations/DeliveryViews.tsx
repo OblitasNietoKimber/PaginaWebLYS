@@ -1,3 +1,5 @@
+import { currentUser, readUsers } from '../../services/localAuth';
+import { OperationsDialog } from './OperationsDialog';
 import { useState } from "react";
 import {
   useOperations,
@@ -15,6 +17,14 @@ export function DeliveryViews({
   notify: (task: () => void) => void;
 }) {
   const state = useOperations();
+  const actor = currentUser();
+  const couriers = readUsers().filter(user => user.active && user.role === 'delivery');
+  const [assignments, setAssignments] = useState<Record<string, string>>({});
+  const [assignmentView, setAssignmentView] = useState('all');
+  const [assignmentOrder, setAssignmentOrder] = useState<Order | null>(null);
+  const [assignmentCourier, setAssignmentCourier] = useState('');
+  const courierId = (order: Order) => assignments[order.id] ?? couriers.find(user => user.name === order.deliveryEstimate?.courier)?.id ?? '';
+  const courierName = (order: Order) => couriers.find(user => user.id === courierId(order))?.name || order.deliveryEstimate?.courier || 'Sin asignar';
   const [filter, setFilter] = useState("Pendientes");
   const [search, setSearch] = useState("");
   const [detail, setDetail] = useState<Order | null>(null);
@@ -26,6 +36,7 @@ export function DeliveryViews({
   const today = new Date().toLocaleDateString();
   const rows = deliveries.filter(
     (o) =>
+      (assignmentView === 'all' || (assignmentView === 'mine' ? courierId(o) === actor?.id : !courierId(o))) &&
       (filter === "Completadas"
         ? o.status === "Entregado"
         : filter === "En camino"
@@ -70,6 +81,7 @@ export function DeliveryViews({
           },
         ]}
       />
+      <div className="prototype-assignment-toolbar"><label>Entregas asignadas<select value={assignmentView} onChange={event => setAssignmentView(event.target.value)}><option value="all">Todas las entregas</option><option value="mine">Mis entregas</option><option value="unassigned">Sin asignar</option></select></label><p className="prototype-ops-caption">Asignaciones en vista previa · selecciona un repartidor para organizar el reparto.</p></div>
       <div className="ops-delivery-toolbar">
         <div className="ops-reference-tabs">
           {["Pendientes", "En camino", "Completadas"].map((value) => (
@@ -108,7 +120,7 @@ export function DeliveryViews({
             onChange={(e) => setSearch(e.target.value)}
           />
         </label>
-        <button className="ops-primary" onClick={()=>{setSearch("");setFilter("Pendientes");setSelected("");}}>Eliminar filtros</button>
+        <button className="ops-primary" onClick={()=>{setSearch("");setFilter("Pendientes");setSelected("");setAssignmentView("all");}}>Eliminar filtros</button>
       </div>
       <div className="ops-delivery-layout">
         <div className="ops-delivery-list">
@@ -208,7 +220,7 @@ export function DeliveryViews({
                     <Icon name="user" />
                     Repartidor asignado
                   </dt>
-                  <dd>{order.deliveryEstimate?.courier || "Sin asignar"}</dd>
+                  <dd>{courierName(order)}{assignments[order.id] && <small className="prototype-assignment-preview">Vista previa</small>}</dd>
                 </div>
               </dl>
               <div className="ops-reference-line-items">
@@ -231,6 +243,7 @@ export function DeliveryViews({
                 </p>
               )}
               <footer>
+                {actor?.role === 'administrador' ? <button type="button" className="ops-outline" onClick={() => { setAssignmentOrder(order); setAssignmentCourier(courierId(order)); }}><Icon name="user" />Asignar repartidor</button> : actor?.role === 'delivery' && !courierId(order) ? <button type="button" className="ops-outline" onClick={() => setAssignments(previous => ({ ...previous, [order.id]: actor.id }))}><Icon name="user" />Asignarme · vista previa</button> : null}
                 <button
                   className="ops-outline"
                   onClick={() => {
@@ -354,6 +367,7 @@ export function DeliveryViews({
           </aside>
         )}
       </div>
+      {assignmentOrder && <OperationsDialog title="Asignar repartidor" icon="user" onClose={() => setAssignmentOrder(null)}><p>Pedido #{assignmentOrder.id} · {assignmentOrder.customer}</p><form className="ops-form" onSubmit={event => { event.preventDefault(); setAssignments(previous => ({ ...previous, [assignmentOrder.id]: assignmentCourier })); setAssignmentOrder(null); }}><label>Repartidor<select aria-label="Repartidor" required value={assignmentCourier} onChange={event => setAssignmentCourier(event.target.value)}><option value="">Selecciona un repartidor</option>{couriers.map(user => <option key={user.id} value={user.id}>{user.name}</option>)}</select></label>{!couriers.length && <p>No hay repartidores activos para seleccionar.</p>}<p className="prototype-ops-preview">Vista previa de asignación. No modifica el pedido registrado.</p><div className="prototype-ops-actions"><button type="button" className="ops-outline" onClick={() => setAssignmentOrder(null)}>Volver</button><button className="ops-primary" type="submit" disabled={!assignmentCourier}>Aplicar vista previa</button></div></form></OperationsDialog>}
       {detail && (
         <OrderDetail
           order={state.orders.find((o) => o.id === detail.id) || detail}

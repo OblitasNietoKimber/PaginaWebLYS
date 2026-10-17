@@ -1,3 +1,4 @@
+import { CashSalePreview } from './CashSalePreview';
 import { DeliveryViews } from "./DeliveryViews";
 import { OperationsDialog } from "./OperationsDialog";
 import { OperationsPageActions } from "./operationsPageContext";
@@ -31,6 +32,7 @@ import "../../styles/operations-anchor-layout.css";
 import "../../styles/operations-dashboard.css";
 import "../../styles/operations-audit.css";
 import "../../styles/operations-polish-interacciones.css";
+import "../../styles/prototype-operations.css";
 const menus: Record<string, [string, string, IconName][]> = {
   cocina: [
     ["", "Panel de cocina", "chef"],
@@ -47,6 +49,7 @@ const menus: Record<string, [string, string, IconName][]> = {
   ],
   caja: [
     ["", "Dashboard caja", "chart"],
+    ["ventas", "Nueva venta", "plus"],
     ["cobros", "Cobros", "card"],
     ["comprobantes", "Comprobantes", "receipt"],
     ["apertura", "Apertura de caja", "cash"],
@@ -77,6 +80,7 @@ const titles: Record<string, string> = {
   "mesera/pedidos": "Pedidos de salón",
   "mesera/cierre-mesa": "Cierre de mesa",
   "caja/": "Dashboard de caja",
+  "caja/ventas": "Caja / Venta",
   "caja/cobros": "Cobros",
   "caja/comprobantes": "Comprobantes",
   "caja/apertura": "Apertura de caja",
@@ -106,6 +110,7 @@ const descriptions: Record<string, string> = {
   "mesera/pedidos": "Gestiona los pedidos de tus mesas.",
   "mesera/cierre-mesa": "Revisa el consumo y solicita la cuenta.",
   "caja/": "Controla los cobros y movimientos del turno.",
+  "caja/ventas": "Arma un pedido y selecciona el método de pago.",
   "caja/cobros": "Procesa los pagos y entrega el comprobante.",
   "caja/comprobantes": "Consulta, emite e imprime tus comprobantes locales.",
   "caja/apertura": "Registra el fondo inicial antes de iniciar el turno.",
@@ -505,7 +510,7 @@ export function OperationsPage({
             navigate={navigate}
           />
         ) : role === "caja" ? (
-          <CashViews
+          section === "ventas" ? <CashSalePreview /> : <CashViews
             key={key}
             section={section}
             notify={notify}
