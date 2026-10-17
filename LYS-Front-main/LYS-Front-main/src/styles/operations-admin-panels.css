@@ -191,7 +191,6 @@
 .ops-role-badge.admin { background: #fee2e2; color: #991b1b; }
 .ops-role-badge.cocina { background: #fef3c7; color: #92400e; }
 .ops-role-badge.caja { background: #e0f2fe; color: #075985; }
-.ops-role-badge.mesera { background: #f3e8ff; color: #6b21a8; }
 .ops-role-badge.delivery { background: #dcfce7; color: #166534; }
 
 /* Category badges */
@@ -342,7 +341,6 @@
 .ops-role-card-icon.admin { background: #fee2e2; color: #dc2626; }
 .ops-role-card-icon.cocina { background: #fef3c7; color: #d97706; }
 .ops-role-card-icon.caja { background: #e0f2fe; color: #0284c7; }
-.ops-role-card-icon.mesera { background: #f3e8ff; color: #9333ea; }
 .ops-role-card-icon.delivery { background: #dcfce7; color: #16a34a; }
 .ops-role-card-content strong {
   display: block;

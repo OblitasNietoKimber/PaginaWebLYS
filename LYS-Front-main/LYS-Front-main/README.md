@@ -7,7 +7,6 @@ La pantalla de acceso no muestra credenciales ni un selector de roles. Ingresa d
 | Cliente (Mi cuenta) | `cliente@demo.local` | `/mi-cuenta` |
 | Administrador | `administrador@demo.local` | `/administrador` |
 | Cajero | `caja@demo.local` | `/caja` |
-| Mozo / salón | `mesera@demo.local` | `/mesera` |
 | Cocina | `cocina@demo.local` | `/cocina` |
 | Delivery | `delivery@demo.local` | `/delivery` |
 

@@ -1313,33 +1313,9 @@
   position: relative;
   isolation: isolate;
 }
-.ops-root[data-page^="mesera/"] .ops-page-heading:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 0;
-  top: -32px;
-  bottom: -15px;
-  width: 45%;
-  background: url("/images/checkout/hero-desktop.webp") right center/cover;
-  mask-image: linear-gradient(90deg, transparent, #000 75%);
-  opacity: 0.4;
-}
-.ops-root[data-page^="mesera/"] .ops-slogan {
-  color: #19263b;
-}
-.ops-root[data-page^="mesera/"] .ops-page-heading > div:first-child {
-  max-width: 75%;
-}
 @media (max-width: 700px) {
   .ops-bills {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .ops-root[data-page^="mesera/"] .ops-page-heading:after {
-    display: none;
-  }
-  .ops-root[data-page^="mesera/"] .ops-page-heading > div:first-child {
-    max-width: 100%;
   }
 }
 
@@ -1373,9 +1349,4 @@
 }
 .ops-three button span {
   color: var(--ops-muted);
-}
-@media (min-width: 1500px) {
-  .ops-root[data-page="mesera/"] .ops-stats {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
 }

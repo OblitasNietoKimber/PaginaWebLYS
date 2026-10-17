@@ -121,9 +121,6 @@
   .ops-page-heading p {
     font-size: 16px;
   }
-  .ops-root[data-page^="mesera"] .ops-page-heading {
-    background: white;
-  }
   .ops-stat {
     padding: 14px 10px;
     gap: 9px;
@@ -355,9 +352,6 @@
   .ops-stock-alert {
     flex-wrap: wrap;
   }
-  .ops-root[data-page="mesera/cierre-mesa"] .ops-cart-line {
-    grid-template-columns: 50px minmax(0, 1fr);
-  }
   .ops-consumption-photo {
     width: 50px;
     height: 45px;
@@ -365,8 +359,7 @@
 }
 
 @media (max-width: 700px) {
-  .ops-root[data-page^="cocina"] .ops-page-heading h1:before,
-  .ops-root[data-page^="mesera"] .ops-page-heading h1:before {
+  .ops-root[data-page^="cocina"] .ops-page-heading h1:before {
     height: 32px;
     width: 24px;
     top: 3px;

@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 export type Role =
-  "cliente" | "mesera" | "cocina" | "caja" | "administrador" | "delivery";
+  "cliente" | "cocina" | "caja" | "administrador" | "delivery";
 export type LocalUser = {
   id: string;
   name: string;
@@ -14,7 +14,6 @@ export type LocalUser = {
 };
 export const roleNames: Record<Role, string> = {
   cliente: "Cliente",
-  mesera: "Salón",
   cocina: "Cocina",
   caja: "Caja",
   administrador: "Administración",
@@ -130,7 +129,7 @@ export async function createLocalUser(
 }
 export async function loginLocal(email: string, password: string) {
   if (
-    /^(administrador|mesera|cocina|caja|delivery|cliente)@demo\.local$/i.test(
+    /^(administrador|cocina|caja|delivery|cliente)@demo\.local$/i.test(
       email.trim(),
     )
   )
@@ -208,7 +207,6 @@ export async function prepareDemoAccess() {
   const added: LocalUser[] = [];
   for (const role of [
     "administrador",
-    "mesera",
     "cocina",
     "caja",
     "delivery",
@@ -221,7 +219,6 @@ export async function prepareDemoAccess() {
       id: crypto.randomUUID(),
       name: {
         administrador: "Admin Torres",
-        mesera: "Lucía Salón",
         cocina: "Diego Cocina",
         caja: "Carlos Caja",
         delivery: "Luis Delivery",

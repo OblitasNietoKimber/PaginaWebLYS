@@ -310,17 +310,6 @@
 
 .ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-time-panels > .ops-panel > header select { appearance:none; height:32px; min-height:32px; box-sizing:border-box; padding:0 25px 0 10px; line-height:normal; font-size:12px; color:#18243c; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 8px center; background-size:12px 12px; }
 
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:22px; height:auto; padding:2px 8px; box-sizing:border-box; line-height:18px; font-size:12px; background:#008a4b; color:#fff; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge svg { width:12px; height:12px; color:#fff; }
-
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge[data-status="Cancelado"] { background:#ed0017; color:#fff; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; min-height:32px; padding:0; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] svg { display:block; width:18px; height:18px; margin:0; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] .ops-action-caption { display:none; }
-
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table :is(th,td):last-child { text-align:center; vertical-align:middle; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions { display:flex; flex-direction:row; align-items:center; justify-content:center; gap:6px; width:100%; }
-
 /* Solid semantic labels shared by all operational areas. Category styling is separate. */
 .ops-root.ops-workspace.ops-reference[data-page][data-page] {
   :is(.ops-badge,.ops-role-badge,.ops-channel-badge,.kr-channel,.kr-status,.ops-voucher-badge) { background:var(--ops-label-color,#475569); color:#fff; border-color:var(--ops-label-color,#475569); }
@@ -334,7 +323,6 @@
   .ops-role-badge.admin { --ops-label-color:#991b1b; }
   .ops-role-badge.cocina { --ops-label-color:#92400e; }
   .ops-role-badge.caja { --ops-label-color:#075985; }
-  .ops-role-badge.mesera { --ops-label-color:#6b21a8; }
   .ops-role-badge.delivery { --ops-label-color:#166534; }
   .ops-channel-badge.salon { --ops-label-color:#991b1b; }
   .ops-channel-badge.delivery { --ops-label-color:#075985; }
@@ -367,19 +355,6 @@
 
 .ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-channel { min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
 .ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-channel svg { width:14px; height:14px; flex-shrink:0; }
-
-.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-badge[data-status="Solicita cuenta"] { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
-
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] {
-  .ops-product-grid article > div { flex-direction:row; align-items:center; justify-content:space-between; gap:8px; width:auto; min-width:0; max-width:100%; margin:0; box-sizing:border-box; }
-  .ops-product-grid article > div > strong { text-align:left; margin:0; white-space:nowrap; font-size:16px; }
-  .ops-product-grid article > div > button { flex:0 0 28px; margin-left:auto; display:inline-flex; align-items:center; justify-content:center; }
-  .anchor-order-context { gap:14px; align-items:stretch; }
-  .anchor-order-context > :is(label,span) { height:38px; min-height:38px; padding:0 12px; box-sizing:border-box; align-items:center; }
-  .anchor-order-context select { height:100%; min-height:0; padding-top:0; padding-bottom:0; font-size:13px; }
-  .anchor-order-context > :is(label,span) > svg { width:20px; height:20px; flex-shrink:0; }
-}
-@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .anchor-order-context > :is(label,span) { min-height:44px; height:44px; } }
 
 .ops-root.ops-workspace.ops-reference[data-page] .ops-side-navigation button:hover { background:#fff0f2; color:#ed0017; }
 .ops-root.ops-workspace.ops-reference[data-page] .ops-side-navigation button:focus-visible { outline:2px solid #ed0017; outline-offset:2px; }
@@ -417,11 +392,6 @@
 
 .ops-root.ops-workspace.ops-reference[data-page="delivery"] .ops-badge[data-status="Listo para recoger"] { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:22px; height:22px; padding:2px 8px; box-sizing:border-box; font-size:12px; line-height:18px; }
 .ops-root.ops-workspace.ops-reference[data-page="delivery"] .ops-badge[data-status="Listo para recoger"] .ops-status-dot { width:8px; height:8px; margin:0; }
-
-.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat[data-status="Solicita cuenta"] { height:auto; min-height:126px; gap:6px; padding:10px 6px; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-badge[data-status="Solicita cuenta"] { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:auto; max-width:100%; height:auto; min-height:22px; padding:3px 7px; gap:5px; box-sizing:border-box; line-height:16px; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-badge[data-status="Solicita cuenta"] > span { white-space:normal; line-height:16px; overflow:visible; }
-.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-status-dot { flex-shrink:0; }
 
 .ops-root.ops-workspace.ops-reference[data-page] :focus-visible { outline:2px solid #ed0017; outline-offset:3px; }
 .ops-root.ops-workspace.ops-reference[data-page] :is(.ops-product-upload,.ops-input-affix):focus-within { outline:2px solid #ed0017; outline-offset:2px; }

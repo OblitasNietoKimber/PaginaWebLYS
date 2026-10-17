@@ -58,15 +58,13 @@
   height: 28px;
 }
 
-.ops-root[data-page^="cocina"] .ops-header nav button.active,
-.ops-root[data-page^="mesera"] .ops-header nav button.active {
+.ops-root[data-page^="cocina"] .ops-header nav button.active {
   background: #fff5f4;
   color: #ed0017;
   position: relative;
 }
 
-.ops-root[data-page^="cocina"] .ops-header nav button.active:after,
-.ops-root[data-page^="mesera"] .ops-header nav button.active:after {
+.ops-root[data-page^="cocina"] .ops-header nav button.active:after {
   content: "";
   position: absolute;
   height: 3px;
@@ -166,25 +164,16 @@
   font-size: 40px;
 }
 
-.ops-root[data-page^="mesera"] .ops-page-heading {
-  background:
-    linear-gradient(90deg, white 58%, #ffffff22),
-    url("/images/home/pollo-640.webp") right 48%/390px auto no-repeat;
-}
-
-.ops-root[data-page^="cocina"] .ops-page-heading > div:first-child > span,
-.ops-root[data-page^="mesera"] .ops-page-heading > div:first-child > span {
+.ops-root[data-page^="cocina"] .ops-page-heading > div:first-child > span {
   display: none;
 }
 
-.ops-root[data-page^="cocina"] .ops-page-heading h1,
-.ops-root[data-page^="mesera"] .ops-page-heading h1 {
+.ops-root[data-page^="cocina"] .ops-page-heading h1 {
   padding-left: 35px;
   position: relative;
 }
 
-.ops-root[data-page^="cocina"] .ops-page-heading h1:before,
-.ops-root[data-page^="mesera"] .ops-page-heading h1:before {
+.ops-root[data-page^="cocina"] .ops-page-heading h1:before {
   content: "";
   width: 28px;
   height: 46px;
@@ -812,12 +801,6 @@
 .ops-stat.gray .ops-stat-icon {
   background: #f0f1f4;
   color: #667081;
-}
-
-.ops-root[data-page="mesera/cierre-mesa"] .ops-cart-line {
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
-  gap: 12px;
 }
 
 .ops-root[data-page="administrador/inventario"] .ops-with-sidebar {

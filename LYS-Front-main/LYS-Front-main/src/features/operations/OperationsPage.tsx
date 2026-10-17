@@ -11,7 +11,6 @@ import {
   type Role,
 } from "../../services/localAuth";
 import { KitchenViews } from "./KitchenViews";
-import { WaiterViews } from "./WaiterViews";
 import { CashViews } from "./CashViews";
 import { AdminViews } from "./AdminViews";
 import { useOperations } from "./operationsStore";
@@ -40,13 +39,6 @@ const menus: Record<string, [string, string, IconName][]> = {
     ["historial", "Historial", "clock"],
     ["tiempos", "Control de tiempos", "chart"],
   ],
-  mesera: [
-    ["", "Dashboard", "home"],
-    ["mesas", "Mesas", "table"],
-    ["nuevo-pedido", "Nuevo pedido", "plus"],
-    ["pedidos", "Pedidos", "receipt"],
-    ["cierre-mesa", "Cierre de mesa", "card"],
-  ],
   caja: [
     ["", "Dashboard caja", "chart"],
     ["ventas", "Nueva venta", "plus"],
@@ -74,11 +66,6 @@ const titles: Record<string, string> = {
   "cocina/pedidos": "Pedidos entrantes",
   "cocina/historial": "Historial de pedidos",
   "cocina/tiempos": "Control de tiempos",
-  "mesera/": "Dashboard de salón",
-  "mesera/mesas": "Gestión de mesas",
-  "mesera/nuevo-pedido": "Crear nuevo pedido",
-  "mesera/pedidos": "Pedidos de salón",
-  "mesera/cierre-mesa": "Cierre de mesa",
   "caja/": "Dashboard de caja",
   "caja/ventas": "Caja / Venta",
   "caja/cobros": "Cobros",
@@ -102,13 +89,6 @@ const descriptions: Record<string, string> = {
   "cocina/pedidos": "Revisa y acepta los nuevos pedidos en tiempo real.",
   "cocina/historial": "Consulta los pedidos preparados y entregados.",
   "cocina/tiempos": "Supervisa el rendimiento y los tiempos de preparación.",
-  "mesera/": "Todo bajo control para atender cada mesa.",
-  "mesera/mesas":
-    "Controla la disponibilidad y el estado de cada mesa en tiempo real.",
-  "mesera/nuevo-pedido":
-    "Selecciona la mesa, agrega los productos y envía a cocina.",
-  "mesera/pedidos": "Gestiona los pedidos de tus mesas.",
-  "mesera/cierre-mesa": "Revisa el consumo y solicita la cuenta.",
   "caja/": "Controla los cobros y movimientos del turno.",
   "caja/ventas": "Arma un pedido y selecciona el método de pago.",
   "caja/cobros": "Procesa los pagos y entrega el comprobante.",
@@ -368,22 +348,6 @@ export function OperationsPage({
                     <Icon name="chevron-right" className="ops-area-chevron" />
                   </button>
 
-                  <button
-                    className="ops-area-card"
-                    onClick={() => {
-                      setProfile(false);
-                      navigate("/mesera");
-                    }}
-                  >
-                    <span className="ops-area-icon ops-area-salon">
-                      <Icon name="dining-table" />
-                    </span>
-                    <div className="ops-area-text">
-                      <strong>Salón</strong>
-                      <small>Mesas y atención</small>
-                    </div>
-                    <Icon name="chevron-right" className="ops-area-chevron" />
-                  </button>
 
                   <button
                     className="ops-area-card"
@@ -497,13 +461,6 @@ export function OperationsPage({
         )}
         {role === "cocina" ? (
           <KitchenViews
-            key={key}
-            section={section}
-            notify={notify}
-            navigate={navigate}
-          />
-        ) : role === "mesera" ? (
-          <WaiterViews
             key={key}
             section={section}
             notify={notify}

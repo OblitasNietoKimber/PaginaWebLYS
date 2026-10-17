@@ -327,53 +327,6 @@
       font-size: 12px;
     }
   }
-  @media (min-width: 1100px) {
-    &[data-page="mesera/pedidos"] .ops-salon-order-actions {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap;
-      gap: 4px;
-    }
-    &[data-page="mesera/pedidos"] .ops-salon-order-actions > button {
-      width: 30px;
-      height: 30px;
-      min-height: 0;
-      padding: 5px;
-      flex: 0 0 30px;
-      border: 0;
-      background: transparent;
-      color: #0956ce;
-    }
-    &[data-page="mesera/pedidos"] .ops-salon-order-actions .ops-action-caption {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip-path: inset(50%);
-    }
-    &[data-page="mesera/pedidos"] .ops-salon-order-actions .ops-green {
-      background: #008f4b;
-      color: white;
-      width: auto;
-      flex: 0 0 auto;
-    }
-    &[data-page="mesera/pedidos"]
-      .ops-salon-order-actions
-      .ops-green
-      .ops-action-caption {
-      position: static;
-      width: auto;
-      height: auto;
-      clip-path: none;
-      font-size: 12px;
-    }
-    &[data-page="mesera/pedidos"] .ops-responsive-table td:last-child {
-      width: 145px;
-    }
-    &[data-page="mesera/pedidos"] .ops-responsive-table td:first-child {
-      width: 150px;
-    }
-  }
   @media (max-width: 340px) {
     &[data-page="administrador/clientes"]
       .ops-responsive-table
@@ -395,5 +348,4 @@
       grid-row: 1/5;
     }
   }
-  &[data-page="mesera/pedidos"] .ops-salon-order-actions button:nth-last-child(-n+2) {display:none}
 }

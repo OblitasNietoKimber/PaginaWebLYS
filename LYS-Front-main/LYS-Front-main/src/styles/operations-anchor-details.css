@@ -64,11 +64,6 @@
   &[data-page="caja/cobros"] .ops-method-button .ops-wallet-mark {
     width: 28px; height: 28px; object-fit: contain;
   }
-  &[data-page="mesera/mesas"] .ops-floor { background: #fff; box-shadow: none; }
-  &[data-page="mesera/mesas"] .ops-table-seat[data-status="Ocupada"] {
-    background: #fff7ed; border-color: #fed7aa; color: #c66b00;
-  }
-  &[data-page="mesera/mesas"] .ops-table-seat[data-status="Ocupada"] > svg { color: #e67a00; }
   @media (max-width: 1100px) {
     &[data-page="caja/cobros"] .anchor-payment-options { grid-template-columns: 1fr; }
   }

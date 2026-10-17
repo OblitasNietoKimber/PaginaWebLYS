@@ -93,9 +93,7 @@ export function RoleBadge({ role }: { role: string }) {
       ? "cocina"
       : norm.includes("caja")
         ? "caja"
-        : norm.includes("mesera")
-          ? "mesera"
-          : "delivery";
+        : "delivery";
   const label =
     kind === "admin"
       ? "Administrador"
@@ -103,9 +101,7 @@ export function RoleBadge({ role }: { role: string }) {
         ? "Cocina"
         : kind === "caja"
           ? "Caja"
-          : kind === "mesera"
-            ? "Mesera"
-            : "Delivery";
+          : "Delivery";
   const icon: IconName =
     kind === "admin"
       ? "shield"
@@ -113,9 +109,7 @@ export function RoleBadge({ role }: { role: string }) {
         ? "chef"
         : kind === "caja"
           ? "store"
-          : kind === "mesera"
-            ? "serve"
-            : "scooter";
+          : "scooter";
   return (
     <span className={`ops-role-badge ${kind}`}>
       <Icon name={icon} />
@@ -191,7 +185,7 @@ export function AdminViews({
   if (section === "configuracion") return <AdminSettings notify={notify}/>;
   if (section === "pedidos") {
     const action = (
-      <button className="ops-primary" onClick={() => navigate("/mesera/nuevo-pedido")}>
+      <button className="ops-primary" onClick={() => navigate("/caja/ventas")}>
         <Icon name="circle-plus" />
         Nuevo pedido
       </button>

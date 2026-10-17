@@ -352,7 +352,7 @@ export function createOrder(
 ) {
   const actor = currentUser();
   if (!actor) throw new Error("Inicia sesión para registrar el pedido.");
-  requireRole(["cliente", "mesera", "administrador"]);
+  requireRole(["cliente", "administrador"]);
   if (
     actor.role === "cliente" &&
     (input.channel === "Salón" || input.customerId !== actor.id)
@@ -465,7 +465,7 @@ export function createOrder(
 }
 export function changeStatus(id: string, status: Status) {
   const actor = currentUser();
-  requireRole(["cocina", "mesera", "caja", "delivery", "administrador"]);
+  requireRole(["cocina", "caja", "delivery", "administrador"]);
   const order = state.orders.find((item) => item.id === id);
   if (!order || order.draft) throw new Error("Pedido inexistente.");
   const transitions: Record<Status, Status[]> = {
@@ -483,11 +483,6 @@ export function changeStatus(id: string, status: Status) {
     throw new Error("Ese cambio de estado no es válido.");
   if (actor?.role === "cocina" && !["En preparación", "Listo"].includes(status))
     throw new Error("Cocina acepta y prepara pedidos.");
-  if (
-    actor?.role === "mesera" &&
-    (!["Entregado", "Cancelado"].includes(status) || order.channel !== "Salón")
-  )
-    throw new Error("Salón solo gestiona sus mesas.");
   if (
     actor?.role === "delivery" &&
     (!["En camino", "Entregado"].includes(status) ||
@@ -526,60 +521,13 @@ export function changeStatus(id: string, status: Status) {
         : state.products,
   });
 }
-export function sendDraft(id: string) {
-  requireRole(["mesera", "administrador"]);
-  const order = state.orders.find((item) => item.id === id && item.draft);
-  if (!order) throw new Error("Borrador inexistente.");
-  validateAvailability(order.items);
-  publish({
-    ...state,
-    orders: state.orders.map((item) =>
-      item.id === id
-        ? {
-            ...item,
-            draft: false,
-            history: [
-              ...item.history,
-              { status: "Recibido", date: new Date().toISOString() },
-            ],
-          }
-        : item,
-    ),
-    products: state.products.map((product) => ({
-      ...product,
-      stock: (product.stock ?? 0) - quantityFor(order.items, product.id),
-    })),
-  });
-}
-export function updateTable(id: number, change: Partial<TableState>) {
-  requireRole(["mesera", "administrador"]);
-  if (
-    change.status === "Reservada" &&
-    state.tables.find((t) => t.id === id)?.status !== "Libre"
-  )
-    throw new Error("Solo puedes reservar mesas libres.");
-  if (
-    change.status === "Libre" &&
-    state.orders.some(
-      (order) =>
-        order.table === id && !order.paid && order.status !== "Cancelado",
-    )
-  )
-    throw new Error("Primero cobra o cancela los pedidos de la mesa.");
-  publish({
-    ...state,
-    tables: state.tables.map((table) =>
-      table.id === id ? { ...table, ...change, id } : table,
-    ),
-  });
-}
 export function editOrder(
   id: string,
   items: Line[],
   discount: number,
   notes: string,
 ) {
-  requireRole(["mesera", "administrador"]);
+  requireRole(["administrador"]);
   const order = state.orders.find((item) => item.id === id);
   if (
     !order ||

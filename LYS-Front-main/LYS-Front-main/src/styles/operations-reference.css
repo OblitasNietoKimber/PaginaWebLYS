@@ -285,21 +285,11 @@
 .ops-reference .ops-denomination-head > :last-child {text-align:right}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-map-load {width:100%;min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;background:#f5f7fa;border:1px solid var(--reference-line);margin-top:16px;color:#40536b;padding:20px;text-align:center}
 .ops-reference .ops-map-load svg {width:40px;height:40px;color:#d11a2e}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid article {padding:10px;min-width:0;display:flex;flex-direction:column}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid img {width:100%;height:110px;object-fit:cover;border-radius:7px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid h3 {font-size:14px;line-height:20px;margin:10px 0 4px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid p {font-size:12px;line-height:17px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid article > div {margin-top:auto;display:flex;flex-direction:column;align-items:stretch;gap:8px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid button {min-height:34px;padding:6px 10px;font-size:12px}
 @media(max-width:600px) {
 .ops-root.ops-workspace.ops-reference[data-page="caja/apertura"] .ops-bills > label {grid-template-columns:56px minmax(0,1fr) 54px 66px;gap:6px;padding:7px 0;font-size:11px}
 .ops-root.ops-workspace.ops-reference[data-page="caja/apertura"] .ops-banknote {width:52px;height:30px}
 .ops-root.ops-workspace.ops-reference[data-page="caja/apertura"] .ops-denomination-head {grid-template-columns:minmax(0,1fr) 54px 66px;gap:6px;padding:8px 0;font-size:11px}
 .ops-reference .ops-denomination-subtotal {font-size:12px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid p {display:none}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .ops-product-grid img {height:85px}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-map-load {min-height:210px}
 }
 @media(max-width:340px) {
@@ -394,7 +384,6 @@
 .ops-reference .ops-salon-dashboard > .ops-panel:nth-child(3) {grid-column:2;grid-row:1}
 .ops-reference .ops-salon-dashboard .ops-three {display:grid;grid-template-columns:1fr;gap:12px}
 .ops-reference .ops-salon-dashboard .ops-three button {padding:16px;text-align:left;align-items:flex-start}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/cierre-mesa"] .ops-three-cols {grid-template-columns:minmax(0,1fr)}
 .ops-reference .ops-close-table-context {display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 18px;border:1px solid var(--reference-line);border-radius:8px}
 .ops-reference .ops-close-table-context label {max-width:250px;flex:1}
 .ops-reference .ops-close-table-context > span {display:flex;align-items:center;gap:8px;font-size:13px}
@@ -449,15 +438,6 @@
 .ops-root.ops-workspace.ops-reference[data-page] .ops-product-list .ops-responsive-table td {padding:6px 8px!important;font-size:14px}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-product-actions {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;min-width:0}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-product-actions > button {width:100%;min-width:0;min-height:32px;height:32px;padding:3px;flex:none}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-two-main {grid-template-columns:minmax(0,1fr)}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-two-main > div:not(.ops-panel) {display:none}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(1) {width:5%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(2) {width:15%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(3) {width:28%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(4) {width:12%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(5) {width:10%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(6) {width:14%}
-.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table th:nth-child(7) {width:16%}
 .ops-reference .ops-product-summary > div {flex:1;min-width:0;overflow-wrap:normal;word-break:normal}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-salon-order-actions {display:flex;flex-direction:row;flex-wrap:wrap;gap:6px}
 .ops-root.ops-workspace.ops-reference[data-page] .ops-salon-order-actions button {width:34px;min-height:34px;height:34px;min-width:34px;padding:7px}

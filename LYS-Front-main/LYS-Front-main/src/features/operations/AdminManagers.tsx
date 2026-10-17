@@ -458,7 +458,7 @@ export function UserManager({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState<Role>(clients ? "cliente" : "mesera");
+  const [role, setRole] = useState<Role>(clients ? "cliente" : "caja");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -596,10 +596,10 @@ export function UserManager({
             },
             {
               label: "Roles definidos",
-              value: 5,
+              value: Object.keys(roleNames).filter(role => role !== "cliente").length,
               icon: "shield",
               tone: "blue",
-              hint: "Cocina, Caja, Salón, Delivery",
+              hint: "Administración, Cocina, Caja, Delivery",
             },
             {
               label: "Usuarios inactivos",
@@ -858,18 +858,6 @@ export function UserManager({
                   {userCountLabel(users.filter((u) => u.role === "caja").length)}
                 </span>
                 <small>Apertura, cobros y comprobantes</small>
-              </div>
-            </div>
-            <div className="ops-role-card">
-              <div className="ops-role-card-icon mesera">
-                <Icon name="serve" />
-              </div>
-              <div className="ops-role-card-content">
-                <strong>Mesera</strong>
-                <span>
-                  {userCountLabel(users.filter((u) => u.role === "mesera").length)}
-                </span>
-                <small>Control de salón y toma de comandas</small>
               </div>
             </div>
             <div className="ops-role-card">

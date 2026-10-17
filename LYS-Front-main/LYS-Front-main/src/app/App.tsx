@@ -23,7 +23,7 @@ export function App() {
   const user=useSession();useOperations();
   const [notice, setNotice] = useState<Notice | null>(null);
   const [route, setRoute] = useState(window.location.pathname);
-  const operational=/^\/(cocina|mesera|caja|administrador|delivery)(\/|$)/.test(route);
+  const operational=/^\/(cocina|caja|administrador|delivery)(\/|$)/.test(route);
   const information = ['/nosotros', '/locales', '/contacto'].includes(route);
   const account = route === '/mi-cuenta' || route.startsWith('/mi-cuenta/');
   const registration = route === '/registro';
@@ -31,11 +31,13 @@ export function App() {
   const carta = route === '/carta';
   const promotions = route === '/promociones';
   const checkout = ['/carrito', '/checkout/entrega', '/checkout/pago', '/checkout/confirmacion', '/pedido-confirmado', '/mi-pedido'].includes(route);
+  const knownRoute = operational || information || account || registration || home || carta || promotions || checkout || route === '/iniciar-sesion';
   const navigateRoute = useCallback((path: string) => {
     window.history.pushState(null, '', path);
     setRoute(path.split('?')[0]);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
+  useEffect(() => { if (!knownRoute) navigateRoute('/'); }, [knownRoute, navigateRoute]);
   useEffect(() => {
     const url = new URL(window.location.href);
     if (url.searchParams.get('preview') === 'carga') { url.searchParams.delete('preview'); window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`); }
