@@ -1,0 +1,431 @@
+/* Audit: contain wide records and keep text/actions usable without shrinking them. */
+.ops-root.ops-workspace.ops-reference[data-page] {
+  .ops-table-wrap {
+    position: relative;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+  .ops-table-wrap[data-scrollable] { scrollbar-width: thin; scrollbar-color: #94a3b8 #f1f5f9; }
+  .ops-table-wrap[data-scrollable]:focus-visible { outline: 2px solid #ed0017; outline-offset: 2px; }
+  .ops-dialog { max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); }
+  .ops-dialog > header { gap: 12px; }
+  .ops-dialog > header h2 { min-width: 0; overflow-wrap: anywhere; }
+  .ops-dialog > header > button { flex: 0 0 36px; min-width: 36px; min-height: 36px; padding: 7px; }
+  .ops-dialog-body { min-width: 0; }
+  .ops-content small, .ops-dialog small, .ops-page-heading p { color: #52627b; }
+  .ops-dialog-footer { flex-wrap: wrap; }
+  .ops-dialog :is(input, select, textarea) { max-width: 100%; }
+  .ops-dialog .ops-form label { overflow-wrap: anywhere; }
+  .anchor-kitchen-time-actions button { font-size: 12px; min-height: 32px; }
+  .ops-stock-alert .ops-supply-summary strong { min-width: 85px; display: inline-block; }
+  .ops-table-wrap :is(.ops-badge, .ops-channel-badge) {
+    padding: 2px 9px;
+    height: 24px;
+    min-height: 24px;
+    box-sizing: border-box;
+    font-size: 11.5px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .ops-content :is(td, th, small, label),
+    .ops-dialog :is(label, small) { font-size: 12px !important; line-height: 1.4; }
+    .ops-content .ops-table-wrap .ops-outline,
+    .anchor-table-close .ops-product-cell strong { font-size: 12px; }
+    .ops-stat small { font-size: 11px !important; }
+    .ops-content :is(.ops-table-actions, .ops-product-actions) > button,
+    .ops-actions > :is(.btn-view, .btn-edit, .btn-delete) {
+      min-width: 32px; min-height: 32px; width: 32px; height: 32px; padding: 6px; flex-basis: 32px;
+    }
+    .ops-table-actions { flex-wrap: wrap; gap: 5px; }
+    .ops-content .ops-switch:not(.ops-responsive-table *) { min-height: 32px; min-width: 56px; font-size: 12px; }
+    .ops-content .ops-responsive-table .ops-switch { min-width: 38px; max-width: 38px; width: 38px; min-height: 22px; max-height: 22px; height: 22px; }
+    .kitchen-ticket-id { min-height: 32px; }
+    .anchor-client-phone { font-size: 12px; }
+    .ops-content .ops-product-grid button { min-width: 32px; min-height: 32px; width: 32px; height: 32px; }
+    .ops-product-grid :is(h3, p) { font-size: 12px; line-height: 1.4; }
+    .reference-dashboard > .ops-panel .ops-responsive-table { min-width: 520px; }
+    .reference-dashboard .ops-table-actions { flex-wrap: nowrap; }
+    .ops-table-wrap .ops-badge { font-size: 11px; }
+  }
+  @media (max-width: 600px) {
+    .ops-content .ops-stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+    .ops-stat p { overflow-wrap: anywhere; }
+    .anchor-table-close .ops-responsive-table { min-width: 480px; table-layout: auto; }
+    .anchor-table-close .ops-responsive-table th { white-space: nowrap; overflow-wrap: normal; }
+    &:is([data-page="administrador/clientes"], [data-page="administrador/usuarios"]) .ops-content .ops-responsive-table tbody tr { grid-template-columns: minmax(0, 1fr) auto; }
+    &:is([data-page="administrador/clientes"], [data-page="administrador/usuarios"]) .ops-content .ops-responsive-table td:nth-child(2) { grid-column: 1 / -1; grid-row: 1; }
+    &[data-page="administrador/usuarios"] .ops-content .ops-responsive-table td:nth-child(3) { grid-column: 1; grid-row: 2; }
+    &[data-page="administrador/usuarios"] .ops-content .ops-responsive-table td:nth-child(4) { grid-column: 2; grid-row: 2; }
+    &[data-page="administrador/usuarios"] .ops-content .ops-responsive-table td:nth-child(5) { grid-column: 1 / -1; grid-row: 3; }
+    &[data-page="administrador/clientes"] .ops-content .ops-responsive-table td:nth-child(4) { grid-column: 1; grid-row: 2; }
+    &[data-page="administrador/clientes"] .ops-content .ops-responsive-table td:nth-child(5) { grid-column: 2; grid-row: 2; }
+    &[data-page="administrador/clientes"] .ops-content .ops-responsive-table td:nth-child(6) { grid-column: 1; grid-row: 3; }
+    &[data-page="administrador/clientes"] .ops-content .ops-responsive-table td:nth-child(7) { grid-column: 2; grid-row: 3; }
+  }
+  @media (pointer: coarse) {
+    .ops-content :is(.ops-table-actions, .ops-product-actions) > button,
+    .ops-actions > :is(.btn-view, .btn-edit, .btn-delete),
+    .ops-dialog > header > button { min-width: 44px; min-height: 44px; width: 44px; height: 44px; flex-basis: 44px; }
+    .ops-switch:not(.ops-responsive-table *) { min-height: 44px; }
+    .ops-product-grid button { min-width: 44px; min-height: 44px; }
+  }
+}
+
+/* Compact administrative records and non-blocking save feedback. */
+.ops-root.ops-workspace.ops-reference[data-page="administrador/promociones"] .ops-promotion-photo { width:96px; height:56px; margin-right:12px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/promociones"] .ops-promotion-photo > span { font-size:12px; line-height:16px; padding:2px 5px; }
+.ops-root.ops-workspace.ops-reference:is([data-page="administrador/promociones"],[data-page="administrador/usuarios"]) .ops-table-actions button { background:transparent; border-color:transparent; box-shadow:none; }
+.ops-root.ops-workspace.ops-reference:is([data-page="administrador/promociones"],[data-page="administrador/usuarios"]) .ops-table-actions button:hover { background:#f1f5f9; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-role-badge { min-height:24px; padding:3px 9px; line-height:18px; gap:5px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-role-badge svg { width:16px; height:16px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-switch { height:24px; min-height:24px; width:auto; padding:2px 8px !important; line-height:18px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-switch::after { width:12px; height:12px; }
+.ops-root.ops-workspace.ops-reference .ops-admin-filter-group select { appearance:none; padding-right:30px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
+.ops-root.ops-workspace.ops-reference .ops-message.ops-toast { position:fixed; z-index:1500; inset:auto 20px 20px auto; width:max-content; max-width:min(380px,calc(100vw - 32px)); margin:0; padding:14px 44px 14px 16px; background:#fff; color:#166534; border:1px solid #bbd4c3; border-radius:10px; box-shadow:0 6px 24px #0f172a24; }
+.ops-root.ops-workspace.ops-reference .ops-message.ops-toast.error { color:#991b1b; border-color:#fecaca; }
+.ops-root.ops-workspace.ops-reference .ops-toast > button { position:absolute; right:8px; top:50%; transform:translateY(-50%); width:30px; height:30px; min-height:30px; padding:0; }
+@media(max-width:600px) { .ops-root.ops-workspace.ops-reference .ops-message.ops-toast { right:16px; bottom:20px; } }
+
+.ops-root.ops-workspace.ops-reference:is([data-page="administrador/promociones"],[data-page="administrador/clientes"],[data-page="administrador/usuarios"],[data-page="administrador/configuracion"]) .ops-promotion-state { display:inline-flex; align-items:center; justify-content:center; width:48px; min-width:48px; height:36px; min-height:36px; padding:0; border:0; background:transparent; box-shadow:none; border-radius:8px; }
+.ops-promotion-state .ops-state-track { display:block; width:38px; height:22px; border-radius:999px; background:#64748b; padding:3px; box-sizing:border-box; transition:background-color .15s; }
+.ops-promotion-state.on .ops-state-track { background:#008a4b; }
+.ops-promotion-state .ops-state-thumb { display:block; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 3px #0f172a40; transition:transform .15s; }
+.ops-promotion-state.on .ops-state-thumb { transform:translateX(16px); }
+.ops-promotion-state:hover .ops-state-track { outline:2px solid #cbd5e1; outline-offset:2px; }
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference:is([data-page="administrador/promociones"],[data-page="administrador/clientes"],[data-page="administrador/usuarios"],[data-page="administrador/configuracion"]) .ops-promotion-state { min-height:44px; } }
+@media(prefers-reduced-motion:reduce) { .ops-promotion-state .ops-state-track,.ops-promotion-state .ops-state-thumb { transition:none; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/clientes"] .ops-table-actions button { background:transparent; border-color:transparent; box-shadow:none; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/clientes"] .ops-table-actions button:hover { background:transparent; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-roles-summary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:100%; }
+@media(max-width:540px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/usuarios"] .ops-roles-summary-grid { grid-template-columns:minmax(0,1fr); } }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-responsive-table :is(.ops-channel-badge,.ops-badge) { display:inline-flex; align-items:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; gap:5px; font-size:12px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-responsive-table .ops-channel-badge svg { width:16px; height:16px; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-table-actions button { background:transparent; border-color:transparent; box-shadow:none; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-table-actions button:hover { background:transparent; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-clear-order-filters { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:38px; padding:8px 12px; color:#334155; background:#fff; border:1px solid #cbd5e1; border-radius:6px; font-size:13px; line-height:20px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/pedidos"] .ops-clear-order-filters:hover { background:#f1f5f9; color:#0f172a; }
+
+/* Shared action treatment across operational workspaces; row icon actions retain their colors. */
+.ops-root.ops-workspace.ops-reference[data-page] :is(button.ops-primary,button.ops-outline,button.ops-btn-export,button.ops-btn-filter,button.ops-clear-order-filters,button:has([data-ops-action="export"]),button:has(.ops-clear-filter-label),.ops-product-filters > button,.ops-dialog-footer > button) { background:#ed0017; color:#fff; border-color:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page] :is(button.ops-primary,button.ops-outline,button.ops-btn-export,button.ops-btn-filter,button.ops-clear-order-filters,button:has([data-ops-action="export"]),button:has(.ops-clear-filter-label),.ops-product-filters > button,.ops-dialog-footer > button):hover:not(:disabled) { background:#c80014; color:#fff; border-color:#c80014; }
+.ops-root.ops-workspace.ops-reference[data-page] :is(button.ops-primary,button.ops-outline,button.ops-btn-export,button.ops-btn-filter,button.ops-clear-order-filters,button:has([data-ops-action="export"]),button:has(.ops-clear-filter-label),.ops-product-filters > button,.ops-dialog-footer > button):disabled { background:#e2e8f0; color:#475569; border-color:#cbd5e1; opacity:1; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-responsive-table .ops-ingredient-photo { width:42px; height:42px; min-height:0; flex:0 0 42px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-responsive-table .ops-supply-summary { gap:10px; min-height:0; }
+@media(min-width:1100px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-responsive-table tbody td { padding-top:7px; padding-bottom:7px; height:auto; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-responsive-table .ops-badge { display:inline-flex; align-items:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; gap:5px; font-size:12px; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar { align-items:flex-end; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar > label { display:grid; gap:6px; margin:0; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar :is(input,select,button) { height:40px; min-height:40px; margin:0; box-sizing:border-box; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar > label { font-size:12px; line-height:18px; font-weight:400; color:#526581; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-inventory-search-label { flex:1 1 280px; min-width:0; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-inventory-search-label .ops-admin-search { min-width:0; flex:none; width:100%; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar > label:not(.ops-inventory-search-label) { flex:0 1 180px; min-width:130px; }
+@media(max-width:540px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar > label { flex:1 1 100%; } }
+
+/* Compact settings and a single focus indicator on the field container. */
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] {
+  .anchor-settings-card { padding:20px; }
+  .anchor-settings-card h2 { font-size:18px; }
+  .anchor-settings-card p { font-size:13px; margin-bottom:18px; }
+  .anchor-settings label { font-size:12px; gap:6px; }
+  .anchor-field-column { gap:14px; }
+  .anchor-field { height:38px; }
+  .anchor-field input { font-size:13px; }
+  .anchor-field > svg,.anchor-settings-tabs button > svg,.anchor-setting-toggle > svg { color:#ed0017; width:18px; height:18px; flex-shrink:0; }
+  .anchor-settings-tabs button { height:42px; min-height:42px; font-size:14px; padding:0 12px; gap:8px; }
+  .anchor-settings-footer button { height:36px; min-height:36px; font-size:13px; padding:6px 16px; }
+  .anchor-setting-toggle strong { font-size:13px; }
+  .anchor-field:focus-within { border-color:#ed0017; box-shadow:0 0 0 3px #ed00171a; }
+  .anchor-field input:focus,.anchor-field input:focus-visible { outline:none; box-shadow:none; border:0; }
+  .anchor-settings :is(select,textarea):focus-visible { outline:2px solid #ed0017; outline-offset:2px; }
+}
+@media(max-width:600px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .anchor-field input { font-size:16px; } }
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] :is(.anchor-field,.anchor-settings-tabs button,.anchor-settings-footer button) { min-height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .anchor-settings-footer { display:grid; grid-template-columns:repeat(2,minmax(0,190px)); justify-content:center; min-width:0; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .anchor-settings-footer button { width:100%; min-width:0; padding-left:8px; padding-right:8px; white-space:normal; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-promotion-state:focus-visible { outline:2px solid #ed0017; outline-offset:2px; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] {
+  .ops-method-grid { align-items:stretch; grid-auto-rows:1fr; }
+  .ops-method-grid article { display:flex; flex-direction:column; gap:16px; min-height:300px; height:100%; box-sizing:border-box; }
+  .ops-method-grid header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0; }
+  .ops-method-grid h3 { display:flex; align-items:center; gap:10px; font-size:16px; margin:0; }
+  .ops-method-grid h3 :is(svg,img) { width:32px; height:32px; object-fit:contain; flex-shrink:0; }
+  .ops-qr-upload { position:relative; align-self:start; gap:8px; }
+  .ops-qr-upload-button { display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:6px 12px; border-radius:6px; background:#ed0017; color:#fff; font-weight:600; }
+  .ops-qr-upload input[type="file"] { position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer; }
+  .ops-qr-upload:focus-within .ops-qr-upload-button { outline:2px solid #ed0017; outline-offset:3px; }
+  .ops-settings-qr { position:relative; width:140px; height:140px; margin:auto; flex-shrink:0; }
+  .ops-settings-qr .ops-qr { width:140px; height:140px; margin:0; object-fit:contain; }
+  .ops-settings-qr-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:30px; height:30px; border:3px solid white; border-radius:6px; background:white; }
+  .ops-payment-illustration { display:flex; align-items:center; justify-content:center; flex:1; min-height:180px; }
+  .ops-payment-illustration :is(img,svg) { width:min(100%,210px); height:130px; object-fit:contain; }
+}
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid { grid-template-columns:repeat(6,minmax(0,1fr)); gap:16px; width:100%; max-width:960px; margin-inline:auto; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article { grid-column:span 2; min-width:0; padding:18px; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article:nth-child(4) { grid-column:2 / span 2; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid .ops-payment-illustration { min-height:0; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid .ops-qr-upload { width:100%; align-self:stretch; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid .ops-qr-upload-button { width:100%; box-sizing:border-box; }
+@media(max-width:1100px) {
+  .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid { grid-template-columns:repeat(4,minmax(0,1fr)); max-width:640px; }
+  .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article:nth-child(4) { grid-column:span 2; }
+  .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article:last-child { grid-column:2 / span 2; }
+}
+@media(max-width:600px) {
+  .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid { grid-template-columns:minmax(0,1fr); max-width:340px; }
+  .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article,.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article:nth-child(4),.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid article:last-child { grid-column:auto; }
+}
+
+/* Horizontal payment cards: controls left, supporting visual right. */
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] {
+  .ops-method-grid { max-width:1040px; grid-auto-rows:1fr; }
+  .ops-method-grid article { display:grid; grid-template-columns:minmax(0,1fr) 88px; grid-template-rows:auto 1fr; align-items:center; gap:12px; min-height:166px; padding:14px; }
+  .ops-method-grid article > header { grid-column:1 / -1; }
+  .ops-method-grid h3 { font-size:14px; }
+  .ops-method-grid h3 :is(svg,img) { width:26px; height:26px; }
+  .ops-method-grid article > label { grid-column:1; grid-row:2; align-self:center; }
+  .ops-method-grid .ops-settings-qr,.ops-method-grid .ops-payment-illustration { grid-column:2; grid-row:2; width:88px; height:88px; min-height:0; margin:0; }
+  .ops-settings-qr .ops-qr { width:88px; height:88px; }
+  .ops-settings-qr-logo { width:22px; height:22px; border-width:2px; }
+  .ops-method-grid .ops-payment-illustration :is(img,svg) { width:88px; height:72px; }
+  .ops-method-grid .ops-qr-upload-button { font-size:11px; padding:6px; min-height:32px; }
+  .ops-method-grid .anchor-field { padding:0 8px; }
+}
+@media(min-width:601px) and (max-width:1100px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid { max-width:700px; } }
+@media(max-width:600px) { .ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid { max-width:380px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] {
+  .ops-method-grid .ops-qr-upload { align-content:center; gap:8px; }
+  .ops-method-grid .ops-qr-upload-button { height:32px; min-height:32px; padding:4px 8px; line-height:20px; align-self:start; }
+  .ops-method-grid .ops-payment-cash,.ops-method-grid .ops-payment-cards { grid-column:1 / -1; width:100%; height:88px; position:relative; }
+  .ops-method-grid .ops-payment-cash img { position:absolute; object-fit:contain; }
+  .ops-method-grid .ops-payment-cash .cash-note-back { width:130px; height:62px; left:calc(50% - 85px); top:0; transform:rotate(-8deg); }
+  .ops-method-grid .ops-payment-cash .cash-note-front { width:130px; height:62px; left:calc(50% - 60px); top:15px; transform:rotate(3deg); }
+  .ops-method-grid .ops-payment-cash .cash-coin-one { width:32px; height:32px; left:calc(50% + 38px); top:51px; }
+  .ops-method-grid .ops-payment-cash .cash-coin-two { width:27px; height:27px; left:calc(50% + 62px); top:56px; }
+  .ops-method-grid .ops-payment-cards svg { position:absolute; width:115px; height:76px; }
+  .ops-method-grid .payment-card-back { left:calc(50% - 88px); top:0; transform:rotate(-8deg); }
+  .ops-method-grid .payment-card-front { left:calc(50% - 25px); top:12px; transform:rotate(5deg); }
+  .ops-method-grid .ops-payment-illustration > svg:only-child { height:88px; }
+}
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/configuracion"] .ops-method-grid h3 .ops-payment-wallet-icon { color:inherit; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/inventario"] .ops-admin-filter-bar select { appearance:none; padding-right:34px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; background-size:14px 14px; }
+
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard [data-panel="Pedidos recientes"] > header > button.ops-outline,.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard [data-panel="Pedidos recientes"] > header > button.ops-outline :is(span,svg) { color:#fff; }
+
+.ops-profile-areas-grid .ops-area-administration { grid-column:1 / -1; }
+
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard .ops-panel > header > select { appearance:none; padding-right:32px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; background-size:14px 14px; }
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard .ops-category-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 7px; min-height:22px; box-sizing:border-box; border-radius:999px; background:#f1f3f5; color:#334155; line-height:16px; }
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard .ops-category-badge svg { color:#ed0017; width:14px; height:14px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column[data-stage="Recibido"] { --kitchen-stage-color:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column[data-stage="En preparación"] { --kitchen-stage-color:#bd5700; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column[data-stage="Listo"] { --kitchen-stage-color:#008a4b; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column .kitchen-column-heading { background:var(--kitchen-stage-color); }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column .kitchen-column-heading h2 { color:#000; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column .kitchen-column-heading > svg { color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-kitchen-ready-action { background:#bd5700; border-color:#bd5700; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-kitchen-ready-action:hover { background:#a34800; border-color:#a34800; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column:is([data-stage="Recibido"],[data-stage="En preparación"],[data-stage="Listo"]) > .kitchen-column-heading { background:var(--kitchen-stage-color); }
+
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-toolbar .kitchen-search { height:36px; min-height:36px; padding:0 10px; border:1px solid #d9e0ec; border-radius:6px; box-shadow:none; outline:none; background:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-search input { height:100%; min-height:0; padding:0; font-size:13px; border:0; outline:none; box-shadow:none; background:transparent; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-search input:is(:hover,:focus,:focus-visible) { border:0; outline:none; box-shadow:none; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-toolbar .kitchen-search:focus-within { border-color:#ed0017; box-shadow:0 0 0 3px #ed00171a; outline:none; }
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page] .kitchen-toolbar .kitchen-search { min-height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column[data-stage="Listo"] { --kitchen-stage-color:#079d4d; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column > .kitchen-column-heading { background:var(--kitchen-stage-color) !important; }
+.ops-root.ops-workspace.ops-reference[data-page] .kitchen-column > .kitchen-column-heading :is(h2,svg) { color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-stat-icon { display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-stat-icon > svg { position:static; display:block; margin:0; transform:none; width:24px; height:24px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > button:first-of-type { background:#ed0017; border-color:#ed0017; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > .ops-badge.green { background:#079d4d; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > p { background:#f1f3f5; color:#334155; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > p :is(strong,svg,span) { color:#334155; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-responsive-table .ops-badge { min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .kr-channel { display:inline-flex; align-items:center; justify-content:center; gap:5px; color:white; border:0; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .kr-channel.channel-Delivery { background:#0069e8; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .kr-channel.channel-Recojo { background:#8200dd; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .kr-channel.channel-Salón { background:#ad6400; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .kr-channel svg { color:white; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-responsive-table :is(th,td):last-child { text-align:center; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .anchor-view-button { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; min-height:32px; padding:0; margin-inline:auto; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .anchor-view-button svg { display:block; margin:0; width:18px; height:18px; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-stat-icon { display:flex; align-items:center; justify-content:center; padding:0; flex-shrink:0; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-stat-icon > svg { display:block; position:static; margin:0; transform:none; width:24px; height:24px; flex-shrink:0; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] [data-panel="Pedidos con demora"] { background:#f3f4f6; border-color:#e2e5e9; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-channel { display:inline-flex; align-items:center; gap:5px; border:0; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-channel.channel-Delivery { background:#0069e8; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-channel.channel-Recojo { background:#8200dd; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-channel.channel-Salón { background:#ad6400; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-channel svg { color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-status { display:inline-flex; align-items:center; justify-content:center; gap:5px; width:104px; min-height:24px; padding:3px 6px; box-sizing:border-box; border:0; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-status.red { background:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-status.orange { background:#bd5700; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-status.green { background:#008a4b; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-status.blue { background:#0069e8; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-status svg { width:13px; height:13px; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .anchor-kitchen-time-actions button { width:32px; height:32px; min-height:32px; padding:0; display:inline-flex; align-items:center; justify-content:center; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .anchor-kitchen-time-actions button:first-child { background:#008a4b; border-color:#008a4b; color:white; }
+.ops-time-action-label { display:none; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-time-panels > .ops-panel[data-panel="Pedidos con demora"] { background:#f3f4f6; border-color:#e2e5e9; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-responsive-table .kr-channel { min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/historial"] .ops-responsive-table .kr-channel svg { width:14px; height:14px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] {
+  .ops-time-filter-row { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+  .ops-time-filter-row .kr-tabs { flex:1 1 auto; width:auto; margin:0; padding:0; border:0; }
+  .ops-time-filter-row button { height:30px; min-height:30px; padding:4px 10px; font-size:12px; line-height:20px; }
+  .ops-time-filter-row button svg { width:16px; height:16px; }
+  .ops-time-filter-row > button { margin-left:auto; flex-shrink:0; }
+  .ops-panel[data-panel="Pedidos en curso"] > header .kr-search { height:34px; min-height:34px; padding:0 10px; }
+  .ops-panel[data-panel="Pedidos en curso"] .kr-search input { height:100%; min-height:0; padding:0; border:0; outline:none; box-shadow:none; font-size:13px; }
+  .ops-panel[data-panel="Pedidos en curso"] .kr-search:focus-within { border-color:#ed0017; outline:none; box-shadow:0 0 0 3px #ed00171a; }
+}
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-time-filter-row button { min-height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .kr-time-panels > .ops-panel > header select { appearance:none; height:32px; min-height:32px; box-sizing:border-box; padding:0 25px 0 10px; line-height:normal; font-size:12px; color:#18243c; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 8px center; background-size:12px 12px; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:22px; height:auto; padding:2px 8px; box-sizing:border-box; line-height:18px; font-size:12px; background:#008a4b; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge svg { width:12px; height:12px; color:#fff; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table .ops-badge[data-status="Cancelado"] { background:#ed0017; color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; min-height:32px; padding:0; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] svg { display:block; width:18px; height:18px; margin:0; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions > button[title="Ver detalle"] .ops-action-caption { display:none; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-responsive-table :is(th,td):last-child { text-align:center; vertical-align:middle; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/pedidos"] .ops-salon-order-actions { display:flex; flex-direction:row; align-items:center; justify-content:center; gap:6px; width:100%; }
+
+/* Solid semantic labels shared by all operational areas. Category styling is separate. */
+.ops-root.ops-workspace.ops-reference[data-page][data-page] {
+  :is(.ops-badge,.ops-role-badge,.ops-channel-badge,.kr-channel,.kr-status,.ops-voucher-badge) { background:var(--ops-label-color,#475569); color:#fff; border-color:var(--ops-label-color,#475569); }
+  :is(.ops-badge,.ops-role-badge,.ops-channel-badge,.kr-channel,.kr-status,.ops-voucher-badge) :is(svg,span) { color:inherit; }
+  .ops-badge .ops-status-dot { background:#fff; }
+  .ops-badge.green,.kr-status.green { --ops-label-color:#008a4b; }
+  .ops-badge.gold,.kr-status.orange { --ops-label-color:#ad6400; }
+  .ops-badge.blue,.kr-status.blue { --ops-label-color:#0069e8; }
+  .ops-badge.red,.kr-status.red,.ops-badge[data-status="Cancelado"] { --ops-label-color:#ed0017; }
+  .ops-badge.gray,.kr-status.gray { --ops-label-color:#475569; }
+  .ops-role-badge.admin { --ops-label-color:#991b1b; }
+  .ops-role-badge.cocina { --ops-label-color:#92400e; }
+  .ops-role-badge.caja { --ops-label-color:#075985; }
+  .ops-role-badge.mesera { --ops-label-color:#6b21a8; }
+  .ops-role-badge.delivery { --ops-label-color:#166534; }
+  .ops-channel-badge.salon { --ops-label-color:#991b1b; }
+  .ops-channel-badge.delivery { --ops-label-color:#075985; }
+  .ops-channel-badge.recojo,.ops-channel-badge.llevar { --ops-label-color:#166534; }
+  .kr-channel.channel-Delivery { --ops-label-color:#0069e8; }
+  .kr-channel.channel-Recojo { --ops-label-color:#8200dd; }
+  .kr-channel.channel-Salón { --ops-label-color:#ad6400; }
+  .ops-voucher-badge.boleta { --ops-label-color:#166534; }
+  .ops-voucher-badge.factura { --ops-label-color:#075985; }
+  .ops-voucher-badge.nota { --ops-label-color:#475569; }
+}
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .ops-badge[data-status="Cancelado"] { --ops-label-color:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .anchor-pending-payment { background:#ad6400; color:#fff; border-color:#ad6400; }
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .anchor-pending-payment:has(.ops-status-dot.green) { background:#008a4b; border-color:#008a4b; }
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .anchor-pending-payment :is(svg,.ops-status-dot) { color:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .anchor-pending-payment .ops-status-dot { background:#fff; }
+.ops-root.ops-workspace.ops-reference[data-page][data-page] .ops-profile-role-badge { background:#475569; color:#fff; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/promociones"] .ops-responsive-table .ops-badge { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="administrador/promociones"] .ops-responsive-table .ops-badge svg { width:14px; height:14px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="administrador/productos"] .ops-product-manager .ops-badge { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard [data-panel="Pedidos recientes"] :is(.ops-channel-badge,.ops-badge) { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page] .reference-dashboard [data-panel="Pedidos recientes"] .ops-channel-badge svg { width:14px; height:14px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > button:first-of-type,.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > .ops-badge.green { display:inline-flex; align-items:center; justify-content:center; gap:6px; height:28px; min-height:28px; padding:4px 10px; line-height:20px; font-size:12px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > :is(button:first-of-type,.ops-badge.green) svg { width:15px; height:15px; flex-shrink:0; color:#fff; }
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="cocina/pedidos"] .ops-incoming-actions > button:first-of-type { min-height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-channel { min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="cocina/tiempos"] .ops-responsive-table .kr-channel svg { width:14px; height:14px; flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-badge[data-status="Solicita cuenta"] { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] {
+  .ops-product-grid article > div { flex-direction:row; align-items:center; justify-content:space-between; gap:8px; width:auto; min-width:0; max-width:100%; margin:0; box-sizing:border-box; }
+  .ops-product-grid article > div > strong { text-align:left; margin:0; white-space:nowrap; font-size:16px; }
+  .ops-product-grid article > div > button { flex:0 0 28px; margin-left:auto; display:inline-flex; align-items:center; justify-content:center; }
+  .anchor-order-context { gap:14px; align-items:stretch; }
+  .anchor-order-context > :is(label,span) { height:38px; min-height:38px; padding:0 12px; box-sizing:border-box; align-items:center; }
+  .anchor-order-context select { height:100%; min-height:0; padding-top:0; padding-bottom:0; font-size:13px; }
+  .anchor-order-context > :is(label,span) > svg { width:20px; height:20px; flex-shrink:0; }
+}
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="mesera/nuevo-pedido"] .anchor-order-context > :is(label,span) { min-height:44px; height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page] .ops-side-navigation button:hover { background:#fff0f2; color:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-side-navigation button:focus-visible { outline:2px solid #ed0017; outline-offset:2px; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/"] [data-panel="Pagos pendientes"] .ops-channel-badge { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/"] [data-panel="Pagos pendientes"] .ops-channel-badge svg { width:14px; height:14px; flex-shrink:0; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/"] [data-panel="Pagos pendientes"] tbody button { height:28px; min-height:28px; padding:4px 10px; font-size:12px; line-height:20px; box-sizing:border-box; }
+@media(pointer:coarse) { .ops-root.ops-workspace.ops-reference[data-page="caja/"] [data-panel="Pagos pendientes"] tbody button { min-height:44px; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="caja/cobros"] .ops-pending-order-item .ops-channel-badge { display:inline-flex; align-items:center; justify-content:center; min-height:22px; height:auto; padding:2px 7px; line-height:18px; font-size:12px; gap:5px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/cobros"] .ops-pending-order-item .ops-channel-badge svg { width:14px; height:14px; flex-shrink:0; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/cobros"] .ops-pending-order-amount button { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; min-height:28px; padding:0 !important; line-height:1; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/cobros"] .ops-pending-order-amount button::after { display:block; position:static; margin:0; padding:0; width:14px; height:14px; font-size:0; background:center / 14px 14px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E"); }
+.ops-root.ops-workspace.ops-reference[data-page="caja/cobros"] .anchor-pending-payment { background:#92400e; border-color:#92400e; color:#fff; }
+
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-badge { min-height:22px; height:auto; padding:2px 8px; line-height:18px; font-size:12px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-actions { display:flex; align-items:center; justify-content:center; gap:6px; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-actions button { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; min-height:30px; padding:0; border:0; background:transparent; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-actions button svg { width:18px; height:18px; margin:0; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-payment-view { color:#0069e8; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-payment-print { color:#ad6400; }
+.ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions .ops-payment-refund { color:#ed0017; }
+@media(min-width:1100px) { .ops-root.ops-workspace.ops-reference[data-page] .ops-payment-transactions :is(th,td):first-child { min-width:110px; white-space:nowrap; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-responsive-table :is(.ops-voucher-badge,.ops-badge) { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:22px; height:auto; padding:2px 7px; font-size:12px; line-height:18px; box-sizing:border-box; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-badge svg { width:14px; height:14px; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-print { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; min-height:30px; padding:0; border:0; background:transparent; color:#ad6400; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-print svg { width:18px; height:18px; margin:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-admin-filter-bar { align-items:flex-end; gap:12px; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-admin-filter-bar > label { display:grid; gap:6px; margin:0; min-width:0; font-size:12px; line-height:18px; font-weight:400; color:#526581; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-search-label { flex:1 1 280px; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-search-label .ops-admin-search { width:100%; min-width:0; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-admin-filter-bar :is(input,select,button) { height:40px; min-height:40px; margin:0; box-sizing:border-box; }
+@media(max-width:600px) { .ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-admin-filter-bar > label { flex:1 1 100%; } }
+
+.ops-root.ops-workspace.ops-reference[data-page="delivery"] .ops-badge[data-status="Listo para recoger"] { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:22px; height:22px; padding:2px 8px; box-sizing:border-box; font-size:12px; line-height:18px; }
+.ops-root.ops-workspace.ops-reference[data-page="delivery"] .ops-badge[data-status="Listo para recoger"] .ops-status-dot { width:8px; height:8px; margin:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat[data-status="Solicita cuenta"] { height:auto; min-height:126px; gap:6px; padding:10px 6px; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-badge[data-status="Solicita cuenta"] { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:auto; max-width:100%; height:auto; min-height:22px; padding:3px 7px; gap:5px; box-sizing:border-box; line-height:16px; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-badge[data-status="Solicita cuenta"] > span { white-space:normal; line-height:16px; overflow:visible; }
+.ops-root.ops-workspace.ops-reference[data-page="mesera/mesas"] .ops-table-seat .ops-status-dot { flex-shrink:0; }
+
+.ops-root.ops-workspace.ops-reference[data-page] :focus-visible { outline:2px solid #ed0017; outline-offset:3px; }
+.ops-root.ops-workspace.ops-reference[data-page] :is(.ops-product-upload,.ops-input-affix):focus-within { outline:2px solid #ed0017; outline-offset:2px; }
+
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-download { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; min-height:30px; padding:0; border:0; background:transparent; color:#ed0017; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-download svg { width:18px; height:18px; margin:0; }
+.ops-root.ops-workspace.ops-reference[data-page="caja/comprobantes"] .ops-voucher-download:hover:not(:disabled) { background:#fff1f3; }

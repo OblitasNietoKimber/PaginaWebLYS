@@ -1,0 +1,155 @@
+.locations-page { --local-red:#ed0000; background:#fff; padding:32px 0; position:relative; isolation:isolate; }
+.locations-page::before { content:none; }
+.locations-page .info-container { width:min(1880px,96%); }
+.locations-page .local-visit-layout { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.65fr) minmax(0,1fr); gap:clamp(20px,2vw,36px); }
+.local-introduction { display:flex; flex-direction:column; justify-content:center; padding:0 12px; min-width:0; }
+.locations-page .local-visit-heading h1 { margin:0 0 28px; font-family:Knewave,Caveat,cursive; font-size:clamp(58px,6.1vw,126px); font-weight:400; line-height:1.15; letter-spacing:-.05em; text-align:center; }
+.local-visit-heading h1 span { display:block; color:var(--local-red); position:relative; padding-bottom:12px; }
+.local-visit-heading h1 span::after { content:''; position:absolute; height:5px; background:var(--local-red); bottom:0; left:20%; width:65%; border-radius:100%; transform:rotate(-7deg); }
+.locations-page .local-visit-heading p { color:#596273; font-size:clamp(17px,1.45vw,25px); line-height:1.35; max-width:340px; margin:0 auto 24px; }
+.local-benefits { display:grid; gap:10px; max-width:340px; width:100%; margin-inline:auto; }
+.local-benefits > div { display:flex; align-items:center; gap:16px; }
+.locations-page .local-benefits h2 { font-size:clamp(15px,1.1vw,20px); margin:0 0 5px; color:#111; letter-spacing:-.025em; }
+.locations-page .local-benefits p { font-size:clamp(13px,1vw,17px); margin:0; color:#596273; line-height:1.3; }
+.local-visit-icon { width:clamp(44px,4vw,68px); height:clamp(44px,4vw,68px); flex:0 0 clamp(44px,4vw,68px); border-radius:50%; background:var(--local-red); display:grid; place-items:center; color:#fff; }
+.locations-page .local-visit-icon svg { width:55%; height:55%; }
+.local-parking { font-size:28px; font-weight:700; }
+.local-gallery { min-width:0; display:flex; flex-direction:column; gap:12px; }
+.local-gallery-frame { position:relative; min-height:0; border-radius:24px; overflow:hidden; aspect-ratio:1.62; background:#eee; }
+.local-gallery-frame > img { position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
+.local-gallery-arrow { position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border-radius:50%; border:0; display:grid; place-items:center; background:#fff; color:#111; box-shadow:0 2px 10px #0002; }
+.local-gallery-previous { left:16px; }
+.local-gallery-next { right:16px; }
+.local-gallery-previous svg { transform:rotate(90deg); }
+.local-gallery-next svg { transform:rotate(-90deg); }
+.local-photo-counter { position:absolute; bottom:14px; left:18px; padding:4px 10px; border-radius:5px; background:#0009; color:#fff; font-size:16px; }
+.local-gallery-dots { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.local-gallery-dots button { padding:4px; border:2px solid transparent; border-radius:18px; background:transparent; min-width:0; }
+.local-gallery-dots button[aria-current] { border-color:var(--local-red); }
+.local-gallery-dots img { display:block; width:100%; aspect-ratio:1.5; height:auto; object-fit:cover; border-radius:12px; }
+.local-visit-panel { min-width:0; border:1px solid #ececf0; border-radius:24px; padding:clamp(20px,2vw,36px); background:#fff; box-shadow:0 8px 24px #27202a06; display:flex; flex-direction:column; justify-content:space-between; gap:18px; }
+.local-detail-heading { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+.locations-page .local-detail-heading h2 { margin:0; color:#111; font-size:clamp(18px,1.35vw,25px); letter-spacing:-.025em; }
+.locations-page .local-visit-detail p { color:#596273; font-size:clamp(14px,1.05vw,20px); line-height:1.5; margin:0; overflow-wrap:anywhere; }
+.local-maps-button { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:13px 20px; border:1px solid var(--local-red); border-radius:13px; background:#fff; color:var(--local-red); text-decoration:none; font-size:clamp(14px,1vw,18px); font-weight:600; margin-top:14px; min-height:46px; }
+.local-hours { border-top:1px solid #e6e8ed; padding-top:16px; }
+.local-hours-copy { padding-left:calc(clamp(44px,4vw,68px) + 16px); }
+.locations-page .local-hours-copy p + p { display:flex; align-items:center; gap:10px; margin-top:10px; color:#41414c; }
+.local-hours-copy svg { color:var(--local-red); }
+.local-welcome { display:flex; align-items:center; gap:16px; padding:18px; background:#f3f3f4; border-radius:18px; }
+.locations-page .local-welcome > svg { width:52px; height:64px; color:var(--local-red); fill:currentColor; }
+.locations-page .local-welcome h2 { font-family:Caveat,cursive; font-size:clamp(28px,2.6vw,46px); font-weight:700; margin:0 0 6px; color:var(--local-red); }
+.locations-page .local-welcome p { font-size:clamp(14px,1.05vw,19px); line-height:1.35; margin:0; color:#596273; }
+.local-phone { display:flex; align-items:center; justify-content:center; gap:8px; color:#596273; text-decoration:none; font-size:13px; }
+.locations-page button:focus-visible,.locations-page a:focus-visible { outline:3px solid #252525; outline-offset:3px; }
+.local-decoration { position:absolute; z-index:-1; pointer-events:none; color:#e5c8bc; opacity:.4; }
+.locations-page .local-decoration svg { width:100%; height:100%; }
+.local-decoration-chicken { left:0; top:30%; width:100px; height:170px; transform:rotate(-20deg); }
+.local-decoration-leaf { left:20%; bottom:10px; width:160px; height:160px; transform:rotate(20deg); }
+.local-decoration-cutlery { right:0; top:5%; width:120px; height:150px; transform:rotate(30deg); }
+@media (min-width:1200px) {
+ .locations-page { height:calc(100dvh - 64px); padding-block:clamp(20px,5vh,60px) 24px; }
+ .locations-page ~ .home-footer { display:none; }
+ .locations-page .info-container,.local-visit-layout { height:100%; min-height:0; }
+ .local-gallery-frame { flex:1; aspect-ratio:auto; }
+ .local-gallery-dots { flex:0 0 clamp(70px,17vh,150px); min-height:0; }
+ .local-gallery-dots button { min-height:0; }
+ .local-gallery-dots img { height:100%; aspect-ratio:auto; }
+ .locations-page .local-visit-heading h1 { font-size:clamp(58px,min(6.1vw,14vh),126px); }
+ .local-visit-panel { min-height:0; }
+}
+@media (min-width:1200px) and (max-width:1250px) and (min-device-width:1280px) and (hover:hover) and (pointer:fine) { .locations-page { height:calc(100dvh - 104px); } }
+@media (min-width:1200px) and (max-height:720px) {
+ .locations-page { padding-block:18px; }
+ .locations-page .local-visit-heading h1 { margin-bottom:16px; font-size:min(6vw,12vh); }
+ .locations-page .local-visit-heading p { font-size:17px; margin-bottom:16px; }
+ .local-benefits { gap:8px; }
+ .local-visit-icon { width:44px; height:44px; flex-basis:44px; }
+ .local-visit-panel { padding:18px; gap:10px; }
+ .local-detail-heading { gap:10px; margin-bottom:6px; }
+ .locations-page .local-detail-heading h2 { font-size:18px; }
+ .locations-page .local-visit-detail p { font-size:14px; }
+ .local-hours-copy { padding-left:54px; }
+ .local-maps-button { padding:8px 12px; margin-top:10px; }
+ .local-welcome { padding:12px; gap:10px; }
+ .locations-page .local-welcome h2 { font-size:30px; }
+ .locations-page .local-welcome > svg { width:38px; height:44px; }
+}
+@media (max-width:1199px) {
+ .locations-page .local-visit-layout { grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:20px; }
+ .local-introduction { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:32px; }
+ .locations-page .local-visit-heading h1 { font-size:64px; margin-bottom:20px; }
+ .local-visit-heading h1 span { display:inline-block; }
+ .locations-page .local-visit-heading p { text-align:center; max-width:400px; margin-bottom:0; }
+ .local-gallery-frame { flex:1; aspect-ratio:auto; min-height:300px; }
+ .local-visit-panel { padding:20px; }
+}
+@media (max-width:700px) {
+ .locations-page { padding:24px 0 32px; }
+ .locations-page .info-container { width:calc(100% - 32px); }
+ .locations-page .local-visit-layout { grid-template-columns:minmax(0,1fr); gap:24px; }
+ .local-introduction { display:flex; padding:0; gap:20px; }
+ .locations-page .local-visit-heading h1 { font-size:clamp(42px,12vw,64px); }
+ .locations-page .local-visit-heading p { font-size:17px; }
+ .local-benefits { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:none; gap:8px; }
+ .local-benefits > div { flex-direction:column; text-align:center; gap:8px; }
+ .locations-page .local-benefits h2 { font-size:13px; }
+ .locations-page .local-benefits p { font-size:12px; }
+ .local-gallery-frame { aspect-ratio:1.3; min-height:0; flex:none; border-radius:18px; }
+ .local-gallery-dots { gap:6px; }
+ .local-gallery-dots button { padding:3px; border-radius:12px; }
+ .local-gallery-dots img { border-radius:8px; }
+ .local-gallery-arrow { width:44px; height:44px; }
+ .local-gallery-previous { left:10px; }
+ .local-gallery-next { right:10px; }
+ .local-visit-panel { padding:20px; gap:20px; }
+ .local-detail-heading h2 { font-size:20px; }
+ .locations-page .local-visit-detail p { font-size:15px; }
+ .local-welcome h2 { font-size:36px; }
+}
+@media (max-width:320px) {
+ .local-benefits { grid-template-columns:1fr; }
+ .local-benefits > div { flex-direction:row; text-align:left; gap:12px; }
+ .local-visit-panel { padding:14px; }
+ .local-detail-heading { gap:8px; }
+ .locations-page .local-detail-heading h2 { font-size:18px; }
+ .local-hours-copy { padding-left:0; }
+ .local-welcome { padding:12px; gap:10px; }
+}
+.local-parking { position: relative; } @media (min-width: 701px) and (max-width: 1199px) { .local-gallery-frame { flex: none; aspect-ratio: 1.2; min-height: 0; } }
+/* El rótulo conserva los trazos de pincel y el fondo mantiene los adornos suaves. */
+.locations-page::before { content: ''; position: absolute; inset: 0; height: auto; z-index: -1; background: transparent url('/images/information/local-ornaments-v3.png') center / 100% 100% no-repeat; }
+.local-title-image { width: 100%; max-width: 430px; height: auto; display: block; margin-inline: auto; }
+.locations-page .local-visit-heading h1 { line-height: 1; }
+.local-address { position: relative; }
+.local-address::after { content: ''; position: absolute; right: -16px; top: 88px; width: 55px; height: 135px; opacity: .25; pointer-events: none; background: url('/images/information/local-route.svg') center / contain no-repeat; }
+.local-hours { position: relative; }
+.local-hours::after { content: ''; position: absolute; right: 0; bottom: 0; width: 76px; height: 76px; opacity: .08; pointer-events: none; background: url('/images/information/local-clock.svg') center / contain no-repeat; }
+@media (min-width: 1200px) { .local-title-image { max-height: 34vh; width: auto; max-width: 100%; } }
+@media (max-width: 1199px) { .local-title-image { width: min(100%, 270px); } }
+@media (max-width: 700px) {
+ .local-title-image { width: min(76%, 280px); }
+ .locations-page::before { background-size: auto 800px; background-position: center top; }
+ .local-address::after { width: 32px; right: -12px; opacity: .25; }
+}
+@media (min-width: 1200px) and (max-height: 720px) { .local-title-image { max-height: 30vh; } }
+.locations-page::before { opacity: .09; filter: grayscale(1); }
+.locations-page .local-visit-heading p { text-align: center; }
+.local-visit-panel .local-detail-heading { justify-content: center; }
+.local-address, .local-hours-copy { text-align: center; }
+.local-hours-copy { padding-left: 0; }
+.locations-page .local-hours-copy p + p { justify-content: center; }
+.local-maps-button { margin-inline: auto; }
+.local-welcome { justify-content: center; }
+.local-welcome > div { flex: 1; min-width: 0; text-align: center; }
+@media (min-width: 701px) {
+ .local-benefits { width: fit-content; max-width: 100%; margin-inline: auto; }
+ .local-benefits > div { gap: 16px; }
+}
+
+/* La referencia concentra el rojo en los iconos y conserva superficies neutras. */
+.local-address::after, .local-hours::after { content: none; }
+.local-maps-button { display: flex; width: 100%; }
+.local-phone { color: #26303d; font-size: clamp(14px,1.05vw,20px); }
+.local-parking { font-size: clamp(28px,2.5vw,42px); font-weight: 500; }
+.local-benefits > div > div { flex: 1; min-width: 0; text-align: center; }

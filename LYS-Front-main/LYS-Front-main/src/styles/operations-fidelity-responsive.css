@@ -1,0 +1,374 @@
+@media (min-width: 1500px) {
+  .ops-root:has(.ops-header nav button:nth-child(8)) .ops-logo {
+    width: 235px;
+  }
+  .ops-root:has(.ops-header nav button:nth-child(8)) .ops-header nav button {
+    font-size: 14px;
+    padding-inline: 9px;
+  }
+  .ops-root:has(.ops-header nav button:nth-child(8))
+    .ops-header
+    nav
+    button
+    svg {
+    width: 24px;
+    height: 24px;
+  }
+  .ops-root:has(.ops-header nav button:nth-child(8)) .ops-date {
+    font-size: 12px;
+  }
+  .ops-root:has(.ops-header nav button:nth-child(8)) .ops-header-right {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1499px) {
+  .ops-header nav button {
+    font-size: 14px;
+  }
+  .ops-time-overview {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .ops-time-overview > :last-child {
+    grid-column: 1/-1;
+  }
+  .ops-payment-process {
+    grid-template-columns: 1fr;
+  }
+  .ops-payment-summary {
+    border: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .ops-root {
+    font-size: 15px;
+  }
+  .ops-root .ops-logo {
+    width: 210px;
+  }
+  .ops-kanban {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-two-main,
+  .ops-root[data-page="cocina/historial"] .ops-two-main,
+  .ops-root[data-page="caja/cobros"] .ops-split {
+    grid-template-columns: 1fr;
+  }
+  .ops-time-overview {
+    grid-template-columns: 1fr;
+  }
+  .ops-stat strong {
+    font-size: 32px;
+  }
+  .ops-stat-icon {
+    padding: 12px;
+  }
+  .ops-stat-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ops-root {
+    font-size: 14px;
+  }
+  .ops-root small {
+    font-size: 12px;
+  }
+  .ops-root .ops-logo {
+    width: 170px;
+  }
+  .ops-header {
+    min-height: 65px;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .ops-root .ops-user {
+    padding: 0;
+    max-width: 145px;
+  }
+  .ops-user .ops-avatar {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    padding: 6px;
+  }
+  .ops-user .ops-avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ops-user > span:not(.ops-avatar) {
+    max-width: 85px;
+    font-size: 12px;
+  }
+  .ops-content {
+    padding: 20px 12px;
+  }
+  .ops-root h2,
+  .ops-kanban h2 {
+    font-size: 21px;
+  }
+  .ops-page-heading {
+    min-height: auto;
+  }
+  .ops-page-heading h1 {
+    font-size: 31px;
+    letter-spacing: -1px;
+  }
+  .ops-page-heading p {
+    font-size: 16px;
+  }
+  .ops-root[data-page^="mesera"] .ops-page-heading {
+    background: white;
+  }
+  .ops-stat {
+    padding: 14px 10px;
+    gap: 9px;
+    min-height: 100px;
+  }
+  .ops-stat p {
+    font-size: 13px;
+  }
+  .ops-stat strong {
+    font-size: 26px;
+  }
+  .ops-stat-icon {
+    padding: 8px;
+  }
+  .ops-stat-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .ops-panel {
+    padding: 16px 12px;
+  }
+  .ops-panel-title {
+    gap: 10px;
+  }
+  .ops-panel-title p {
+    font-size: 12px;
+  }
+  .ops-panel-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .ops-panel > header {
+    flex-wrap: wrap;
+  }
+  .ops-kanban,
+  .ops-order-grid {
+    grid-template-columns: 1fr;
+  }
+  .ops-order-card {
+    padding: 14px;
+  }
+  .ops-order-card > header strong {
+    font-size: 21px;
+  }
+  .ops-order-time {
+    font-size: 13px;
+  }
+  .ops-order-products p,
+  .ops-kanban .ops-order-products p {
+    font-size: 14px;
+  }
+  .ops-card-actions button {
+    font-size: 13px;
+  }
+  .ops-badge {
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+  .ops-tabs button {
+    font-size: 13px;
+    padding: 10px;
+    gap: 6px;
+  }
+  .ops-tabs svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ops-root table {
+    font-size: 13px;
+  }
+  .ops-root td {
+    padding: 10px;
+  }
+  .ops-root th {
+    font-size: 12px;
+  }
+  .ops-product-summary img {
+    width: 60px;
+    height: 50px;
+  }
+  .ops-method-grid article {
+    padding: 16px;
+  }
+  .ops-method-grid .ops-method-label {
+    font-size: 19px;
+  }
+  .ops-method-grid .ops-wallet-mark,
+  .ops-method-grid .ops-method-label svg {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .ops-root .ops-logo {
+    width: 135px;
+  }
+  .ops-user .ops-avatar {
+    display: none !important;
+  }
+  .ops-root .ops-user {
+    max-width: 120px;
+  }
+  .ops-page-heading h1 {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .ops-manager-layout {
+    display: block;
+  }
+  .ops-manager-layout > .ops-with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .ops-manager-layout > .ops-with-sidebar > .ops-panel {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .ops-header-right .ops-date,
+  .ops-header-right .ops-open {
+    display: none;
+  }
+  .ops-panel-title {
+    flex: 1 1 0;
+  }
+  .ops-panel-count {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+  .ops-order-time {
+    flex-wrap: wrap;
+  }
+  .ops-kanban .ops-order-card .ops-card-actions {
+    flex-wrap: wrap;
+  }
+  .ops-completed-row {
+    flex-wrap: wrap;
+  }
+  .ops-completed-row > span:nth-child(3) {
+    flex-shrink: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  .ops-stat {
+    flex-direction: column;
+    align-items: start;
+  }
+  .ops-panel-title p {
+    overflow-wrap: anywhere;
+  }
+  .ops-order-products {
+    flex-wrap: wrap;
+  }
+  .ops-order-products img {
+    width: 100%;
+    max-height: 140px;
+  }
+  .ops-card-actions button {
+    flex-basis: 100%;
+  }
+  .ops-manager-layout .ops-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .ops-method-grid .ops-method-label {
+    font-size: 16px;
+    gap: 8px;
+  }
+  .ops-method-grid .ops-method-label svg,
+  .ops-method-grid .ops-wallet-mark {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .ops-root[data-page="cocina/pedidos"] .ops-page-heading,
+  .ops-root[data-page="cocina/historial"] .ops-page-heading,
+  .ops-root[data-page="cocina/tiempos"] .ops-page-heading {
+    float: left;
+    width: 32%;
+    min-height: 126px;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-slogan,
+  .ops-root[data-page="cocina/historial"] .ops-slogan,
+  .ops-root[data-page="cocina/tiempos"] .ops-slogan {
+    display: none;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-page-heading h1,
+  .ops-root[data-page="cocina/historial"] .ops-page-heading h1,
+  .ops-root[data-page="cocina/tiempos"] .ops-page-heading h1 {
+    font-size: 42px;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-stats,
+  .ops-root[data-page="cocina/historial"] .ops-stats,
+  .ops-root[data-page="cocina/tiempos"] .ops-stats {
+    margin-left: 34%;
+    min-height: 126px;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-stat,
+  .ops-root[data-page="cocina/historial"] .ops-stat,
+  .ops-root[data-page="cocina/tiempos"] .ops-stat {
+    padding: 18px;
+    gap: 16px;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-stat-icon,
+  .ops-root[data-page="cocina/historial"] .ops-stat-icon,
+  .ops-root[data-page="cocina/tiempos"] .ops-stat-icon {
+    padding: 0;
+    background: none;
+  }
+  .ops-root[data-page="cocina/pedidos"] .ops-stats + *,
+  .ops-root[data-page="cocina/historial"] .ops-stats + *,
+  .ops-root[data-page="cocina/tiempos"] .ops-stats + * {
+    clear: both;
+  }
+}
+
+@media (max-width: 700px) {
+  .ops-stock-alert {
+    flex-wrap: wrap;
+  }
+  .ops-root[data-page="mesera/cierre-mesa"] .ops-cart-line {
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+  .ops-consumption-photo {
+    width: 50px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ops-root[data-page^="cocina"] .ops-page-heading h1:before,
+  .ops-root[data-page^="mesera"] .ops-page-heading h1:before {
+    height: 32px;
+    width: 24px;
+    top: 3px;
+  }
+}

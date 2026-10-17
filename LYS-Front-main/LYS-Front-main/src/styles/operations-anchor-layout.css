@@ -1,0 +1,13 @@
+/* Ordered reference layers. Public pages keep their styles. */
+@import "./operations-anchor-foundation.css";
+@import "./operations-anchor-settings.css";
+@import "./operations-anchor-cash-stock.css";
+@import "./operations-anchor-kitchen.css";
+@import "./operations-anchor-salon.css";
+@import "./operations-anchor-records.css";
+@import "./operations-anchor-workflow.css";
+@import "./operations-anchor-table-service.css";
+@import "./operations-anchor-delivery.css";
+@import "./operations-anchor-density.css";
+@import "./operations-anchor-polish.css";
+@import "./operations-anchor-details.css";

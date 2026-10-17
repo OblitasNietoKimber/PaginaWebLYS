@@ -1,0 +1,80 @@
+/* Operational UI: readable data, quiet surfaces and explicit interaction states. */
+.ops-root.ops-workspace.ops-reference {
+  &[data-page] {
+    --ops-muted: #52627b;
+    --ops-focus: #ed0017;
+    --focus: #ed0017;
+    --ops-hover: #fff1f3;
+    font-variant-numeric: tabular-nums;
+  }
+  &[data-page] :is(.ops-area-label, .ops-page-heading p, .ops-stat small, .ops-side-account small) {
+    color: var(--ops-muted);
+  }
+  &[data-page] :is(input, textarea)::placeholder {
+    color: #64748b;
+    opacity: 1;
+  }
+  &[data-page] :is(button, a, input, select, textarea) {
+    -webkit-tap-highlight-color: transparent;
+  }
+  &[data-page] :is(button, a) {
+    touch-action: manipulation;
+  }
+  &[data-page] :is(button, input, select, textarea):disabled {
+    cursor: not-allowed;
+  }
+  &[data-page] :is(button, a, input, select, textarea):focus-visible {
+    outline: 2px solid var(--ops-focus);
+    outline-offset: 3px;
+    scroll-margin-block: 24px;
+  }
+  &[data-page] :is(.ops-input-icon, .anchor-field):focus-within {
+    border-color: var(--ops-focus);
+  }
+  &[data-page] :is(.ops-primary, .ops-side-navigation button, .ops-product-actions button) {
+    transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+  }
+  &[data-page] .ops-primary:hover:not(:disabled) {
+    background: #ce0014;
+    border-color: #ce0014;
+  }
+  &[data-page] .ops-primary:active:not(:disabled) {
+    background: #b70012;
+  }
+  &[data-page] .ops-side-navigation button:not(.active):hover {
+    background: var(--ops-hover);
+    border-color: transparent;
+  }
+  &[data-page] .ops-responsive-table tbody tr:focus-within {
+    background: #fff1f3;
+  }
+  &[data-page] .ops-dialog,
+  &[data-page] .ops-dialog-body,
+  &[data-page] .ops-side-navigation {
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #bcc7d6 transparent;
+  }
+  &[data-page] .ops-dialog > header {
+    border-bottom-color: #e4e9f1;
+  }
+  &[data-page] .ops-empty {
+    color: var(--ops-muted);
+    line-height: 1.6;
+    text-wrap: pretty;
+    padding: 24px 16px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+  }
+  @media (hover: hover) {
+    &[data-page] .ops-responsive-table tbody tr:hover {
+      background: var(--ops-hover);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &[data-page] :is(.ops-primary, .ops-side-navigation button, .ops-product-actions button) {
+      transition: none;
+    }
+  }
+}

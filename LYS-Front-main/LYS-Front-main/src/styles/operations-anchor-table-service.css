@@ -1,0 +1,350 @@
+/* Reference layer: table-service. */
+.ops-root.ops-workspace.ops-reference {
+  &[data-page] .anchor-table-close {
+    display: grid;
+    gap: 18px;
+  }
+  &[data-page] .anchor-table-close-meta {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr 1fr;
+    gap: 20px;
+    border: 1px solid #e4e9f1;
+    border-radius: 7px;
+    padding: 20px;
+  }
+  &[data-page] .anchor-table-close-meta > :is(div, label) {
+    display: flex;
+    gap: 12px;
+    min-width: 0;
+    align-items: center;
+    font-size: 13px;
+    color: #7585a1;
+  }
+  &[data-page] .anchor-table-close-meta > :is(div, label) > svg {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: #fff0f2;
+    border-radius: 50%;
+    color: #ed0017;
+    flex-shrink: 0;
+  }
+  &[data-page] .anchor-table-close-meta strong {
+    display: block;
+    color: #15233c;
+    font-size: 18px;
+    margin: 5px 0;
+    overflow-wrap: anywhere;
+  }
+  &[data-page] .anchor-table-close-meta select {
+    display: block;
+    width: 100%;
+    border: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #15233c;
+    padding: 4px 0;
+    min-height: 0;
+    background: white;
+  }
+  &[data-page] .anchor-table-close-meta > div:last-child {
+    display: grid;
+    gap: 10px;
+  }
+  &[data-page] .anchor-table-close-meta small {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  &[data-page] .anchor-table-close-meta .ops-badge {
+    display: flex;
+    width: max-content;
+    margin-top: 5px;
+    font-size: 12px;
+    padding: 4px 9px;
+  }
+  &[data-page] .anchor-table-close .ops-panel {
+    padding: 16px;
+    border-radius: 7px;
+  }
+  &[data-page] .anchor-table-close .ops-product-cell {
+    max-width: 450px;
+    gap: 12px;
+    align-items: center;
+  }
+  &[data-page] .anchor-table-close .ops-product-cell img {
+    width: 60px;
+    height: 48px;
+    border-radius: 5px;
+  }
+  &[data-page] .anchor-table-close .ops-product-cell small {
+    font-size: 12px;
+    display: block;
+    color: #7484a0;
+    white-space: normal !important;
+    line-height: 16px;
+    max-width: 350px;
+  }
+  &[data-page] .anchor-table-close-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: #f2f4f8;
+    margin-top: 0;
+    font-size: 18px;
+    border: 0;
+  }
+  &[data-page] .anchor-table-close-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    background: #eef6ff;
+    border: 1px solid #daeafb;
+    color: #536b8d;
+    font-size: 13px;
+    padding: 12px;
+    border-radius: 5px;
+  }
+  &[data-page] .anchor-table-close-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  &[data-page] .anchor-table-close-actions button {
+    height: 42px;
+    min-height: 0;
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+  &[data-page] .anchor-table-close-extra {
+    font-size: 12px;
+    color: #7484a0;
+  }
+  &[data-page] .anchor-table-close-extra > div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  &[data-page] .anchor-table-close-extra label {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  &[data-page] .anchor-table-close-extra textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #dce3ed;
+    border-radius: 5px;
+  }
+  @media (min-width: 601px) {
+    &[data-page^="mesera/"] .ops-table-seat .ops-badge {
+      display: none;
+    }
+    &[data-page^="mesera/"] .ops-table-seat {
+      min-height: 100px;
+      height: 100px;
+      gap: 7px;
+    }
+    &[data-page^="mesera/"] .ops-table-seat small {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 900px) {
+    &[data-page] .anchor-table-close-meta {
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding: 14px;
+    }
+  }
+  @media (max-width: 600px) {
+    &[data-page] .anchor-table-close {
+      gap: 12px;
+    }
+    &[data-page] .anchor-table-close-meta {
+      gap: 12px;
+      padding: 12px;
+    }
+    &[data-page] .anchor-table-close-meta > :is(div, label) {
+      font-size: 10px;
+      gap: 8px;
+    }
+    &[data-page] .anchor-table-close-meta > :is(div, label) > svg {
+      width: 30px;
+      height: 30px;
+      padding: 7px;
+    }
+    &[data-page] .anchor-table-close-meta strong {
+      font-size: 12px;
+    }
+    &[data-page] .anchor-table-close-meta select {
+      font-size: 15px;
+      padding: 3px 0;
+    }
+    &[data-page] .anchor-table-close-meta small {
+      font-size: 10px;
+    }
+    &[data-page] .anchor-table-close-meta .ops-badge {
+      font-size: 10px;
+      padding: 3px 5px;
+    }
+    &[data-page] .anchor-table-close .ops-panel {
+      padding: 0;
+      border: 0;
+    }
+    &[data-page] .anchor-table-close .ops-panel h2 {
+      font-size: 17px;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table {
+      display: table !important;
+      table-layout: fixed;
+      width: 100%;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table thead {
+      display: table-header-group;
+      position: static;
+      width: auto;
+      height: auto;
+      clip: auto;
+      clip-path: none;
+      contain: none;
+      overflow: visible;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table tbody {
+      display: table-row-group;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table tbody tr {
+      display: table-row;
+      border: 0;
+      padding: 0;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table :is(td, th) {
+      display: table-cell;
+      padding: 7px 3px !important;
+      font-size: 10px;
+      vertical-align: middle;
+      border-bottom: 1px solid #e4e9f1;
+    }
+    &[data-page] .anchor-table-close .ops-responsive-table td::before {
+      display: none;
+    }
+    &[data-page]
+      .anchor-table-close
+      .ops-responsive-table
+      :is(td, th):first-child {
+      width: 53%;
+    }
+    &[data-page] .anchor-table-close .ops-product-cell {
+      gap: 6px;
+    }
+    &[data-page] .anchor-table-close .ops-product-cell img {
+      width: 32px;
+      height: 30px;
+    }
+    &[data-page] .anchor-table-close .ops-product-cell strong {
+      font-size: 10px;
+    }
+    &[data-page] .anchor-table-close .ops-product-cell small {
+      font-size: 9px;
+      line-height: 12px;
+    }
+    &[data-page] .anchor-table-close-total {
+      padding: 10px;
+      font-size: 14px;
+    }
+    &[data-page] .anchor-table-close-actions {
+      flex-direction: column-reverse;
+      gap: 8px;
+    }
+    &[data-page] .anchor-table-close-actions button {
+      height: 36px;
+      font-size: 12px;
+    }
+    &[data-page] .anchor-table-close-note {
+      font-size: 11px;
+      padding: 9px;
+    }
+    &[data-page^="caja/"] .ops-table-wrap tbody {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    &[data-page^="caja/"] .ops-table-wrap tbody tr {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px !important;
+    }
+    &[data-page^="caja/"] .ops-table-wrap td {
+      display: block;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 11px;
+      min-width: 0;
+    }
+    &[data-page^="caja/"] .ops-table-wrap td::before {
+      display: block;
+      font-size: 9px;
+      margin-bottom: 3px;
+    }
+    &[data-page^="caja/"] .ops-table-wrap td:last-child {
+      grid-column: 1/-1;
+    }
+    &[data-page^="caja/"] .ops-table-wrap td:last-child::before {
+      display: none;
+    }
+    &[data-page^="caja/"] .ops-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    &[data-page^="caja/"] .ops-actions button {
+      font-size: 11px;
+      min-height: 28px;
+      padding: 4px 7px;
+    }
+    &[data-page="caja/comprobantes"] .ops-person-cell .ops-initials-avatar {
+      display: none;
+    }
+    &[data-page="caja/comprobantes"] .ops-person-cell strong {
+      font-size: 11px;
+    }
+  }
+  &[data-page] .anchor-shift-meta strong {
+    overflow-wrap: anywhere;
+  }
+  .anchor-delivery-inline-map {
+    display: none;
+  }
+  &[data-page] .anchor-delivery-estimate {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0 0 16px;
+    border-top: 1px solid #e4e9f1;
+    border-bottom: 1px solid #e4e9f1;
+    padding: 12px 0;
+  }
+  &[data-page] .anchor-delivery-estimate div {
+    min-width: 0;
+  }
+  &[data-page] .anchor-delivery-estimate dt {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #7a89a2;
+  }
+  &[data-page] .anchor-delivery-estimate dt svg {
+    width: 17px;
+    height: 17px;
+  }
+  &[data-page] .anchor-delivery-estimate dd {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 6px 0 0;
+    color: #14233b;
+    overflow-wrap: anywhere;
+  }
+}

@@ -1,0 +1,636 @@
+/* Keep navigation and actions visible rather than merely containing overflow. */
+.ops-root {
+  font-size: 14px;
+}
+.ops-root small {
+  font-size: 12px;
+}
+.ops-root h2 {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+}
+.ops-root h3 {
+  font-size: 18px;
+}
+.ops-content {
+  padding: 24px;
+}
+.ops-page-heading {
+  min-height: 88px;
+  margin-bottom: 16px;
+}
+.ops-page-heading h1 {
+  font-size: clamp(28px, 2.6vw, 46px);
+}
+.ops-page-heading p {
+  font-size: 17px;
+}
+.ops-slogan {
+  font-size: 30px;
+}
+.ops-panel {
+  padding: 18px;
+}
+.ops-stat {
+  padding: 16px;
+  min-height: 96px;
+  gap: 12px;
+}
+.ops-stat p {
+  font-size: 14px;
+}
+.ops-stat strong {
+  font-size: 30px;
+  letter-spacing: -0.8px;
+}
+.ops-stat-icon {
+  padding: 12px;
+}
+.ops-stat-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.ops-tabs button {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.ops-tabs svg {
+  width: 21px;
+  height: 21px;
+}
+.ops-root .ops-header {
+  min-height: 68px;
+  padding: 10px 20px;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+.ops-root .ops-header .ops-logo {
+  width: 180px;
+}
+.ops-root .ops-header > a {
+  flex: 0 0 auto;
+}
+.ops-root .ops-header nav {
+  order: 0;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 2px;
+}
+.ops-root .ops-header nav button {
+  font-size: 13px;
+  padding: 10px 8px;
+  gap: 6px;
+}
+.ops-root .ops-header nav button svg {
+  width: 21px;
+  height: 21px;
+}
+.ops-root .ops-header-right {
+  width: auto;
+  margin-left: auto;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.ops-root .ops-user {
+  max-width: 180px;
+  padding: 0;
+}
+.ops-root .ops-avatar {
+  width: 36px;
+  height: 36px;
+  flex-basis: 36px;
+  padding: 7px;
+}
+.ops-root .ops-avatar svg {
+  width: 22px;
+  height: 22px;
+}
+.ops-root .ops-date,
+.ops-root .ops-open {
+  font-size: 12px;
+}
+.ops-root .ops-open {
+  padding: 7px 9px;
+}
+.ops-root .ops-user > span:not(.ops-avatar) {
+  font-size: 12px;
+}
+.ops-root .ops-menu {
+  display: none;
+}
+@media (min-width: 1800px) {
+  .ops-root:has(.ops-header nav button:nth-child(8)) .ops-header .ops-logo {
+    width: 180px;
+  }
+}
+.ops-root .ops-table-wrap {
+  container-type: inline-size;
+  overflow: visible;
+}
+.ops-responsive-table {
+  font-size: 13px !important;
+}
+.ops-responsive-table td,
+.ops-responsive-table th {
+  padding: 10px !important;
+}
+.ops-responsive-table td {
+  min-width: 0;
+}
+.ops-responsive-table td:last-child {
+  white-space: normal;
+}
+.ops-responsive-table .ops-actions {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ops-responsive-table td button {
+  min-height: 36px;
+}
+.ops-responsive-table td .ops-switch {
+  min-height: 28px;
+}
+.ops-responsive-table .ops-product-cell img {
+  width: 64px;
+  height: 48px;
+}
+.ops-responsive-table .ops-product-cell {
+  min-width: 0;
+}
+.ops-responsive-table .ops-product-cell > div,
+.ops-responsive-table .ops-product-cell > span {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.ops-responsive-table .ops-supply-summary > div,
+.ops-responsive-table .ops-person > div {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.ops-responsive-table .ops-product-cell small {
+  max-width: 200px;
+}
+.ops-responsive-table .ops-product-summary > div {
+  min-width: 0;
+}
+.ops-responsive-table .ops-product-summary img {
+  width: 58px;
+  height: 46px;
+}
+.ops-responsive-table .ops-category-label {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+.ops-responsive-table .ops-category-label svg {
+  width: 18px;
+  height: 18px;
+}
+.ops-responsive-table .ops-badge {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+.ops-responsive-table .ops-badge svg {
+  width: 18px;
+  height: 18px;
+}
+.ops-root .ops-manager-layout {
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 0 18px;
+}
+.ops-manager-layout > .ops-with-sidebar > .ops-panel:last-child {
+  align-self: start;
+}
+.ops-responsive-table[data-catalog="true"] .ops-actions button {
+  font-size: 0;
+  gap: 0;
+  padding: 8px;
+}
+.ops-responsive-table[data-catalog="true"] .ops-actions button svg {
+  width: 20px;
+  height: 20px;
+}
+.ops-responsive-table[data-catalog="true"] td:nth-child(3) {
+  white-space: nowrap;
+}
+.ops-manager-layout .ops-stat {
+  gap: 9px;
+  padding: 12px;
+}
+.ops-manager-layout .ops-stat-icon {
+  padding: 9px;
+}
+.ops-manager-layout .ops-stat-icon svg {
+  width: 28px;
+  height: 28px;
+}
+.ops-root input,
+.ops-root select,
+.ops-root textarea {
+  padding: 10px;
+}
+.ops-manager-layout .ops-form > label:nth-of-type(3) {
+  grid-column: 1/-1;
+}
+.ops-manager-layout .ops-form {
+  gap: 12px;
+}
+.ops-root .ops-panel > header {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ops-root .ops-panel > header > button {
+  flex-shrink: 0;
+}
+.ops-root .ops-panel-title {
+  min-width: 0;
+}
+.ops-root .ops-panel-title > div {
+  min-width: 0;
+}
+.ops-root .ops-panel-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 1799px) {
+  .ops-root .ops-header .ops-logo {
+    width: 165px;
+  }
+  .ops-root .ops-header-right .ops-date {
+    display: none;
+  }
+  .ops-root .ops-header nav button {
+    font-size: 12px;
+    padding: 10px 7px;
+  }
+  .ops-root .ops-user > span:not(.ops-avatar) {
+    display: none;
+  }
+}
+@media (max-width: 1499px) {
+  .ops-root .ops-header-right .ops-open {
+    display: none;
+  }
+  .ops-root .ops-header {
+    gap: 10px;
+    padding-inline: 16px;
+  }
+  .ops-root .ops-header nav button {
+    gap: 5px;
+  }
+  .ops-root .ops-header nav button svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+@media (max-width: 1279px) {
+  .ops-root .ops-header {
+    flex-wrap: wrap;
+  }
+  .ops-root .ops-header > a {
+    margin-right: auto;
+  }
+  .ops-root .ops-menu {
+    display: inline-flex;
+    margin-left: 0;
+    order: 2;
+  }
+  .ops-root .ops-header-right {
+    margin: 0;
+    order: 1;
+  }
+  .ops-root .ops-header nav {
+    display: none;
+  }
+  .ops-root .ops-header nav.open {
+    display: grid;
+    order: 3;
+    flex-basis: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 6px;
+    border-top: 1px solid #e8ebef;
+    padding-top: 10px;
+  }
+  .ops-root .ops-header nav button {
+    justify-content: flex-start;
+    font-size: 14px;
+    padding: 11px;
+  }
+  .ops-root .ops-header nav button svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ops-root .ops-manager-layout {
+    display: block;
+  }
+  .ops-manager-layout > .ops-with-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ops-manager-layout > .ops-with-sidebar > .ops-panel {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .ops-root .ops-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ops-root .ops-slogan {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .ops-root .ops-header {
+    min-height: 64px;
+    padding: 10px 12px;
+    gap: 7px;
+  }
+  .ops-root .ops-header .ops-logo {
+    width: 145px;
+  }
+  .ops-root .ops-header-right {
+    gap: 5px;
+  }
+  .ops-root .ops-user > svg {
+    display: none;
+  }
+  .ops-root .ops-content {
+    padding: 18px 12px;
+  }
+  .ops-root .ops-stat {
+    min-height: 84px;
+    padding: 12px;
+  }
+  .ops-root .ops-stat strong {
+    font-size: 25px;
+  }
+  .ops-root .ops-stat p {
+    font-size: 12px;
+  }
+  .ops-root .ops-stat-icon {
+    padding: 8px;
+  }
+  .ops-root .ops-stat-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .ops-root .ops-panel {
+    padding: 14px 12px;
+  }
+  .ops-root .ops-tabs {
+    flex-wrap: wrap;
+  }
+  .ops-root .ops-tabs button {
+    white-space: normal;
+  }
+  .ops-root .ops-page-heading {
+    margin-bottom: 14px;
+    min-height: auto;
+  }
+  .ops-root .ops-page-heading p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 359px) {
+  .ops-root .ops-header .ops-logo {
+    width: 90px;
+  }
+  .ops-root .ops-header-right .ops-notification-toggle {
+    display: inline-flex;
+    padding: 4px;
+    min-width: 30px;
+  }
+  .ops-root .ops-header-right .ops-notification-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ops-root .ops-user .ops-avatar {
+    display: inline-flex !important;
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+  .ops-root .ops-header {
+    padding-inline: 8px;
+    gap: 5px;
+  }
+  .ops-root .ops-menu {
+    padding: 6px;
+  }
+  .ops-root .ops-user {
+    padding: 0 !important;
+    gap: 0;
+  }
+  .ops-root .ops-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each table adapts to its own panel, including side-by-side desktop layouts. */
+@container (max-width: 1000px) {
+  .ops-root .ops-responsive-table {
+    display: block;
+  }
+  .ops-responsive-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    contain: strict;
+  }
+  .ops-responsive-table tbody {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+    gap: 12px;
+  }
+  .ops-root .ops-responsive-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1e6ee;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 0;
+    background: #fff;
+  }
+  .ops-root .ops-responsive-table tbody tr.selected-row {
+    background: #fff5f5;
+    border-color: #f1a0a7;
+  }
+  .ops-root .ops-responsive-table td {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+    border: 0;
+    padding: 6px 0 !important;
+  }
+  .ops-root .ops-responsive-table td button {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .ops-responsive-table td::before {
+    content: attr(data-label);
+    color: #6d7f9d;
+    font-size: 12px;
+  }
+  .ops-responsive-table td:last-child {
+    margin-top: auto;
+    padding-top: 10px !important;
+  }
+  .ops-responsive-table td > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ops-responsive-table td .ops-actions {
+    justify-content: flex-start;
+  }
+  .ops-responsive-table .ops-product-cell small {
+    white-space: normal;
+  }
+  .ops-responsive-table td:has(.ops-product-cell),
+  .ops-responsive-table td:has(.ops-product-summary),
+  .ops-responsive-table td:has(.ops-person),
+  .ops-responsive-table td:has(.ops-supply-summary) {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: 10px !important;
+  }
+  .ops-responsive-table td:has(.ops-product-cell)::before,
+  .ops-responsive-table td:has(.ops-product-summary)::before,
+  .ops-responsive-table td:has(.ops-person)::before,
+  .ops-responsive-table td:has(.ops-supply-summary)::before {
+    display: none;
+  }
+  .ops-responsive-table td[colspan] {
+    grid-template-columns: 1fr;
+  }
+  .ops-responsive-table td[colspan]::before {
+    display: none;
+  }
+}
+@container (max-width: 330px) {
+  .ops-root .ops-responsive-table td {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+}
+@container (min-width: 800px) and (max-width: 1000px) {
+  .ops-root .ops-responsive-table[data-catalog="true"] {
+    display: table;
+  }
+  .ops-responsive-table[data-catalog="true"] thead {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    contain: none;
+  }
+  .ops-responsive-table[data-catalog="true"] tbody {
+    display: table-row-group;
+  }
+  .ops-root .ops-responsive-table[data-catalog="true"] tbody tr {
+    display: table-row;
+    border: 0;
+  }
+  .ops-root .ops-responsive-table[data-catalog="true"] td {
+    display: table-cell;
+    padding: 10px 6px !important;
+    border-bottom: 1px solid #eef1f6;
+  }
+  .ops-responsive-table[data-catalog="true"] td::before {
+    display: none;
+  }
+  .ops-responsive-table[data-catalog="true"] .ops-product-cell small {
+    max-width: 150px;
+    white-space: nowrap;
+  }
+  .ops-responsive-table[data-catalog="true"] .ops-actions {
+    flex-wrap: nowrap;
+  }
+}
+@container (max-width: 799px) {
+  .ops-responsive-table[data-catalog="true"] .ops-actions button {
+    font-size: 12px;
+    gap: 6px;
+  }
+}
+/* Shared controls keep their intrinsic height even in tall grid rows. */
+.ops-root .ops-form { align-content: start; }
+.ops-root .ops-form > button { align-self: start; }
+.ops-root button { line-height: 1.35; }
+.ops-root .ops-switch { min-height: 26px; flex: 0 0 48px; align-self: center; }
+.ops-root .ops-switch::before { content: ''; position: absolute; inset: -9px 0; }
+.ops-root small, .ops-root p { color: #5c6d87; }
+.ops-root input[type="file"] {
+  height: auto; min-height: 44px; padding: 6px; border: 1px dashed #bdc8d8;
+  background: #fafbfc; font-size: 12px; line-height: 1.5;
+}
+.ops-root input[type="file"]::file-selector-button {
+  border: 0; border-radius: 6px; padding: 9px 10px; margin-right: 8px;
+  font: inherit; font-weight: 600; color: white; background: #ed0017; cursor: pointer;
+}
+.ops-root input[type="file"]::file-selector-button:hover { background: #b80012; }
+.ops-root input[type="file"]:focus-visible { outline: 3px solid #2682ff; outline-offset: 3px; }
+.ops-root .ops-method-grid { align-items: start; }
+.ops-root .ops-method-grid article { padding: 18px; }
+.ops-root .ops-method-grid header { margin-bottom: 14px; }
+.ops-root .ops-method-grid h3 { margin: 0; font-size: 19px; }
+.ops-root .ops-method-grid .ops-method-label > svg,
+.ops-root .ops-method-grid .ops-wallet-mark { width: 44px; height: 44px; }
+/* Reserve a full row for the supply name instead of squeezing it between badges. */
+.ops-root .ops-stock-alert {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) 24px;
+  gap: 8px 10px; padding: 12px !important;
+}
+.ops-stock-alert .ops-supply-summary { grid-column: 1/-1; width: 100%; }
+.ops-stock-alert .ops-supply-summary > div { min-width: 0; flex: 1; }
+.ops-stock-alert .ops-supply-summary strong { overflow-wrap: normal; word-break: normal; }
+.ops-stock-alert .ops-supply-summary small { line-height: 1.5; }
+.ops-stock-alert .ops-badge { justify-self: start; white-space: normal; }
+.ops-stock-alert > svg { justify-self: end; }
+.ops-root .ops-bills { grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr)); gap: 14px; }
+.ops-root .ops-banknote {
+  display: block; width: 100%; height: 54px; min-height: 0; object-fit: contain;
+  background: transparent; border: 0; margin: 10px 0;
+}
+.ops-bills input { text-align: center; }
+@media (max-width: 700px) {
+  .ops-root .ops-card-actions button, .ops-root .ops-actions button,
+  .ops-root .ops-form > button, .ops-root .ops-tabs button { min-height: 44px; }
+  .ops-root .ops-method-grid h3 { font-size: 18px; }
+}
+
+.ops-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.ops-steps > span { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; color: #5c6d87; text-align: center; font-size: 13px; }
+.ops-steps b { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #eef0f3; border: 1px solid #dce1e8; z-index: 1; }
+.ops-steps > span:not(:last-child)::after { content: ''; position: absolute; top: 20px; left: calc(50% + 28px); width: calc(100% - 44px); height: 2px; background: #dce1e8; }
+.ops-steps .current { color: #ed0017; }
+.ops-steps .current b { color: white; background: #ed0017; border-color: #ed0017; }
+.ops-steps .complete { color: #a76b12; }
+.ops-steps .complete b, .ops-steps .complete::after { color: white; background: #c38b29; border-color: #c38b29; }
+.ops-cash-total { flex-wrap: wrap; background: #faf8f5; padding: 14px; }
+.ops-cash-total > span { display: flex; align-items: center; gap: 10px; }
+.ops-cash-total > strong { margin-left: auto; color: #101216; font-size: 26px; }
+.ops-shift-summary { margin: 22px 0; }
+.ops-shift-summary > div { display: grid; grid-template-columns: minmax(90px, .7fr) minmax(0, 1fr); align-items: start; gap: 12px; margin: 20px 0; }
+.ops-shift-summary dt { display: flex; align-items: center; gap: 10px; color: #5c6d87; }
+.ops-shift-summary dd { margin: 0; color: #101216; font-weight: 600; overflow-wrap: anywhere; }
+@media(max-width: 359px) { .ops-shift-summary > div { grid-template-columns: 1fr; gap: 6px; } }
+
+@media (min-width: 1500px) { .ops-root .ops-bills { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (min-width: 701px) and (max-width: 1499px) { .ops-root .ops-bills { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 300px) and (max-width: 700px) { .ops-root .ops-bills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ops-root .ops-stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.ops-root .ops-stat { min-width: 0; }
+.ops-root .ops-stat > div { min-width: 0; }
+@media (max-width: 700px) { .ops-root .ops-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 359px) { .ops-root .ops-stats { grid-template-columns: 1fr; } }
+
+.ops-currency-group { margin: 20px 0; }
+.ops-currency-group h4 { margin: 0 0 12px; font-size: 15px; color: #101216; }
+.ops-root .ops-currency-group .ops-bills { grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr)); }
+.ops-currency-group .ops-banknote { height: 60px; }

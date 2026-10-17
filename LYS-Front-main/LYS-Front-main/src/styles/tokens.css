@@ -1,0 +1,24 @@
+@font-face { font-family: 'Caveat'; src: url('/fonts/Caveat.ttf') format('truetype'); font-weight: 400 700; font-display: swap; }
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM-Sans.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-display: swap;
+}
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: #08080b;
+  background: #fff;
+  font-synthesis: none;
+  --red: #ed0000;
+  --button-red: #ce0014;
+  --muted: #5d7097;
+  --placeholder: #667795;
+  --input-border: #dce1ec;
+  --line: #adbbd4;
+  --card-radius: 16px;
+  --field-radius: 8px;
+  --focus: #24487d;
+  --ease-out: cubic-bezier(.2, 0, 0, 1);
+  --ease-settle: cubic-bezier(.2, .8, .3, 1.15);
+}

@@ -1,0 +1,637 @@
+/* Scope the reference layout to the kitchen overview; other role panels keep their styles. */
+.ops-root[data-page="cocina/"] {
+  background: #fff;
+}
+.ops-root[data-page="cocina/"] .ops-content {
+  padding: 24px 28px;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+.ops-root[data-page="cocina/"] .ops-page-heading {
+  min-height: 0;
+  margin-bottom: 18px;
+}
+.ops-root[data-page="cocina/"] .ops-page-heading h1 {
+  font-family: Caveat, cursive;
+  font-size: clamp(32px, 4.2vw, 68px);
+  font-weight: 700;
+  font-style: italic;
+  padding: 0;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+.ops-root[data-page="cocina/"] .ops-page-heading h1::before,
+.ops-root[data-page="cocina/"] .ops-slogan {
+  display: none;
+}
+.ops-root[data-page="cocina/"] .ops-page-heading p {
+  margin-top: 4px;
+  font-size: clamp(16px, 1.35vw, 22px);
+}
+.ops-root[data-page="cocina/"] .ops-header nav button.active {
+  background: #fff2f4;
+  color: #ef0016;
+  border-radius: 10px;
+  box-shadow: inset 0 -3px #ef0016;
+}
+.ops-root[data-page="cocina/"] .ops-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  margin-bottom: 16px;
+}
+.ops-root[data-page="cocina/"] .ops-stat {
+  border: 1px solid #e6ebf2;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 102px;
+  gap: 20px;
+  background: white;
+}
+.ops-root[data-page="cocina/"] .ops-stat:last-child {
+  border: 1px solid #e6ebf2;
+}
+.ops-root[data-page="cocina/"] .ops-stat-icon {
+  padding: 14px;
+  border-radius: 12px;
+  background: #ef0016;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ops-root[data-page="cocina/"] .ops-stat-icon svg {
+  width: 36px;
+  height: 36px;
+}
+.ops-root[data-page="cocina/"] .ops-stat.gold .ops-stat-icon {
+  background: #ff9000;
+}
+.ops-root[data-page="cocina/"] .ops-stat.gray .ops-stat-icon {
+  background: #4b5363;
+}
+.ops-root[data-page="cocina/"] .ops-stat.green .ops-stat-icon {
+  background: #008a47;
+}
+.ops-root[data-page="cocina/"] .ops-stat p {
+  font-size: 14px;
+  margin: 0;
+}
+.ops-root[data-page="cocina/"] .ops-stat strong {
+  font-size: 30px;
+  line-height: 1.2;
+}
+.ops-root[data-page="cocina/"] .ops-stat small {
+  display: block;
+  color: #63728f;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.kitchen-board {
+  --kitchen-red: #ef0016;
+  --kitchen-orange: #ff8900;
+  --kitchen-blue: #0053b9;
+  --kitchen-green: #008a47;
+  color: #142440;
+}
+.kitchen-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.kitchen-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ops-root .kitchen-tabs button {
+  border: 1px solid #e6ebf2;
+  border-radius: 12px;
+  background: #fff;
+  color: #142440;
+  padding: 11px 18px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.ops-root .kitchen-tabs .selected {
+  background: var(--kitchen-red);
+  border-color: var(--kitchen-red);
+  color: white;
+}
+.kitchen-tabs svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.kitchen-tabs button:nth-child(2):not(.selected) svg {
+  color: var(--kitchen-red);
+}
+.ops-root .kitchen-search {
+  flex: 1 1 250px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d7e0ed;
+  border-radius: 10px;
+  padding: 0 14px;
+  margin-left: auto;
+}
+.kitchen-search svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.ops-root .kitchen-search input {
+  padding: 12px 0;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  font-size: 13px;
+}
+.kitchen-search:focus-within {
+  outline: 2px solid var(--kitchen-red);
+  outline-offset: 2px;
+}
+.ops-root .kitchen-search input:focus-visible {
+  outline: none;
+}
+.ops-root .kitchen-filter-toggle {
+  min-height: 46px;
+  padding: 10px 16px;
+}
+.kitchen-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 14px;
+  border: 1px solid #e6ebf2;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.kitchen-filters label {
+  display: grid;
+  gap: 6px;
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.ops-root .kitchen-columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 14px;
+}
+.kitchen-column {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #e7edf5;
+  border-radius: 16px;
+  background: #fbfdff;
+  --stage-color: var(--kitchen-red);
+  --stage-tint: #ffe0e5;
+}
+.kitchen-column[data-stage="Recibido"] {
+  background: linear-gradient(#fff6f7, #fff 190px);
+}
+.kitchen-column[data-stage="En preparación"] {
+  --stage-color: var(--kitchen-orange);
+  --stage-tint: #fff0d8;
+}
+.kitchen-column[data-stage="Listo"] {
+  --stage-color: var(--kitchen-blue);
+  --stage-tint: #e0efff;
+}
+.kitchen-column[data-stage="Entregado"] {
+  --stage-color: var(--kitchen-green);
+  --stage-tint: #e0f6e9;
+}
+.kitchen-column-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 8px 12px;
+}
+.kitchen-column-heading > svg {
+  width: 40px;
+  height: 40px;
+  color: var(--stage-color);
+  flex-shrink: 0;
+}
+.kitchen-column-heading > div {
+  min-width: 0;
+  flex: 1;
+}
+.ops-root .kitchen-column-heading h2 {
+  font-size: clamp(18px, 1.3vw, 22px);
+  line-height: 1.2;
+  margin: 0;
+  color: #080e1b;
+  letter-spacing: -0.5px;
+}
+.kitchen-column-heading p {
+  font-size: 13px;
+  color: #63728f;
+  margin: 3px 0 0;
+  line-height: 1.3;
+}
+.kitchen-count {
+  background: var(--stage-tint);
+  color: var(--stage-color);
+  border-radius: 50%;
+  min-width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 750;
+}
+.kitchen-ticket {
+  position: relative;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: white;
+  border: 1px solid #e7edf5;
+  border-radius: 14px;
+  min-width: 0;
+}
+.kitchen-ticket > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.ops-root .kitchen-ticket-id {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #080e1b;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.kitchen-age {
+  margin-left: auto;
+  color: #63728f;
+  font-size: 12px;
+}
+.kitchen-urgent {
+  background: #ffe1e5;
+  color: var(--kitchen-red);
+  padding: 3px 6px;
+  border-radius: 5px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 750;
+}
+.kitchen-urgent svg {
+  width: 14px;
+  height: 14px;
+}
+.kitchen-ticket-body {
+  display: flex;
+  gap: 14px;
+  align-items: start;
+}
+.kitchen-ticket-body > img {
+  width: 80px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.kitchen-ticket-copy {
+  min-width: 0;
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.kitchen-channel,
+.kitchen-customer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 5px;
+  overflow-wrap: anywhere;
+}
+.kitchen-channel svg,
+.kitchen-customer svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.kitchen-customer svg {
+  fill: none;
+  stroke: currentColor;
+}
+.kitchen-ticket ul {
+  padding-left: 16px;
+  margin: 0;
+}
+.kitchen-ticket li::marker {
+  color: var(--kitchen-orange);
+}
+.kitchen-ticket li {
+  overflow-wrap: anywhere;
+}
+.kitchen-pieces {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 5px;
+  font-size: 11px;
+  color: #63728f;
+  margin: 5px 0;
+}
+.kitchen-pieces svg {
+  width: 14px;
+  height: 14px;
+}
+.kitchen-note {
+  font-size: 12px;
+  color: #63728f;
+  margin: 6px 0;
+  overflow-wrap: anywhere;
+}
+.kitchen-progress {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 12px;
+}
+.kitchen-progress li {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding-top: 19px;
+  color: #63728f;
+  font-size: 10px;
+  line-height: 1.3;
+}
+.kitchen-progress li::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #cbd3e0;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 6px);
+  z-index: 1;
+}
+.kitchen-progress li:not(:last-child)::after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 100%;
+  background: #cbd3e0;
+}
+.kitchen-progress .done {
+  color: #df7100;
+}
+.kitchen-progress .done::before,
+.kitchen-progress .done:first-child::after {
+  background: var(--kitchen-orange);
+}
+.kitchen-timer,
+.kitchen-ready,
+.kitchen-delivered {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.kitchen-timer {
+  color: #db6400;
+  background: #fff3e5;
+}
+.kitchen-timer strong {
+  font-size: 18px;
+}
+.kitchen-timer span {
+  margin-left: auto;
+  font-size: 11px;
+}
+.kitchen-ready {
+  background: #e5f3ff;
+  color: #0053c5;
+  margin-top: 8px;
+}
+.kitchen-delivered {
+  background: #e6f9ee;
+  color: #008a47;
+  padding: 8px;
+  font-size: 12px;
+}
+.kitchen-timer svg,
+.kitchen-ready svg,
+.kitchen-delivered svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.kitchen-ticket-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+.ops-root .kitchen-ticket-actions button {
+  flex: 1;
+  font-size: 12px;
+  padding: 7px 8px;
+  min-height: 34px;
+  border-radius: 7px;
+  justify-content: center;
+}
+.kitchen-ticket[data-status="Recibido"]
+  .kitchen-ticket-actions
+  button:first-child {
+  flex: 1.6;
+}
+.kitchen-ticket[data-status="Listo"] .ops-primary,
+.kitchen-ticket[data-status="En camino"] .ops-primary {
+  background: #00469f;
+  border-color: #00469f;
+}
+.ops-root .kitchen-history {
+  width: 100%;
+  margin-top: 8px;
+  justify-content: center;
+  min-height: 44px;
+}
+.ops-root .kitchen-board .ops-outline {
+  color: #142440;
+  border-color: #d7e0ed;
+}
+.ops-root .kitchen-board .kitchen-history,
+.ops-root .kitchen-ticket[data-status="En preparación"] .ops-outline {
+  border-color: #8796ad;
+}
+.ops-root .kitchen-column-heading p {
+  margin: 3px 0 0;
+  color: #63728f;
+}
+.ops-root .kitchen-note {
+  margin: 6px 0;
+}
+.ops-root[data-page="cocina/"] .ops-stat:first-child .ops-stat-icon {
+  --ops-icon-cutout: #ef0016;
+}
+.kitchen-column[data-stage="Entregado"] .kitchen-column-heading > svg {
+  background: #008a47;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+}
+.kitchen-board button:hover {
+  filter: brightness(0.96);
+}
+.kitchen-board button:focus-visible {
+  outline: 2px solid var(--kitchen-red);
+  outline-offset: 3px;
+}
+@media (min-width: 1500px) {
+  .ops-root[data-page="cocina/"] .ops-header {
+    gap: 24px;
+    padding-inline: 36px;
+    min-height: 76px;
+  }
+  .ops-root[data-page="cocina/"] .ops-header .ops-logo {
+    width: 210px;
+  }
+  .ops-root[data-page="cocina/"] .ops-header nav {
+    flex: 1;
+    gap: 12px;
+  }
+  .ops-root[data-page="cocina/"] .ops-header nav button {
+    font-size: 15px;
+    padding: 12px;
+  }
+  .ops-root[data-page="cocina/"] .ops-header-right .ops-date {
+    display: flex;
+    font-size: 14px;
+  }
+  .ops-root[data-page="cocina/"] .ops-user > span:not(.ops-avatar) {
+    display: block;
+    font-size: 13px;
+  }
+}
+@media (max-width: 1279px) {
+  .ops-root .kitchen-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ops-root[data-page="cocina/"] .ops-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kitchen-tabs {
+    width: 100%;
+  }
+}
+@media (max-width: 699px) {
+  .ops-root[data-page="cocina/"] .ops-content {
+    padding: 16px 12px;
+  }
+  .ops-root .kitchen-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ops-root[data-page="cocina/"] .ops-page-heading h1 {
+    letter-spacing: -1px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat {
+    padding: 12px;
+    gap: 10px;
+    min-height: 104px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat-icon {
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat strong {
+    font-size: 24px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat p {
+    font-size: 12px;
+  }
+  .ops-root[data-page="cocina/"] .ops-stat small {
+    font-size: 11px;
+  }
+  .ops-root .kitchen-tabs button {
+    padding: 9px 10px;
+    font-size: 12px;
+    gap: 6px;
+    min-height: 44px;
+  }
+  .kitchen-tabs {
+    gap: 6px;
+  }
+  .ops-root .kitchen-search {
+    flex-basis: 100%;
+  }
+  .kitchen-filter-toggle {
+    margin-left: auto;
+  }
+  .ops-root .kitchen-ticket-actions button {
+    min-height: 44px;
+  }
+}
+@media (max-width: 359px) {
+  .ops-root[data-page="cocina/"] .ops-stats {
+    grid-template-columns: 1fr;
+  }
+  .kitchen-ticket {
+    padding: 10px;
+  }
+  .kitchen-ticket-body {
+    gap: 8px;
+  }
+  .kitchen-ticket-body > img {
+    width: 60px;
+    height: 56px;
+  }
+  .kitchen-column-heading {
+    gap: 8px;
+    padding-inline: 0;
+  }
+  .kitchen-column-heading > svg {
+    width: 30px;
+    height: 30px;
+  }
+  .kitchen-count {
+    min-width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+  .kitchen-ticket-actions {
+    flex-wrap: wrap;
+  }
+  .ops-root .kitchen-ticket-actions button {
+    flex-basis: 100%;
+  }
+  .kitchen-timer {
+    flex-wrap: wrap;
+  }
+}

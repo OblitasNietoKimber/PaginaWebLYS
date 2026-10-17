@@ -1,0 +1,818 @@
+/* Styles aligned directly with LYS_Pantallas_Administrativas_PC_y_Movil/Administracion */
+
+/* Top header date pill and action group */
+.ops-header-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+}
+.ops-header-date-pill svg {
+  width: 17px;
+  height: 17px;
+  color: #64748b;
+}
+.ops-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Stat card trend hints */
+.ops-stat small.ops-trend-up,
+.ops-stat small:has(> .ops-trend-up) {
+  color: #16a34a;
+  font-weight: 600;
+}
+.ops-stat small.ops-trend-down,
+.ops-stat small:has(> .ops-trend-down) {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Admin filter toolbars */
+.ops-admin-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+.ops-admin-search {
+  position: relative;
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+.ops-admin-search input {
+  width: 100%;
+  padding-left: 38px;
+  height: 40px;
+  min-height: 40px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.ops-admin-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #64748b;
+  pointer-events: none;
+}
+.ops-admin-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+.ops-admin-filter-group select,
+.ops-admin-filter-group input {
+  height: 40px;
+  min-height: 40px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  font-size: 13.5px;
+  padding: 6px 12px;
+  background: #ffffff;
+}
+.ops-btn-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ops-btn-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Bulk actions bar */
+.ops-admin-bulk {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border: 1px solid #eaecf0;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: #f8fafc;
+  font-size: 13.5px;
+  color: #475569;
+}
+.ops-admin-bulk select {
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+/* User & Customer initials avatar */
+.ops-initials-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  background: #fee2e2;
+  color: #991b1b;
+}
+.ops-initials-avatar.blue { background: #e0f2fe; color: #0369a1; }
+.ops-initials-avatar.purple { background: #f3e8ff; color: #7e22ce; }
+.ops-initials-avatar.amber { background: #fef3c7; color: #b45309; }
+.ops-initials-avatar.green { background: #dcfce7; color: #15803d; }
+
+.ops-person-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ops-person-cell strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+.ops-person-cell small {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Role badges */
+.ops-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.ops-role-badge.admin { background: #fee2e2; color: #991b1b; }
+.ops-role-badge.cocina { background: #fef3c7; color: #92400e; }
+.ops-role-badge.caja { background: #e0f2fe; color: #075985; }
+.ops-role-badge.mesera { background: #f3e8ff; color: #6b21a8; }
+.ops-role-badge.delivery { background: #dcfce7; color: #166534; }
+
+/* Category badges */
+.ops-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  min-height: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+.ops-category-badge svg {
+  width: 13px !important;
+  height: 13px !important;
+  flex-shrink: 0;
+}
+.ops-category-badge.pollo,
+.ops-category-badge.pollos {
+  background: #ffedd5;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+.ops-category-badge.parrillas {
+  background: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+.ops-category-badge.combos {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.ops-category-badge.chaufas {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.ops-category-badge.saltados {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+}
+.ops-category-badge.acompanamientos,
+.ops-category-badge.complementos {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.ops-category-badge.bebidas {
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px solid #bae6fd;
+}
+.ops-category-badge.salsas {
+  background: #ffe4e6;
+  color: #9f1239;
+  border: 1px solid #fecdd3;
+}
+
+.ops-col-center {
+  text-align: center !important;
+}
+.ops-col-center .ops-category-badge {
+  margin: 0 auto;
+}
+
+/* Channel badges */
+.ops-channel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  min-height: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+.ops-channel-badge svg {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0;
+}
+.ops-channel-badge.salon { background: #fee2e2; color: #991b1b; }
+.ops-channel-badge.delivery { background: #e0f2fe; color: #075985; }
+.ops-channel-badge.recojo,
+.ops-channel-badge.llevar { background: #dcfce7; color: #166534; }
+
+/* Table action icons */
+.ops-table-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ops-table-actions button {
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+}
+.ops-table-actions button.btn-view { color: #2563eb; background: #eff6ff; }
+.ops-table-actions button.btn-edit { color: #ea580c; background: #fff7ed; }
+.ops-table-actions button.btn-delete { color: #dc2626; background: #fef2f2; }
+.ops-table-actions button.btn-more { color: #64748b; }
+.ops-table-actions button svg { width: 17px; height: 17px; }
+
+/* Roles and permissions card grid */
+.ops-roles-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.ops-role-card {
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.ops-role-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ops-role-card-icon.admin { background: #fee2e2; color: #dc2626; }
+.ops-role-card-icon.cocina { background: #fef3c7; color: #d97706; }
+.ops-role-card-icon.caja { background: #e0f2fe; color: #0284c7; }
+.ops-role-card-icon.mesera { background: #f3e8ff; color: #9333ea; }
+.ops-role-card-icon.delivery { background: #dcfce7; color: #16a34a; }
+.ops-role-card-content strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+.ops-role-card-content span {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 2px 0;
+}
+.ops-role-card-content small {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* System Settings Card Layout */
+.ops-settings-card {
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.ops-settings-card-header {
+  margin-bottom: 20px;
+}
+.ops-settings-card-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+.ops-settings-card-header p {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+.ops-settings-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 20px;
+}
+@media (max-width: 768px) {
+  .ops-settings-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+.ops-input-with-icon {
+  position: relative;
+}
+.ops-input-with-icon input {
+  padding-left: 38px;
+  width: 100%;
+}
+.ops-input-with-icon svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* Settings bottom action buttons */
+.ops-settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+.ops-btn-cancel {
+  padding: 10px 20px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #334155;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ops-btn-save {
+  padding: 10px 24px;
+  border: 0;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Donut chart center and legend */
+.ops-donut-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ops-donut-center-metric {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.ops-donut-center-metric small {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* POS Cash Split Layout */
+.ops-pos-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .ops-pos-split {
+    grid-template-columns: 1fr;
+  }
+}
+.ops-pending-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ops-pending-order-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ops-pending-order-item:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+.ops-pending-order-item.selected {
+  border-color: #dc2626;
+  background: #fff5f5;
+  box-shadow: 0 0 0 1px #dc2626;
+}
+.ops-pending-order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ops-pending-order-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ops-pending-order-top strong {
+  font-size: 14.5px;
+  color: #0f172a;
+}
+.ops-pending-order-amount {
+  text-align: right;
+}
+.ops-pending-order-amount strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #dc2626;
+}
+.ops-pending-order-amount small {
+  display: block;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+/* Checkout Panel on Right */
+.ops-pos-checkout {
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 20px;
+  position: sticky;
+  top: 80px;
+}
+.ops-pos-checkout-header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ops-pos-checkout-header h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.ops-pos-order-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  padding-right: 4px;
+}
+.ops-pos-line-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: #334155;
+}
+.ops-pos-line-item strong {
+  color: #0f172a;
+}
+.ops-pos-total-row {
+  border-top: 2px dashed #e2e8f0;
+  padding-top: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.ops-pos-total-row span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+.ops-pos-total-row strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #dc2626;
+}
+
+/* Payment Method Selection Buttons */
+.ops-method-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.ops-method-button {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.15s ease-in-out;
+}
+.ops-method-button:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+.ops-method-button.active {
+  border-color: #dc2626;
+  background: #fff5f5;
+  color: #991b1b;
+}
+
+/* Cash Presets */
+.ops-cash-presets {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.ops-cash-preset-btn {
+  padding: 6px 12px;
+  border: 1px solid #dce3ee;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ops-cash-preset-btn:hover {
+  border-color: #dc2626;
+  background: #fff5f5;
+  color: #dc2626;
+}
+
+/* Voucher type badges */
+.ops-voucher-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.ops-voucher-badge.boleta { background: #dcfce7; color: #166534; }
+.ops-voucher-badge.factura { background: #e0f2fe; color: #075985; }
+.ops-voucher-badge.nota { background: #f1f5f9; color: #475569; }
+
+/* Sales range selector */
+.ops-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+.ops-sales-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 36px;
+  line-height: 34px;
+  padding: 0 32px 0 12px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.ops-sales-select:hover {
+  border-color: #cbd5e1;
+}
+.ops-sales-select:focus {
+  border-color: #e53935;
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.15);
+}
+.ops-select-chevron {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px !important;
+  height: 14px !important;
+  color: #64748b;
+  pointer-events: none;
+}
+
+/* Compact status badge for administrative tables */
+.ops-root.ops-workspace[data-page] .ops-responsive-table .ops-badge,
+.ops-root.ops-workspace[data-page^="administrador"] .ops-badge,
+.ops-badge.ops-compact {
+  padding: 2px 9px !important;
+  min-height: 24px !important;
+  height: 24px !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  border-radius: 9999px !important;
+}
+.ops-root.ops-workspace[data-page] .ops-responsive-table .ops-badge svg,
+.ops-root.ops-workspace[data-page^="administrador"] .ops-badge svg {
+  width: 13px !important;
+  height: 13px !important;
+  flex-shrink: 0;
+}
+
+/* Modern compact status switch with Lucide/Tabler micro-icons */
+.ops-root .ops-switch,
+.ops-switch {
+  width: 38px !important;
+  min-width: 38px !important;
+  max-width: 38px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  padding: 2px !important;
+  border-radius: 9999px !important;
+  background-color: #cbd5e1 !important;
+  border: 1px solid #94a3b8 !important;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  box-sizing: border-box !important;
+  outline: none;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.ops-root .ops-switch:hover,
+.ops-switch:hover {
+  background-color: #94a3b8 !important;
+  border-color: #64748b !important;
+}
+.ops-root .ops-switch:focus-visible,
+.ops-switch:focus-visible {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25) !important;
+}
+.ops-root .ops-switch::before,
+.ops-switch::before {
+  content: "";
+  position: absolute;
+  inset: -10px -6px;
+  background: transparent;
+}
+.ops-root .ops-switch::after,
+.ops-switch::after {
+  content: "" !important;
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 8.5px 8.5px !important;
+  /* Lucide / Tabler 'x' icon */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") !important;
+  transform: translateX(0) !important;
+}
+
+.ops-root .ops-switch.on,
+.ops-switch.on {
+  background-color: #10b981 !important;
+  border-color: #059669 !important;
+}
+.ops-root .ops-switch.on:hover,
+.ops-switch.on:hover {
+  background-color: #059669 !important;
+  border-color: #047857 !important;
+}
+.ops-root .ops-switch.on::after,
+.ops-switch.on::after {
+  transform: translateX(16px) !important;
+  /* Lucide / Tabler 'check' icon */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* Method grid switch (keeps height >= 24px for compliance) */
+.ops-method-grid .ops-switch {
+  width: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+}
+.ops-method-grid .ops-switch::after {
+  width: 18px !important;
+  height: 18px !important;
+  background-size: 9.5px 9.5px !important;
+}
+.ops-method-grid .ops-switch.on::after {
+  transform: translateX(18px) !important;
+}
+
+.ops-col-center .ops-switch {
+  margin: 0 auto;
+}
+
+

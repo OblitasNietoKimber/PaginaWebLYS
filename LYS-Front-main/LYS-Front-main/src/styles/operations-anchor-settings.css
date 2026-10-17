@@ -1,0 +1,210 @@
+/* Reference layer: settings. */
+.ops-root.ops-workspace.ops-reference {
+  .ops-mobile-export-row {
+    display: contents;
+  }
+  &[data-page] .anchor-settings {
+    display: grid;
+    gap: 20px;
+    min-width: 0;
+  }
+  &[data-page] .anchor-settings-tabs {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid #e4e9f1;
+    padding: 0 0 0 6px;
+    overflow-x: auto;
+  }
+  &[data-page] .anchor-settings-tabs button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 52px;
+    padding: 0 14px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: #53637f;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 0;
+  }
+  &[data-page] .anchor-settings-tabs button[aria-current="page"] {
+    color: #ef0018;
+    border-bottom-color: #ef0018;
+  }
+  &[data-page] .anchor-settings-card {
+    min-width: 0;
+    border: 1px solid #e4e9f1;
+    border-radius: 10px;
+    background: white;
+    padding: 24px;
+  }
+  &[data-page] .anchor-settings-card h2 {
+    margin: 0 0 7px;
+    font-size: 22px;
+    line-height: 1.25;
+    color: #111827;
+  }
+  &[data-page] .anchor-settings-card p {
+    margin: 0 0 22px;
+    color: #71819d;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  &[data-page] .anchor-fields-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  &[data-page] .anchor-field-column {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+  }
+  &[data-page] .anchor-settings label {
+    display: grid;
+    gap: 9px;
+    font-size: 14px;
+    color: #53637f;
+    font-weight: 500;
+    min-width: 0;
+  }
+  &[data-page] .anchor-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    height: 44px;
+    border: 1px solid #d9e0ec;
+    border-radius: 6px;
+    padding: 0 12px;
+    background: #fff;
+    color: #71819d;
+  }
+  &[data-page] .anchor-field input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    color: #18243c;
+    font-size: 15px;
+    outline-offset: 2px;
+  }
+  &[data-page] .anchor-city-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  &[data-page] .anchor-setting-toggle {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    min-width: 0;
+  }
+  &[data-page] .anchor-setting-toggle > span {
+    flex: 1;
+    min-width: 0;
+  }
+  &[data-page] .anchor-setting-toggle strong {
+    display: block;
+    font-size: 15px;
+    color: #15233b;
+  }
+  &[data-page] .anchor-setting-toggle small {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 5px;
+    color: #71819d;
+  }
+  &[data-page] .anchor-settings-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #e4e9f1;
+    padding-top: 20px;
+  }
+  &[data-page] .anchor-settings-footer button {
+    height: 44px;
+    padding: 0 24px;
+    font-size: 15px;
+    min-height: 0;
+  }
+  @media (max-width: 1100px) {
+    &[data-page] .anchor-settings-card {
+      padding: 18px;
+    }
+    &[data-page] .anchor-settings > .anchor-fields-two {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    &[data-page] .ops-mobile-export-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-column: 1/-1;
+      font-size: 13px;
+    }
+    &[data-page] .anchor-settings {
+      gap: 12px;
+    }
+    &[data-page] .anchor-settings-tabs {
+      gap: 0;
+      padding: 0;
+      justify-content: space-between;
+    }
+    &[data-page] .anchor-settings-tabs button {
+      font-size: 12px;
+      gap: 5px;
+      padding: 0 7px;
+      height: 40px;
+    }
+    &[data-page] .anchor-settings-tabs svg {
+      width: 16px;
+      height: 16px;
+    }
+    &[data-page] .anchor-settings-card {
+      padding: 14px;
+    }
+    &[data-page] .anchor-settings-card h2 {
+      font-size: 17px;
+    }
+    &[data-page] .anchor-settings-card p {
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+    &[data-page] .anchor-fields-two {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    &[data-page] .anchor-field-column {
+      gap: 12px;
+    }
+    &[data-page] .anchor-settings label {
+      font-size: 12px;
+      gap: 6px;
+    }
+    &[data-page] .anchor-field {
+      height: 36px;
+      padding: 0 9px;
+    }
+    &[data-page] .anchor-field input {
+      font-size: 13px;
+    }
+    &[data-page] .anchor-settings-footer {
+      padding-top: 12px;
+      gap: 8px;
+    }
+    &[data-page] .anchor-settings-footer button {
+      height: 38px;
+      padding: 0 14px;
+      font-size: 13px;
+    }
+  }
+}

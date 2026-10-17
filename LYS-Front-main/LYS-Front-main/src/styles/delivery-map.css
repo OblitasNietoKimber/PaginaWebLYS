@@ -1,0 +1,43 @@
+.delivery-map-picker { margin-top: 24px; }
+.delivery-map-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.delivery-map-heading .checkout-outline { font-size: 13px; }
+.delivery-map-picker > p { font-size: 13px; color: #727987; line-height: 1.5; }
+.delivery-map-canvas { height: 380px; width: 100%; border-radius: 14px; border: 1px solid #dedfe4; background: #e9eeeb; z-index: 0; box-sizing: border-box; }
+.delivery-map-canvas .leaflet-tile { max-width: none !important; max-height: none !important; }
+.delivery-map-canvas .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 40px; color: #242424; }
+.delivery-map-canvas .leaflet-control-attribution { font-size: 10px; max-width: calc(100% - 10px); }
+.delivery-map-pin { border: 0; background: transparent; }
+.delivery-map-pin svg { width: 32px; height: 42px; filter: drop-shadow(0 2px 3px #0004); }
+.delivery-map-actions { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+.delivery-map-actions button { min-height: 36px; }
+.delivery-map-picker .delivery-map-selection { color: #343943; font-weight: 600; font-size: 12px; overflow-wrap: anywhere; }
+.delivery-map-picker .delivery-map-message { font-size: 12px; }
+.checkout-location-link { display: inline-flex; font-size: 13px; color: #e60008; margin-top: 8px; text-underline-offset: 3px; }
+@media (max-width: 650px) { .delivery-map-canvas { height: 320px; } .delivery-map-heading .checkout-outline { padding: 10px 12px; } }
+
+.delivery-map-picker { padding-top: 24px; border-top: 1px solid #eceef1; }
+.delivery-map-heading h2 { font-size: 20px; margin: 0; }
+.delivery-map-heading .checkout-outline { background: #fff; min-height: 44px; border-radius: 10px; }
+.delivery-map-canvas .leaflet-control-zoom { border: 0; box-shadow: 0 2px 10px #17232f26; border-radius: 10px; overflow: hidden; }
+.delivery-map-canvas .leaflet-control-zoom a { width: 44px; height: 44px; line-height: 44px; }
+.delivery-map-canvas .leaflet-control-attribution { background: #fffffff0; padding: 3px 8px; }
+.delivery-map-picker .delivery-map-selection { display: flex; align-items: center; gap: 8px; padding: 12px; background: #f4f5f6; border-radius: 8px; }
+.delivery-map-selection svg { width: 18px; height: 18px; color: #e60008; flex-shrink: 0; }
+.delivery-map-picker .delivery-map-message { color: #454c58; }
+.delivery-map-actions button { text-decoration: underline; text-underline-offset: 4px; }
+
+.address-autocomplete { position: relative; min-width: 0; }
+.address-autocomplete > label, .delivery-district > label { display: block; margin-bottom: 6px; font-size: 14px; }
+.address-autocomplete label span, .delivery-district label span { color: #e60008; }
+.address-autocomplete > input, .delivery-district > select { width: 100%; min-height: 44px; box-sizing: border-box; }
+.address-autocomplete-menu { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; margin-top: 6px; background: #fff; border: 1px solid #d9dde2; border-radius: 10px; overflow: hidden; }
+.address-autocomplete-menu ul { padding: 0; margin: 0; list-style: none; max-height: 250px; overflow-y: auto; }
+.address-autocomplete-menu li { display: flex; align-items: flex-start; gap: 10px; padding: 12px; cursor: pointer; border-bottom: 1px solid #eceef1; }
+.address-autocomplete-menu li:hover, .address-autocomplete-menu li[aria-selected="true"] { background: #f3f4f5; }
+.address-autocomplete-menu li svg { width: 18px; height: 18px; flex-shrink: 0; color: #e60008; }
+.address-autocomplete-menu strong { display: block; font-size: 14px; overflow-wrap: anywhere; }
+.address-autocomplete-menu small { display: block; color: #666e7b; font-size: 12px; margin-top: 3px; overflow-wrap: anywhere; }
+.address-autocomplete-menu p:empty { display: none; }
+.address-autocomplete-menu p { margin: 0; padding: 10px 12px; font-size: 12px; color: #555d68; }
+.address-autocomplete-menu .address-search-credit { padding: 8px 12px; background: #fafafa; margin: 0; font-size: 10px; }
+.delivery-other-district { display: block; margin-top: 10px; }

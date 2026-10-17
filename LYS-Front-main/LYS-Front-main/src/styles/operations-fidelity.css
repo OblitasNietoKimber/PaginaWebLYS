@@ -1,0 +1,898 @@
+/* Refinements follow the supplied operational references, with a white canvas. */
+.ops-root svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.ops-root button:has(> svg),
+.ops-method-label,
+.ops-order-time span,
+.ops-order-time strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.ops-root {
+  font-size: 16px;
+  color: #142546;
+}
+
+.ops-root small {
+  font-size: 14px;
+}
+
+.ops-root h2 {
+  font-size: 25px;
+  letter-spacing: -0.8px;
+}
+
+.ops-root h3 {
+  font-size: 21px;
+}
+
+.ops-root button {
+  min-height: 40px;
+}
+
+.ops-header {
+  min-height: 84px;
+  box-shadow: 0 5px 20px #20120905;
+}
+
+.ops-root .ops-logo {
+  width: 245px;
+}
+
+.ops-header nav button {
+  font-size: 16px;
+  padding: 14px 12px;
+  gap: 10px;
+}
+
+.ops-header nav button svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ops-root[data-page^="cocina"] .ops-header nav button.active,
+.ops-root[data-page^="mesera"] .ops-header nav button.active {
+  background: #fff5f4;
+  color: #ed0017;
+  position: relative;
+}
+
+.ops-root[data-page^="cocina"] .ops-header nav button.active:after,
+.ops-root[data-page^="mesera"] .ops-header nav button.active:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background: #ed0017;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+}
+
+.ops-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.ops-open {
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 12px;
+}
+
+.ops-open small {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.ops-root .ops-user {
+  border: 0;
+  background: transparent;
+  padding: 0 0 0 12px;
+  max-width: 200px;
+  gap: 9px;
+}
+
+.ops-user > span:not(.ops-avatar) {
+  text-align: left;
+  max-width: 95px;
+}
+
+.ops-avatar {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex: 0 0 44px;
+  padding: 9px;
+}
+
+.ops-avatar svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ops-root .ops-notification-toggle {
+  border: 0;
+  background: transparent;
+  position: relative;
+  padding: 7px;
+}
+
+.ops-notification-toggle sup {
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  font-size: 11px;
+  border-radius: 50%;
+  background: #ed0017;
+  color: white;
+  padding: 3px;
+  min-width: 17px;
+}
+
+.ops-content {
+  padding: 30px 32px 24px;
+}
+
+.ops-page-heading {
+  min-height: 110px;
+  margin-bottom: 20px;
+}
+
+.ops-page-heading h1 {
+  font-size: clamp(34px, 3vw, 56px);
+  letter-spacing: -1.8px;
+}
+
+.ops-page-heading p {
+  font-size: 21px;
+}
+
+.ops-slogan {
+  font-size: 40px;
+}
+
+.ops-root[data-page^="mesera"] .ops-page-heading {
+  background:
+    linear-gradient(90deg, white 58%, #ffffff22),
+    url("/images/home/pollo-640.webp") right 48%/390px auto no-repeat;
+}
+
+.ops-root[data-page^="cocina"] .ops-page-heading > div:first-child > span,
+.ops-root[data-page^="mesera"] .ops-page-heading > div:first-child > span {
+  display: none;
+}
+
+.ops-root[data-page^="cocina"] .ops-page-heading h1,
+.ops-root[data-page^="mesera"] .ops-page-heading h1 {
+  padding-left: 35px;
+  position: relative;
+}
+
+.ops-root[data-page^="cocina"] .ops-page-heading h1:before,
+.ops-root[data-page^="mesera"] .ops-page-heading h1:before {
+  content: "";
+  width: 28px;
+  height: 46px;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 46'%3E%3Cpath d='M8 4 26 15M3 23l21 1M8 42l18-12' stroke='red' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E")
+    center/contain no-repeat;
+}
+
+.ops-stat {
+  padding: 22px;
+  min-height: 116px;
+}
+
+.ops-stat p {
+  font-size: 17px;
+  color: #34496e;
+  margin: 0 0 3px;
+}
+
+.ops-stat strong {
+  font-size: 40px;
+  letter-spacing: -1.4px;
+}
+
+.ops-stat-icon {
+  padding: 17px;
+  border-radius: 14px;
+}
+
+.ops-stat-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.ops-panel {
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #35231a05;
+  margin-bottom: 18px;
+}
+
+.ops-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ops-panel-title > div {
+  min-width: 0;
+}
+
+.ops-panel-title p {
+  font-size: 15px;
+  margin: 3px 0 0;
+}
+
+.ops-panel-icon {
+  color: #ed0017;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ops-panel-icon svg {
+  width: 35px;
+  height: 35px;
+}
+
+.ops-panel-count {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff0f2;
+  color: #ed0017;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.ops-panel > header button {
+  font-size: 14px;
+}
+
+.ops-panel[data-panel="En preparación"] .ops-panel-icon,
+.ops-panel[data-panel="Listos para entregar"] .ops-panel-icon {
+  color: #bd7b12;
+}
+
+.ops-panel[data-panel="Completados"] .ops-panel-icon {
+  color: #06994e;
+}
+
+.ops-panel[data-panel="Completados"] .ops-panel-count {
+  background: #e6f7ed;
+  color: #07954e;
+}
+
+.ops-kanban .ops-panel {
+  padding: 18px 14px;
+}
+
+.ops-kanban .ops-panel-title {
+  gap: 12px;
+}
+
+.ops-kanban h2 {
+  font-size: 24px;
+}
+
+.ops-root[data-page="cocina/pedidos"] .ops-two-main,
+.ops-root[data-page="cocina/historial"] .ops-two-main {
+  grid-template-columns: minmax(0, 3fr) minmax(300px, 1fr);
+}
+
+.ops-order-card {
+  padding: 20px;
+}
+
+.ops-order-card > header strong {
+  font-size: 25px;
+}
+
+.ops-order-time {
+  font-size: 16px;
+}
+
+.ops-order-products img {
+  width: 39%;
+  aspect-ratio: 1.4;
+}
+
+.ops-order-products p {
+  font-size: 17px;
+  color: #3c5174;
+}
+
+.ops-order-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.ops-order-note.neutral {
+  background: #f4f5f7;
+  color: #74829c;
+}
+
+.ops-card-actions button {
+  font-size: 16px;
+  min-height: 50px;
+}
+
+.ops-kanban .ops-order-card.compact {
+  background: #fff;
+  border-color: #edf0f4;
+  padding: 16px;
+}
+
+.ops-kanban .ops-order-card.compact[data-status="Recibido"] {
+  background: #fff8f8;
+  border-color: #fbe7e9;
+}
+
+.ops-kanban .ops-order-card.compact .ops-order-products {
+  display: flex;
+}
+
+.ops-kanban .ops-order-card.compact .ops-order-note {
+  display: none;
+}
+
+.ops-kanban .ops-order-card.compact .ops-card-actions button {
+  border: 1px solid #ed0017;
+  padding: 9px 7px;
+  font-size: 14px;
+  color: #ed0017;
+  background: white;
+}
+
+.ops-kanban .ops-order-card.compact .ops-card-actions .ops-primary {
+  background: #ed0017;
+  color: white;
+}
+
+.ops-kanban .ops-order-card.compact[data-status="Entregado"] {
+  background: #effaf4;
+  border-color: #d9f3e5;
+}
+
+.ops-kanban
+  .ops-order-card.compact[data-status="Entregado"]
+  .ops-order-products {
+  display: none;
+}
+
+.ops-kanban
+  .ops-order-card.compact[data-status="Entregado"]
+  .ops-card-actions
+  button {
+  border: 0;
+  background: transparent;
+  color: #17764b;
+}
+
+.ops-order-progress {
+  margin-top: 12px;
+}
+
+.ops-order-progress progress {
+  accent-color: #e8950d;
+  height: 10px;
+}
+
+.ops-badge {
+  font-size: 14px;
+  gap: 7px;
+  padding: 7px 12px;
+}
+
+.ops-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ops-status-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.ops-tabs {
+  gap: 3px;
+  border: 1px solid #e3e7ee;
+  border-radius: 13px;
+  background: white;
+  padding: 5px;
+}
+
+.ops-tabs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  border: 0;
+  padding: 12px 18px;
+}
+
+.ops-tabs svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ops-wallet-mark {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.ops-root table {
+  font-size: 15px;
+}
+
+.ops-root th {
+  font-size: 14px;
+  padding: 14px 12px;
+  color: #344665;
+  background: #f6f7f9;
+}
+
+.ops-root td {
+  padding: 13px 12px;
+}
+
+.ops-product-summary,
+.ops-person,
+.ops-supply-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.ops-product-summary > img {
+  width: 72px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.ops-product-summary > div {
+  min-width: 120px;
+}
+
+.ops-product-summary strong,
+.ops-person strong,
+.ops-supply-summary strong {
+  display: block;
+}
+
+.ops-product-summary small {
+  max-width: 230px;
+}
+
+.ops-person .ops-avatar {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  background: #eff1f5;
+  color: #314362;
+  padding: 8px;
+}
+
+.ops-root .ops-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.ops-root .ops-actions button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ops-method-label {
+  justify-content: flex-start;
+}
+
+.ops-root[data-page="caja/cobros"] .ops-split {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.ops-detail-lines img {
+  border-radius: 8px;
+}
+
+.ops-priority {
+  width: 100%;
+  background: #fff5f6 !important;
+  border-color: #fde4e8 !important;
+  padding: 16px !important;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.ops-priority .ops-product-summary {
+  margin: 8px 0;
+}
+
+.ops-chart svg {
+  width: 100%;
+  height: auto;
+}
+
+.ops-column-chart {
+  min-height: 200px;
+}
+
+.ops-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ops-bar-label img {
+  width: 50px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.ops-bars > div {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) 30px;
+  font-size: 14px;
+}
+
+.ops-promotion-photo {
+  width: 145px;
+  height: 90px;
+  position: relative;
+  float: left;
+  margin-right: 15px;
+}
+
+.ops-promotion-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.ops-promotion-photo > span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #ed0017;
+  color: white;
+  padding: 4px 9px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.ops-ingredient-photo {
+  display: block;
+  width: 60px;
+  height: 80px;
+  flex: 0 0 60px;
+  background: url("/images/operations/inventory-ingredients-v1.png") 0%
+    center/400% 100% no-repeat;
+}
+
+.ops-ingredient-photo.potatoes {
+  background-position: 33.333% center;
+}
+
+.ops-ingredient-photo.charcoal {
+  background-position: 66.667% center;
+}
+
+.ops-ingredient-photo.sauce {
+  background-position: 100% center;
+}
+
+.ops-supply-photo {
+  width: 60px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.ops-supply-placeholder {
+  width: 60px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  color: #c0c7d2;
+}
+
+.ops-supply-placeholder svg {
+  width: 40px;
+  height: 40px;
+}
+
+.ops-method-grid article {
+  box-shadow: 0 3px 9px #18376205;
+  padding: 24px;
+}
+
+.ops-method-grid .ops-method-label {
+  font-size: 22px;
+  gap: 15px;
+}
+
+.ops-method-grid .ops-wallet-mark,
+.ops-method-grid .ops-method-label svg {
+  width: 60px;
+  height: 60px;
+}
+
+.ops-table-seat:before,
+.ops-table-seat:after {
+  height: 18px;
+  border-radius: 9px;
+  background: linear-gradient(#b89365, #755338);
+  box-shadow: 0 4px 6px #24150a55;
+}
+
+.ops-floor:not(.list) .ops-chair-left,
+.ops-floor:not(.list) .ops-chair-right {
+  width: 17px;
+  height: 60%;
+  background: linear-gradient(90deg, #755338, #ba9465);
+  border-radius: 8px;
+  box-shadow: 0 3px 5px #24150a55;
+  position: absolute;
+  top: 20%;
+  left: -23px;
+}
+
+.ops-floor:not(.list) .ops-chair-right {
+  left: auto;
+  right: -23px;
+}
+
+.ops-user > span:not(.ops-avatar) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px;
+}
+
+.ops-user small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ops-completed-row {
+  display: flex !important;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: #effaf5 !important;
+  border: 1px solid #d9f3e5 !important;
+  padding: 14px 12px !important;
+  margin-bottom: 12px;
+}
+
+.ops-completed-row > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+
+.ops-completed-row strong {
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.ops-completed-row small {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.ops-completed-row > span:nth-child(3) small {
+  color: #15965d;
+  text-align: right;
+}
+
+.ops-completed-row small svg {
+  width: 17px;
+  height: 17px;
+}
+
+.ops-completed-check {
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+  color: white;
+  border-radius: 50%;
+  background: #059d58;
+  display: grid;
+  place-items: center;
+}
+
+.ops-root progress {
+  appearance: none;
+  border: 0;
+  border-radius: 20px;
+  height: 10px;
+  background: #e9edf2;
+  overflow: hidden;
+}
+
+.ops-root progress::-webkit-progress-bar {
+  background: #e9edf2;
+  border-radius: 20px;
+}
+
+.ops-root progress::-webkit-progress-value {
+  background: #11b561;
+  border-radius: 20px;
+}
+
+.ops-order-progress progress::-webkit-progress-value {
+  background: #ec980d;
+}
+
+.ops-category-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #b97b27;
+  padding: 7px 12px;
+  background: #fff4e4;
+  border-radius: 9px;
+}
+
+.ops-category-label svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ops-root[data-page="administrador/productos"] .ops-switch.on {
+  background: #ed0017;
+}
+
+.ops-root[data-page="administrador/productos"] .ops-product-cell img {
+  width: 90px;
+  height: 65px;
+  border-radius: 9px;
+}
+
+.ops-root[data-page="administrador/productos"] .ops-product-cell small {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ops-method-grid > article {
+  min-width: 0;
+}
+
+.ops-method-grid header {
+  flex-wrap: wrap;
+}
+
+.ops-method-grid .ops-method-label {
+  min-width: 0;
+}
+
+.ops-stat.gray .ops-stat-icon {
+  background: #f0f1f4;
+  color: #667081;
+}
+
+.ops-root[data-page="mesera/cierre-mesa"] .ops-cart-line {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.ops-root[data-page="administrador/inventario"] .ops-with-sidebar {
+  align-items: start;
+}
+
+.ops-root[data-page="caja/cobros"] td:last-child .ops-primary {
+  white-space: nowrap;
+}
+
+.ops-root[data-page="caja/cobros"] td:nth-child(3) .ops-avatar {
+  display: none !important;
+}
+
+.ops-root[data-page="caja/cobros"] .ops-product-summary > img {
+  width: 58px;
+  height: 50px;
+}
+
+.ops-ingredient-photo.potatoes {
+  background-position: 34.5% center;
+}
+
+.ops-ingredient-photo.sauce {
+  background-position: 97% center;
+}
+
+.ops-kanban .ops-order-card.compact[data-status="Recibido"] .ops-card-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+}
+
+.ops-kanban
+  .ops-order-card.compact[data-status="Recibido"]
+  .ops-card-actions
+  > .ops-outline {
+  font-size: 0;
+  gap: 0;
+}
+
+.ops-kanban
+  .ops-order-card.compact[data-status="Recibido"]
+  .ops-card-actions
+  > .ops-outline
+  svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ops-ingredient-photo.potatoes,
+.ops-ingredient-photo.sauce {
+  clip-path: inset(0 0 0 6px);
+}
+
+.ops-root[data-page="administrador/productos"] .ops-product-cell img {
+  height: 60px;
+}
+
+.ops-panel[data-panel^="Nuevo "] .ops-panel-icon {
+  background: #ed0017;
+  color: white;
+  border-radius: 50%;
+  padding: 7px;
+}
+
+.ops-panel[data-panel^="Nuevo "] .ops-panel-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ops-root table button {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.ops-kanban .ops-order-products img {
+  width: 32%;
+  max-height: 88px;
+}

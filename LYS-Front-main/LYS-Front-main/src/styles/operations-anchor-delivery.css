@@ -1,0 +1,169 @@
+/* Reference layer: delivery. */
+.ops-root.ops-workspace.ops-reference {
+  @media (min-width: 1100px) and (max-width: 1500px) {
+    &[data-page="cocina/tiempos"] .ops-responsive-table :is(td, th) {
+      padding: 8px !important;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    &[data-page="cocina/tiempos"] .ops-product-summary {
+      min-width: 0;
+      gap: 7px;
+    }
+    &[data-page="cocina/tiempos"] .ops-product-summary img {
+      width: 36px;
+      height: 32px;
+    }
+    &[data-page="cocina/tiempos"] .ops-product-summary > div {
+      min-width: 110px;
+    }
+    &[data-page="cocina/tiempos"] .anchor-kitchen-time-actions {
+      gap: 3px;
+      flex-wrap: wrap;
+    }
+    &[data-page="cocina/tiempos"] .anchor-kitchen-time-actions button {
+      font-size: 10px;
+      padding: 4px 6px;
+    }
+  }
+  @media (max-width: 600px) {
+    &[data-page] .anchor-history-mobile header {
+      flex-wrap: wrap;
+    }
+    &[data-page] .anchor-history-mobile header > strong {
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
+    &[data-page] .kitchen-ticket-actions button {
+      min-height: 34px;
+    }
+    &[data-page="delivery/"] .ops-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+    &[data-page="delivery/"] .ops-stat {
+      padding: 9px 7px;
+      gap: 5px;
+      min-height: 64px;
+      align-items: flex-start;
+    }
+    &[data-page="delivery/"] .ops-stat-icon {
+      width: 20px;
+      height: 22px;
+      flex-basis: 20px;
+    }
+    &[data-page="delivery/"] .ops-stat p {
+      font-size: 10px;
+      line-height: 13px;
+    }
+    &[data-page="delivery/"] .ops-stat strong {
+      font-size: 20px;
+      line-height: 25px;
+    }
+    &[data-page="delivery/"] .ops-delivery-search {
+      display: none;
+    }
+    &[data-page="delivery/"] .ops-reference-tabs {
+      gap: 0;
+      background: #f3f5f8;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    &[data-page="delivery/"] .ops-reference-tabs button {
+      font-size: 11px;
+      padding: 10px 4px;
+      background: transparent;
+    }
+    &[data-page="delivery/"] .ops-reference-tabs button[aria-pressed="true"] {
+      background: #fff0f2;
+    }
+    &[data-page="delivery/"] .ops-delivery-map {
+      display: none;
+    }
+    &[data-page="delivery/"] .anchor-delivery-inline-map {
+      display: block;
+      margin: 0 0 12px;
+    }
+    &[data-page="delivery/"] .anchor-delivery-inline-map iframe {
+      width: 100%;
+      height: 130px;
+      border: 0;
+      border-radius: 6px;
+    }
+    &[data-page="delivery/"] .anchor-delivery-inline-map button {
+      min-height: 100px;
+      padding: 12px;
+      font-size: 12px;
+    }
+    &[data-page="delivery/"] .ops-delivery-card {
+      padding: 12px;
+    }
+    &[data-page="delivery/"] .ops-delivery-id {
+      font-size: 16px;
+    }
+    &[data-page="delivery/"] .ops-delivery-card > header {
+      gap: 8px;
+      padding-bottom: 9px;
+      margin-bottom: 10px;
+    }
+    &[data-page="delivery/"] .ops-delivery-card header .ops-badge {
+      font-size: 10px;
+      padding: 4px 7px;
+    }
+    &[data-page="delivery/"] .ops-delivery-card time {
+      font-size: 10px;
+    }
+    &[data-page="delivery/"] .ops-delivery-customer strong {
+      font-size: 13px;
+    }
+    &[data-page="delivery/"] .ops-delivery-customer p {
+      font-size: 11px;
+      line-height: 15px;
+    }
+    &[data-page="delivery/"] .ops-delivery-total strong {
+      font-size: 16px;
+    }
+    &[data-page="delivery/"] .anchor-delivery-estimate {
+      gap: 8px;
+      padding: 9px 0;
+      margin-bottom: 12px;
+    }
+    &[data-page="delivery/"] .anchor-delivery-estimate dt {
+      font-size: 9px;
+      line-height: 12px;
+      gap: 3px;
+    }
+    &[data-page="delivery/"] .anchor-delivery-estimate dd {
+      font-size: 11px;
+      line-height: 14px;
+    }
+    &[data-page="delivery/"] .ops-reference-line-items strong {
+      font-size: 12px;
+    }
+    &[data-page="delivery/"] .ops-reference-line-items img {
+      width: 45px;
+      height: 40px;
+    }
+    &[data-page="delivery/"] .ops-delivery-card footer .ops-primary {
+      min-height: 36px;
+    }
+  }
+  @media (max-width: 340px) {
+    &[data-page] .anchor-shift-meta {
+      grid-template-columns: 1fr;
+    }
+    &[data-page] .anchor-history-mobile footer {
+      grid-template-columns: 1fr 1fr;
+    }
+    &[data-page="delivery/"] .ops-stat {
+      display: block;
+    }
+    &[data-page="delivery/"] .ops-stat-icon {
+      display: none;
+    }
+    &[data-page="delivery/"] .ops-delivery-customer {
+      grid-template-columns: 1fr;
+    }
+  }
+}

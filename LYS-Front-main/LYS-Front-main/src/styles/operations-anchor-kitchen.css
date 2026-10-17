@@ -1,0 +1,215 @@
+/* Reference layer: kitchen. */
+.ops-root.ops-workspace.ops-reference {
+  &[data-page] .ops-brand img {
+    transform: scale(1.27);
+  }
+  &[data-page] .anchor-kitchen-metrics-historial .ops-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  &[data-page] .anchor-kitchen-metrics-historial .ops-stat:last-child {
+    display: none;
+  }
+  &[data-page] .anchor-kitchen-metrics-pedidos {
+    display: none;
+  }
+  &[data-page] .anchor-history-tabs,
+  &[data-page] .anchor-history-mobile {
+    display: none;
+  }
+  &[data-page] .anchor-kitchen-history .ops-admin-filter-bar {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    border: 0;
+    padding: 0 0 16px;
+    flex-wrap: wrap;
+  }
+  &[data-page] .anchor-kitchen-history .ops-admin-search {
+    flex: 1 1 250px;
+  }
+  &[data-page] .anchor-kitchen-history label {
+    font-size: 12px;
+    display: grid;
+    gap: 6px;
+    flex: 0 1 135px;
+    min-width: 0;
+  }
+  &[data-page] .anchor-kitchen-history :is(input, select) {
+    height: 40px;
+    min-height: 0;
+    font-size: 14px;
+  }
+  &[data-page] .anchor-kitchen-history button {
+    height: 40px;
+    min-height: 0;
+    font-size: 14px;
+  }
+  &[data-page] .anchor-view-button {
+    width: 32px !important;
+    height: 30px !important;
+    min-height: 0 !important;
+    padding: 5px !important;
+    border: 0;
+    background: #f2f6fe;
+    color: #0757db;
+  }
+  &[data-page] .anchor-view-button span {
+    display: none;
+  }
+  &[data-page] .anchor-record-count {
+    font-size: 13px;
+    color: #7384a1;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) {
+    &[data-page] .anchor-kitchen-metrics-pedidos {
+      display: block;
+    }
+    &[data-page] .anchor-kitchen-metrics-historial .ops-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+    &[data-page] .anchor-kitchen-metrics-historial .ops-stat:last-child {
+      display: flex;
+    }
+    &[data-page] .anchor-history-tabs {
+      display: flex;
+      gap: 5px;
+      margin: 8px 0 10px;
+      border-bottom: 1px solid #e4e9f1;
+    }
+    &[data-page] .anchor-history-tabs button {
+      flex: 1;
+      background: white;
+      color: #697c98;
+      border: 0;
+      border-radius: 0;
+      font-size: 11px;
+      padding: 7px 2px;
+      height: 32px;
+    }
+    &[data-page] .anchor-history-tabs button[aria-pressed="true"] {
+      color: #ed0017;
+      background: #fff3f4;
+      border-bottom: 2px solid #ed0017;
+    }
+    &[data-page] .anchor-history-table {
+      display: none;
+    }
+    &[data-page] .anchor-history-mobile {
+      display: grid;
+      gap: 10px;
+    }
+    &[data-page] .anchor-history-mobile article {
+      border: 1px solid #e4e9f1;
+      border-radius: 6px;
+      padding: 10px;
+      min-width: 0;
+    }
+    &[data-page] .anchor-history-mobile header {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+    }
+    &[data-page] .anchor-history-mobile header .ops-badge {
+      margin-left: auto;
+      font-size: 10px;
+      padding: 3px 5px;
+    }
+    &[data-page] .anchor-history-mobile .kr-channel {
+      font-size: 10px;
+    }
+    &[data-page] .anchor-history-lines {
+      margin: 8px 0;
+      font-size: 12px;
+      color: #53637f;
+    }
+    &[data-page] .anchor-history-lines p {
+      margin: 3px 0;
+      line-height: 1.3;
+    }
+    &[data-page] .anchor-history-mobile footer {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+      gap: 5px;
+      font-size: 10px;
+      color: #7b8ba6;
+      align-items: center;
+    }
+    &[data-page] .anchor-history-mobile footer b {
+      display: block;
+      color: #21314e;
+      font-size: 11px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    &[data-page] .anchor-history-mobile footer button {
+      padding: 4px 7px;
+      height: 27px;
+      font-size: 11px;
+      background: #f2f6fe;
+      border: 0;
+      color: #0757db;
+    }
+    &[data-page] .anchor-history-mobile footer svg {
+      width: 13px;
+      height: 13px;
+    }
+    &[data-page] .anchor-kitchen-history .ops-admin-filter-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    &[data-page] .anchor-kitchen-history .ops-admin-search {
+      grid-column: 1/-1;
+    }
+    &[data-page] .anchor-kitchen-history :is(input, select) {
+      height: 32px;
+      font-size: 12px;
+    }
+    &[data-page] .anchor-kitchen-history button {
+      height: 32px;
+      font-size: 12px;
+    }
+    &[data-page] .ops-kitchen-ticket-main {
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 9px;
+    }
+    &[data-page] .ops-kitchen-ticket-main > img {
+      width: 58px;
+      height: 58px;
+    }
+    &[data-page] .kitchen-ticket {
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    &[data-page] .kitchen-ticket-actions {
+      margin-top: 8px;
+      gap: 8px;
+    }
+    &[data-page] .kitchen-ticket-actions button {
+      min-height: 30px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    &[data-page] .ops-kitchen-elapsed {
+      font-size: 13px;
+    }
+    &[data-page] .ops-kitchen-elapsed svg {
+      width: 17px;
+      height: 17px;
+    }
+    &[data-page] .kitchen-ticket-id {
+      font-size: 14px;
+      min-height: 20px;
+    }
+    &[data-page] .ops-kitchen-ticket-main ul {
+      font-size: 11px;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+  }
+  &[data-page^="cocina/"] .ops-page-heading h1 {font-style:normal}
+  &[data-page="cocina/tiempos"] .ops-product-time-bars > div > span {display:flex;align-items:center;gap:8px}
+  &[data-page="cocina/tiempos"] .ops-product-time-bars img {width:28px;height:25px;object-fit:cover;border-radius:4px;flex-shrink:0}
+}

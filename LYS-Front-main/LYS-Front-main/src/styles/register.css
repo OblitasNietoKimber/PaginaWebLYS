@@ -1,0 +1,82 @@
+.compact-auth-card { padding: clamp(22px, 2vw, 30px); }
+.auth-heading { text-align: center; margin-bottom: 22px; }
+.compact-auth-card h2 { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--button-red); font-family: 'Caveat', sans-serif; font-size: clamp(36px, 4vw, 48px); font-weight: 700; font-style: italic; line-height: 1.05; letter-spacing: -.04em; margin: 0; }
+.heading-rays { width: 16px; height: 3px; background: currentColor; position: relative; flex-shrink: 0; border-radius: 50%; }
+.heading-rays::before, .heading-rays::after { content: ''; position: absolute; width: 12px; height: 3px; left: 4px; background: currentColor; border-radius: inherit; }
+.heading-rays::before { top: -10px; transform: rotate(35deg); }
+.heading-rays::after { top: 10px; transform: rotate(-35deg); }
+.heading-rays:last-child { transform: rotate(180deg); }
+.auth-description { color: #455775; font-size: 14px; line-height: 1.4; margin: 6px 0 0; }
+.compact-auth-card .fields { gap: 8px; }
+.compact-auth-card .field-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.compact-auth-card .field-group { gap: 0; }
+.compact-auth-card .input-field { min-height: 44px; background: #fcfcfd; gap: 10px; padding-inline: 12px; }
+.compact-auth-card .input-field > svg { width: 19px; height: 19px; color: #52565d; }
+.compact-auth-card .input-field input { font-size: 14px; }
+.compact-auth-card .input-field input::placeholder { color: #69717f; }
+.compact-auth-card .field-error, .compact-auth-card .field-help { margin-top: 5px; }
+.register-card .input-field:has(.phone-prefix) { position: relative; }
+.phone-prefix { flex-shrink: 0; border-left: 1px solid var(--input-border); padding-left: 8px; }
+.phone-country { width: 22px; height: 15px; flex-shrink: 0; border-radius: 2px; box-shadow: 0 0 0 1px #172b4d12; }
+.phone-country-trigger { display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 2px; border: 0; border-radius: 5px; background: transparent; color: #354964; }
+.phone-country-trigger:hover { background: #edf1f8; }
+.phone-calling-code { color: #303846; font-size: 13px; }
+.phone-chevron { width: 15px; height: 15px; transition: transform 160ms; }
+.phone-country-trigger[aria-expanded="true"] .phone-chevron { transform: rotate(180deg); }
+.phone-country-popover { position: absolute; right: 0; top: calc(100% + 8px); z-index: 4; width: min(320px, 100%); padding: 8px; background: #fff; border: 1px solid #dce1ec; border-radius: 12px; box-shadow: 0 12px 32px #172b4d26; }
+.country-search { display: block; border: 1px solid #dce1ec; border-radius: 7px; background: #f5f7fa; margin-bottom: 6px; padding-inline: 10px; }
+.phone-country-popover.opens-above { top: auto; bottom: calc(100% + 8px); }
+.register-card .country-search input { min-height: 40px; padding: 8px 0; font-size: 13px; }
+.country-search:focus-within { border-color: var(--focus); box-shadow: 0 0 0 2px #24487d18; }
+.country-list { max-height: min(264px, 40dvh); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #b8c2d3 transparent; }
+.country-option { width: 100%; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px; border: 0; border-radius: 6px; background: #fff; color: #354964; text-align: left; font-size: 13px; }
+.country-option:hover, .country-option:focus-visible { background: #f2f5fa; }
+.country-option[aria-selected="true"] { color: #b80012; background: #fff2f3; font-weight: 600; }
+.country-option-prefix { margin-left: auto; color: #69758a; font-size: 12px; }
+.country-option > svg:last-child:not(.phone-country) { width: 16px; height: 16px; flex-shrink: 0; }
+.country-empty { margin: 12px 8px; color: #69758a; font-size: 13px; }
+.compact-auth-card .sign-in-button { min-height: 46px; position: relative; letter-spacing: .08em; }
+.compact-auth-card .sign-in-button > svg { position: absolute; right: 14px; }
+.compact-auth-card .or-divider { margin: 14px 0; gap: 12px; }
+.compact-auth-card .or-divider span { text-transform: uppercase; font-size: 10px; letter-spacing: .22em; white-space: nowrap; }
+.compact-auth-card .google-button { min-height: 46px; font-size: 15px; }
+.compact-auth-card .register-divider { font-size: 13px; margin-top: 12px; }
+.field-help { margin: 0; color: #226d39; font-size: 13px; line-height: 1.4; }
+.input-field.field-success:not(:focus-within) { border-color: #54866b; }
+.terms-group { margin: 8px 0 12px; }
+.terms-option { display: grid; grid-template-columns: 16px minmax(0, 1fr); align-items: start; gap: 8px; color: #455775; font-size: 12px; line-height: 1.5; }
+.terms-option .remember-option { min-height: 44px; align-items: center; padding-top: 0; }
+.terms-option > span { padding-top: 13px; }
+.terms-option .remember-option input { top: 0; transform: none; height: 44px; }
+.terms-option .text-link { text-align: left; font-size: inherit; display: inline; line-height: inherit; }
+.register-page .registration-caption { width: min(70%, 420px); margin-top: 12px; text-wrap: pretty; }
+.register-page { --photo-offset: 80px; }
+.register-page .hero-background { padding-top: var(--photo-offset); }
+.register-page .welcome-copy { width: min(calc(100% - 100px), 760px); }
+@media (max-width: 1150px) {
+ .register-page .hero-layout { display: flex; flex-direction: column; gap: 0; padding-block: 12px 24px; }
+ .register-page .hero-background { padding-top: var(--photo-offset); }
+ .register-page .hero-background img { width: 100%; height: auto; object-fit: initial; }
+ .register-page .welcome { padding-left: 5%; }
+ .register-page .welcome-copy { width: min(100%, 66vw, 600px); }
+ .register-page .registration-caption { width: min(100%, 410px); }
+ .register-page { --photo-offset: clamp(145px, 22vw, 190px); }
+ .register-page .welcome { min-height: min(calc(77vw + var(--photo-offset)), 760px); }
+ .register-page .register-card { max-width: 560px; margin: 0 auto; padding: clamp(22px, 5vw, 36px); }
+}
+@media (min-width: 901px) and (max-width: 1150px) and (aspect-ratio > 3/4) {
+ .register-page .register-card { max-width: 520px; padding: clamp(24px, 2vw, 36px); }
+}
+@media (max-width: 599px) {
+ .register-page { --photo-offset: 95px; }
+ .compact-auth-card h2 { font-size: clamp(32px, 10vw, 44px); }
+ .register-page .registration-caption { width: 95%; }
+}
+@media (max-width: 280px) {
+ .register-page .register-card { padding-inline: 16px; }
+}
+
+.login-card .form-options { margin: 4px 0 8px; font-size: 12px; }
+.login-card .remember-option { color: var(--button-red); }
+.login-card .form-options .text-link { font-size: 12px; color: var(--button-red); text-decoration: none; }
+.login-card .register-divider .text-link { color: var(--button-red); font-weight: 700; text-decoration: none; }

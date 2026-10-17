@@ -1,0 +1,88 @@
+.home-membership { background: #fff; padding-block: 48px 30px; overflow: clip; }
+.membership-inner { display: grid; grid-template-columns: 35% minmax(0, 1fr); column-gap: 3%; align-items: center; }
+.membership-label { display: flex; align-items: center; gap: 22px; margin: 0 0 20px; color: #b80012; text-transform: uppercase; font-size: 12px; letter-spacing: .18em; font-weight: 750; }
+.membership-label::after { content: ''; width: 65px; height: 1px; background: currentColor; }
+.membership-copy h2 { margin: 0; font-family: 'DM Sans', sans-serif; font-size: clamp(32px, 3.5vw, 66px); line-height: 1.05; letter-spacing: -.035em; }
+.membership-copy h2 .home-script { display: block; margin-top: 3px; font-size: 1.6em; }
+.membership-description { font-size: clamp(15px, 1.1vw, 20px); line-height: 1.5; margin: 24px 0; color: #4d4240; }
+.membership-join { min-height: 48px; font-size: 16px; }
+.membership-coming { display: block; margin-top: 10px; font-size: 11px; color: #655854; }
+.membership-showcase { position: relative; height: clamp(270px, 25vw, 435px); min-width: 0; }
+.membership-pass { position: absolute; width: 40%; aspect-ratio: 1.35; top: 20%; padding: 4% 3%; border-radius: 14px; color: #fff4df; box-shadow: 0 16px 24px #44271b26; overflow: hidden; isolation: isolate; }
+.membership-pass img { position: relative; width: 56%; height: auto; filter: url('#footer-logo-color'); z-index: 1; }
+.pass-circle { position: absolute; right: -16%; top: 12%; width: 54%; aspect-ratio: 1; border: 1px solid #ffffff35; border-radius: 50%; display: grid; place-items: center; }
+.pass-circle::after { content: ''; position: absolute; inset: 12%; border: 1px solid #ffffff35; border-radius: 50%; }
+.pass-circle svg { width: 50%; height: 50%; stroke-width: 1; opacity: .55; }
+.pass-rank { position: relative; display: flex; flex-direction: column; margin-top: 14%; }
+.pass-rank > span, .pass-bottom { font-size: clamp(6px, .55vw, 10px); letter-spacing: .16em; }
+.pass-rank strong { font-family: Caveat, cursive; font-size: clamp(28px, 3.3vw, 64px); font-weight: 800; line-height: 1.15; }
+.pass-bottom { position: absolute; bottom: 8%; left: 8%; font-size: clamp(5px, .5vw, 9px); }
+.pass-chispa { left: 1%; background: #f6ecdd; color: #422e21; transform: rotate(-5deg); }
+.pass-chispa img { filter: none; }
+.pass-chispa .pass-circle, .pass-chispa .pass-circle::after { border-color: #b9987759; }
+.pass-chispa .pass-circle { color: #b6624c; }
+.pass-brasa { left: 29%; top: 8%; width: 44%; background: #ba0013; transform: rotate(-4deg); z-index: 2; }
+.pass-fuego { right: 0; background: #25221d; color: #eac081; transform: rotate(5deg); }
+.pass-fuego img { margin-left: 36%; }
+.pass-fuego .pass-rank { align-items: flex-end; }
+.pass-fuego .pass-circle { right: auto; left: -16%; }
+.pass-fuego .pass-bottom { left: auto; right: 8%; }
+.membership-journey { grid-column: 1/-1; margin-top: 16px; }
+.membership-ranks { list-style: none; padding: 0; margin: 0 0 0 25%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.membership-ranks li { display: flex; gap: 18px; align-items: center; padding: 4px 24px; }
+.membership-ranks li + li { border-left: 1px solid #eadfd8; }
+.membership-ranks svg { width: 42px; height: 48px; flex-shrink: 0; stroke-width: 1.5; }
+.rank-chispa svg { color: #b29276; }
+.rank-brasa svg, .rank-brasa h3 { color: #b80012; }
+.rank-fuego svg { color: #aa6d24; }
+.membership-ranks h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(21px, 1.8vw, 32px); margin: 0 0 5px; }
+.membership-ranks p { margin: 0; font-size: clamp(13px, .95vw, 17px); line-height: 1.35; color: #594b46; }
+.membership-explainer { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 30px 0 0; font-size: 13px; color: #69422b; letter-spacing: .12em; text-align: center; }
+.membership-explainer::before, .membership-explainer::after { content: ''; width: 85px; height: 1px; background: #d9c3b4; }
+@media (max-width: 1100px) {
+  .home-membership { padding-block: 32px 24px; }
+  .membership-inner { grid-template-columns: 39% minmax(0, 1fr); column-gap: 2%; }
+  .membership-copy h2 { font-size: clamp(31px, 3.5vw, 40px); }
+  .membership-showcase { height: 270px; }
+  .membership-pass { padding-top: 4%; }
+  .pass-rank strong { font-size: 35px; }
+  .membership-ranks { margin-left: 0; }
+  .membership-ranks li { padding-inline: 14px; gap: 12px; }
+}
+@media (max-width: 650px) {
+  .home-membership { padding-block: 28px 24px; }
+  .membership-inner { grid-template-columns: minmax(0, 1fr); }
+  .membership-label { font-size: 10px; margin-bottom: 14px; }
+  .membership-copy h2 { font-size: clamp(34px, 8vw, 48px); }
+  .membership-description { margin-block: 16px; font-size: 15px; }
+  .membership-join { font-size: 15px; min-height: 44px; padding: 10px 18px; }
+  .membership-showcase { height: clamp(170px, 49vw, 295px); margin-top: 22px; }
+  .membership-pass { border-radius: 8px; }
+  .membership-pass img { width: 64%; }
+  .pass-rank strong { font-size: clamp(25px, 7vw, 42px); }
+  .pass-rank > span { font-size: clamp(5px, 1.4vw, 8px); letter-spacing: .08em; }
+  .pass-bottom { font-size: clamp(4px, 1.2vw, 7px); letter-spacing: .06em; }
+  .membership-journey { margin-top: 8px; }
+  .membership-ranks li { flex-direction: column; align-items: flex-start; gap: 7px; padding-inline: 10px; }
+  .membership-ranks li:first-child { padding-left: 0; }
+  .membership-ranks svg { width: 27px; height: 30px; }
+  .membership-ranks h3 { font-size: 21px; }
+  .membership-ranks p { font-size: 12px; }
+  .membership-explainer { font-size: 11px; letter-spacing: .04em; gap: 12px; margin-top: 24px; }
+  .membership-explainer::before, .membership-explainer::after { width: 20px; flex-shrink: 0; }
+}
+
+.membership-pass { transition: transform 380ms cubic-bezier(.2,.8,.2,1), box-shadow 380ms ease; }
+.membership-pass::after { content: ''; position: absolute; inset: -50%; pointer-events: none; background: linear-gradient(115deg, transparent 42%, #fff0 44%, #ffffff40 50%, #fff0 56%, transparent 58%); transform: translateX(-80%); opacity: 0; z-index: 3; }
+.membership-pass:focus-visible { z-index: 5; transform: translateY(-18px) rotate(0deg) scale(1.1); box-shadow: 0 26px 38px #44271b40; }
+.membership-pass:focus-visible::after { animation: membership-shine 650ms ease-out both; }
+@media (hover: hover) and (pointer: fine) {
+  .membership-pass:hover { z-index: 5; transform: translateY(-18px) rotate(0deg) scale(1.1); box-shadow: 0 26px 38px #44271b40; }
+  .membership-pass:hover::after { animation: membership-shine 650ms ease-out both; }
+}
+@keyframes membership-shine { 0% { transform: translateX(-80%); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(80%); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .membership-pass { transition: none; }
+  .membership-pass:hover, .membership-pass:focus-visible { transform: none; }
+  .membership-pass::after { animation: none !important; }
+}

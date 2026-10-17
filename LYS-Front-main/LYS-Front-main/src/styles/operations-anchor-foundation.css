@@ -1,0 +1,606 @@
+/* Reference layer: foundation. */
+.ops-root.ops-workspace.ops-reference {
+  /* Measured anchors: PC 1672×941; mobile references are rendered at device scale. */
+  &[data-page] {
+    --ops-ink: #080e23;
+    --ops-line: #e4e9f1;
+    --ops-muted: #697c9c;
+    color: var(--ops-ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  &[data-page] :is(button, input, select, textarea) {
+    font-family: inherit;
+    letter-spacing: normal;
+  }
+  &[data-page] :is(h1, h2, h3, h4) {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #090d20;
+    letter-spacing: -0.025em;
+  }
+  &[data-page] .ops-content {
+    padding: 18px 28px 24px;
+    max-width: none;
+  }
+  &[data-page] .ops-page-heading {
+    margin-bottom: 20px;
+    min-height: 68px;
+    gap: 20px;
+  }
+  &[data-page] .ops-page-heading h1 {
+    font-size: 36px;
+    font-weight: 750;
+    line-height: 42px;
+    margin: 0;
+  }
+  &[data-page] .ops-page-heading p {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 2px 0 0;
+    color: #6d7f9e;
+  }
+  &[data-page] .ops-sidebar {
+    width: 295px;
+    padding: 24px 16px 20px;
+    background: #fff;
+    border-right: 1px solid #e7ecf3;
+  }
+  &[data-page] .ops-brand {
+    margin: 0 10px 16px;
+    height: 64px;
+  }
+  &[data-page] .ops-brand img {
+    width: 246px;
+    height: 64px;
+    object-fit: contain;
+    transform: none;
+  }
+  &[data-page] .ops-area-label {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 14px 34px;
+    color: #7b8caa;
+  }
+  &[data-page]:not([data-page^="administrador/"]) .ops-area-label {
+    display: none;
+  }
+  &[data-page] .ops-side-navigation {
+    gap: 6px;
+  }
+  &[data-page] .ops-side-navigation button {
+    font-size: 18px;
+    line-height: 24px;
+    min-height: 58px;
+    padding: 15px 20px;
+    gap: 22px;
+    font-weight: 400;
+    border-radius: 8px;
+    white-space: normal;
+  }
+  &[data-page] .ops-side-navigation button > svg {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    stroke-width: 1.7;
+  }
+  &[data-page] .ops-side-navigation button.active {
+    background: #fff0f2;
+    color: #ed0017;
+    font-weight: 500;
+  }
+  &[data-page] .ops-side-navigation button.active::before {
+    top: 10px;
+    bottom: 10px;
+  }
+  &[data-page] .ops-side-account {
+    padding: 20px 12px 0;
+    border-top: 1px solid #e0e7f1;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+  &[data-page] .ops-side-account small {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #7789a6;
+  }
+  &[data-page] .ops-stat {
+    min-height: 120px;
+    padding: 18px 22px;
+    gap: 24px;
+    border-radius: 8px;
+  }
+  &[data-page] .ops-stat-icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+  }
+  &[data-page] .ops-stat-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke-width: 1.8;
+  }
+  &[data-page] .ops-stat p {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 4px;
+    color: #526585;
+    font-weight: 500;
+  }
+  &[data-page] .ops-stat strong {
+    font-size: 32px;
+    line-height: 37px;
+    font-weight: 700;
+  }
+  &[data-page] .ops-stat small {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 5px;
+    color: #7b8daa;
+  }
+  &[data-page] .ops-panel {
+    border: 1px solid #e4e9f1;
+    border-radius: 9px;
+    padding: 18px 20px;
+    box-shadow: none;
+  }
+  &[data-page] .ops-panel > header {
+    margin-bottom: 14px;
+  }
+  &[data-page] .ops-panel h2 {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  &[data-page] .ops-panel-title p {
+    display: none;
+  }
+  &[data-page] .ops-stats {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  &[data-page] #ops-page-actions > button {
+    min-height: 54px;
+    font-size: 18px;
+    padding: 14px 22px;
+    border-radius: 10px;
+  }
+  &[data-page] #ops-page-actions > button > svg {
+    width: 25px;
+    height: 25px;
+  }
+  &[data-page] .ops-responsive-table :is(th, td) {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  &[data-page] .ops-product-list th {
+    font-size: 14px;
+    padding: 12px 14px !important;
+  }
+  &[data-page] .ops-product-list td {
+    font-size: 14px;
+    padding: 6px 14px !important;
+  }
+  &[data-page] .ops-product-cell strong {
+    font-size: 14px;
+    line-height: 19px;
+  }
+  &[data-page] .ops-product-cell small {
+    font-size: 14px;
+    line-height: 18px;
+    color: #7c8dab;
+  }
+  &[data-page] .ops-category-label {
+    font-size: 14px;
+    padding: 7px 12px;
+    gap: 10px;
+    color: #11182b;
+  }
+  &[data-page] .ops-category-label svg {
+    width: 20px;
+    height: 20px;
+  }
+  &[data-page] .ops-product-filters {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 10px 18px 16px;
+    gap: 12px;
+  }
+  &[data-page] .ops-product-filters label {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  &[data-page] .ops-product-filters :is(input, select) {
+    font-size: 16px;
+    min-height: 40px;
+    height: 40px;
+  }
+  &[data-page] .ops-product-filters button {
+    font-size: 16px;
+    min-height: 48px;
+    gap: 9px;
+    padding: 10px 18px;
+  }
+  &[data-page] .ops-product-bulk {
+    min-height: 55px;
+    padding: 8px 16px;
+  }
+  &[data-page] .ops-badge {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 13px;
+    border-radius: 22px;
+    white-space: normal;
+  }
+  &[data-page] .ops-product-actions button {
+    color: #065cff;
+  }
+  &[data-page] .ops-product-actions > button:nth-child(2) {
+    color: #f5a000;
+  }
+  &[data-page] .ops-product-actions > button:nth-child(3) {
+    color: #f00014;
+  }
+  &[data-page] .ops-product-actions svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+  }
+  &[data-page] .ops-header-date-pill {
+    font-size: 15px;
+    letter-spacing: normal;
+    background: #fff;
+    border: 1px solid #e1e7f1;
+    border-radius: 7px;
+    min-height: 42px;
+    line-height: 21px;
+    padding: 10px 16px;
+    color: #566a8a;
+  }
+  &[data-page] .ops-header-date-pill > span {
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+  }
+  &[data-page] .ops-header-date-pill > span::before {
+    display: none;
+  }
+  &[data-page] .ops-admin-search input {
+    padding-left: 42px !important;
+  }
+  &[data-page] .ops-admin-filter-bar {
+    border-radius: 8px;
+    min-height: 78px;
+    margin: 0 0 12px;
+    padding: 12px 16px;
+  }
+  &[data-page] .ops-pagination {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  &[data-page] .ops-pagination button {
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: 901px) {
+    &[data-page] {
+      padding-left: 295px;
+    }
+  }
+  @media (min-width: 901px) and (max-width: 1250px) {
+    &[data-page] {
+      padding-left: 230px;
+    }
+    &[data-page] .ops-sidebar {
+      width: 230px;
+      padding: 20px 12px;
+    }
+    &[data-page] .ops-brand img {
+      width: 195px;
+    }
+    &[data-page] .ops-side-navigation button {
+      font-size: 16px;
+      gap: 14px;
+      padding: 12px 14px;
+    }
+    &[data-page] .ops-stat {
+      gap: 14px;
+      padding: 16px;
+      min-height: 100px;
+    }
+    &[data-page] .ops-stat-icon {
+      width: 44px;
+      height: 44px;
+      flex-basis: 44px;
+    }
+  }
+  @media (max-width: 1100px) {
+    &[data-page] .ops-page-heading h1 {
+      font-size: 30px;
+      line-height: 36px;
+    }
+    &[data-page] .ops-page-heading p {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    &[data-page] .ops-stat {
+      gap: 12px;
+      padding: 14px;
+      min-height: 90px;
+    }
+    &[data-page] .ops-stat-icon {
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+    }
+    &[data-page] .ops-stat-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+    &[data-page] .ops-stat p {
+      font-size: 14px;
+      line-height: 19px;
+    }
+    &[data-page] .ops-stat strong {
+      font-size: 26px;
+      line-height: 30px;
+    }
+  }
+  @media (max-width: 900px) {
+    &[data-page] .ops-content {
+      padding: 18px 20px 24px;
+    }
+    &[data-page] .ops-workspace-toolbar {
+      height: 56px;
+      min-height: 56px;
+      padding: 7px 20px;
+    }
+    &[data-page] .ops-workspace-toolbar .ops-mobile-brand img {
+      width: 148px;
+      height: 38px;
+    }
+    &[data-page] .ops-mobile-account {
+      width: 32px;
+      min-height: 32px;
+      height: 32px;
+      padding: 7px;
+    }
+    &[data-page] .ops-workspace-toolbar .ops-menu {
+      width: 30px;
+      min-height: 32px;
+      height: 32px;
+      padding: 5px;
+    }
+  }
+  @media (max-width: 600px) {
+    &[data-page] {
+      font-size: 14px;
+    }
+    &[data-page] .ops-content {
+      padding: 12px 20px 24px;
+    }
+    &[data-page] .ops-page-heading {
+      min-height: 0;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    &[data-page] .ops-page-heading h1 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+    &[data-page] .ops-page-heading p {
+      font-size: 14px;
+      line-height: 19px;
+      margin-top: 3px;
+    }
+    &[data-page] .ops-page-heading:has(#ops-page-actions > button) {
+      gap: 12px;
+    }
+    &[data-page] #ops-page-actions > button {
+      min-height: 38px;
+      padding: 8px 14px;
+      font-size: 15px;
+      border-radius: 7px;
+    }
+    &[data-page] #ops-page-actions > button > svg {
+      width: 22px;
+      height: 22px;
+    }
+    &[data-page] .ops-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    &[data-page] .ops-stat {
+      gap: 12px;
+      padding: 9px 10px;
+      min-height: 54px;
+    }
+    &[data-page] .ops-stat-icon {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      border-radius: 0;
+      background: none !important;
+    }
+    &[data-page] .ops-stat-icon svg {
+      width: 25px;
+      height: 25px;
+    }
+    &[data-page] .ops-stat p {
+      font-size: 12px;
+      line-height: 16px;
+      margin: 0;
+    }
+    &[data-page] .ops-stat strong {
+      font-size: 22px;
+      line-height: 25px;
+    }
+    &[data-page] .ops-stat small {
+      display: none;
+    }
+    &[data-page] .ops-panel {
+      padding: 12px 10px;
+      border-radius: 7px;
+    }
+    &[data-page] .ops-panel h2 {
+      font-size: 17px;
+      line-height: 22px;
+    }
+    &[data-page] .ops-product-filters {
+      padding: 0;
+      border: 0;
+      gap: 8px;
+      margin: 0 0 10px;
+    }
+    &[data-page] .ops-product-filters label {
+      font-size: 0;
+      line-height: 0;
+      gap: 0;
+    }
+    &[data-page] .ops-product-filters :is(input, select) {
+      min-height: 32px;
+      height: 32px;
+      font-size: 14px;
+    }
+    &[data-page] .ops-product-filters button {
+      min-height: 34px;
+      font-size: 14px;
+      padding: 7px 12px;
+    }
+    &[data-page] .ops-product-filters .ops-product-search svg {
+      bottom: 7px;
+      width: 18px;
+      height: 18px;
+    }
+    &[data-page] .ops-product-filters .ops-mobile-filter-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+    &[data-page] .ops-product-filters .ops-mobile-export-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-column: 1/-1;
+      font-size: 13px;
+      color: #697e9c;
+      margin: 0 0 0;
+    }
+    &[data-page] .ops-product-mobile-summary {
+      grid-template-columns: 82px minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 8px;
+    }
+    &[data-page] .ops-product-mobile-summary > img {
+      width: 82px;
+      height: 60px;
+    }
+    &[data-page] .ops-product-mobile-summary strong {
+      font-size: 13px;
+      line-height: 17px;
+    }
+    &[data-page] .ops-product-mobile-summary small {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    &[data-page] .ops-product-mobile-summary .ops-category-label {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 3px 8px;
+      margin-top: 4px;
+    }
+    &[data-page] .ops-product-mobile-summary .ops-category-label svg {
+      width: 17px;
+      height: 17px;
+    }
+    &[data-page] .ops-product-mobile-summary .ops-badge {
+      font-size: 12px;
+      line-height: 15px;
+      padding: 4px 7px;
+    }
+    &[data-page] .ops-product-mobile-summary b {
+      font-size: 15px;
+      line-height: 19px;
+      margin-top: 6px;
+    }
+    &[data-page] .ops-reference-product-cards {
+      gap: 8px;
+    }
+    &[data-page] .ops-reference-product-cards footer {
+      padding: 0 8px;
+    }
+    &[data-page] .ops-reference-product-cards footer button {
+      min-height: 34px;
+      padding: 5px 2px;
+      font-size: 13px;
+    }
+    &[data-page] .ops-reference-product-cards footer svg {
+      width: 19px;
+      height: 19px;
+    }
+    &[data-page] .ops-pagination {
+      margin: 12px 0 0;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+    &[data-page] .ops-pagination > span:first-child {
+      display: none;
+    }
+    &[data-page] .ops-pagination button {
+      width: 34px;
+      min-height: 34px;
+      height: 34px;
+    }
+    &[data-page] .ops-header-date-pill {
+      min-height: 30px;
+      font-size: 11px;
+      padding: 5px 8px;
+      line-height: 16px;
+    }
+    &[data-page] .ops-header-date-pill b {
+      display: none;
+    }
+    &[data-page] .ops-admin-filter-bar {
+      padding: 10px;
+      min-height: 0;
+      gap: 8px;
+    }
+  }
+  @media (max-width: 340px) {
+    &[data-page] .ops-content {
+      padding: 12px 10px 22px;
+    }
+    &[data-page] .ops-stat {
+      padding: 8px;
+      gap: 7px;
+    }
+    &[data-page] .ops-stat-icon {
+      width: 22px;
+      flex-basis: 22px;
+    }
+    &[data-page] .ops-stat-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    &[data-page] .ops-stat p {
+      font-size: 11px;
+    }
+    &[data-page] .ops-product-mobile-summary {
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 7px;
+    }
+    &[data-page] .ops-product-mobile-summary > img {
+      width: 60px;
+      height: 54px;
+    }
+    &[data-page] .ops-product-mobile-summary > div:last-child {
+      grid-column: 1/-1;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-align: left;
+    }
+  }
+}
