@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import '../styles/auth-responsive.css';
 
 export function AuthLayout({ registration = false, children }: { registration?: boolean; children: ReactNode }) {
-  return <main className={`sign-in-page auth-responsive${registration ? ' register-page' : ''}`} id="contenido">
+  return <main className={`sign-in-page auth-responsive${registration ? ' register-page' : ' login-overlap'}`} id="contenido">
     <div className="hero-layout">
       <section className="welcome" aria-labelledby="welcome-title">
         <div className="welcome-copy">
